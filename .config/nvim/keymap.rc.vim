@@ -1,0 +1,3 @@
+" Keymap
+inoremap jj <ESC>
+
