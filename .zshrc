@@ -1,19 +1,9 @@
-# Created by newuser for 5.4.2
-# 少し凝った zshrc
-# License : MIT
-# http://mollifier.mit-license.org/
-
-########################################
 # 環境変数
 export LANG=ja_JP.UTF-8
-
 
 # 色を使用出来るようにする
 autoload -Uz colors
 colors
-
-# emacs 風キーバインドにする
-bindkey -e
 
 # ヒストリの設定
 HISTFILE=~/.zsh_history
@@ -40,6 +30,7 @@ zstyle ':zle:*' word-style unspecified
 # 補完
 # 補完機能を有効にする
 autoload -Uz compinit
+setopt correct
 compinit
 
 # 補完で小文字でも大文字にマッチさせる
@@ -90,6 +81,7 @@ setopt interactive_comments
 
 # ディレクトリ名だけでcdする
 setopt auto_cd
+function chpwd() { ls }
 
 # cd したら自動的にpushdする
 setopt auto_pushd

@@ -7,7 +7,7 @@ set wildmenu                        "ナビゲーションバー
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so
 set tw=0                            "自動改行オフ
-"set cursorline                     "カーソル行をハイライト
+set cursorline                     "カーソル行をハイライト
 set hidden                          "変更中のでも保存せずで他のファイルを表示
 set number                          "行番号を表示する
 set nostartofline                   "移動コマンドを使った時行頭に移動しない
@@ -26,6 +26,7 @@ set showcmd                         "入力中のコマンドをステータス�
 set title                           "タイトルをウィンドウ枠に表示する
 "set scrolloff=2                    "スクロールするとき下が見えるように
 set laststatus=2                    "２行目にステータスラインを常時表示
+set showtabline=2                   "常にタブラインを表示
 
 " Tab
 set tabstop=4                       "タブは4スペース
@@ -47,4 +48,7 @@ set modelines=5                     "5行までモードラインを検索する
 " 拡張子の設定
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.toml set filetype=toml
+
+" Command Mode Settings
+set sh=zsh
 

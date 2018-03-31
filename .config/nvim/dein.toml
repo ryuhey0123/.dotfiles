@@ -28,42 +28,38 @@ depends = ['context_filetype.vim']
 [[plugins]] # カーソル位置のコンテキストのftを判定
 repo = 'Shougo/context_filetype.vim'
 
-[[plugins]] # toml syntax
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
-[[plugins]]
-repo = 'vim-airline/vim-airline'
-hook_add = '''
-    let g:airline_powerline_fonts = 1
-    set guifont=Ricty\ Regular\ for\ Powerline:h14
-    let g:Powerline_symbols = 'fancy'
-    set t_Co=256
-
-    let g:airline_section_a = airline#section#create(['mode','','branch'])
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#show_buffers = 0
-    let g:airline#extensions#tabline#tab_nr_type = 1
-    let g:airline#extensions#tabline#fnamemod = ':t' 
-   
-    "let g:airline_theme = 'deus'
-    let g:airline_left_sep = '⮀'
-    let g:airline_right_sep = '⮂'
-    let g:airline_linecolumn_prefix = '⭡'
-    let g:airline_branch_prefix = '⭠'
-    let g:airline#extensions#tabline#left_sep = '⮀'
-    let g:airline#extensions#tabline#left_alt_sep = '⮀'
-
-    let g:airline#extensions#tabline#enabled = 1
-    '''
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-hook_add = '''
-    set laststatus=2
-    set showtabline=2
-    let g:airline#extensions#tabline#buffer_idx_mode = 1
-    '''
+# [[plugins]]
+# repo = 'vim-airline/vim-airline'
+# hook_add = '''
+# t g:airline_powerline_fonts = 1
+#     set guifont=Ricty\ Regular\ for\ Powerline:h14
+#     let g:Powerline_symbols = 'fancy'
+#     set t_Co=256
+# 
+#     let g:airline_section_a = airline#section#create(['mode','','branch'])
+#     let g:airline#extensions#tabline#enabled = 1
+#     let g:airline#extensions#tabline#show_buffers = 0
+#     let g:airline#extensions#tabline#tab_nr_type = 1
+#     let g:airline#extensions#tabline#fnamemod = ':t' 
+#    
+#     "let g:airline_theme = 'deus'
+#     let g:airline_left_sep = '⮀'
+#     let g:airline_right_sep = '⮂'
+#     let g:airline_linecolumn_prefix = '⭡'
+#     let g:airline_branch_prefix = '⭠'
+#     let g:airline#extensions#tabline#left_sep = '⮀'
+#     let g:airline#extensions#tabline#left_alt_sep = '⮀'
+# 
+#     let g:airline#extensions#tabline#enabled = 1
+#     '''
+ 
+# [[plugins]]
+# repo = 'vim-airline/vim-airline-themes'
+# hook_add = '''
+#     set laststatus=2
+#     set showtabline=2
+#     let g:airline#extensions#tabline#buffer_idx_mode = 1
+#     '''
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
@@ -74,4 +70,5 @@ hook_add = '''
     '''
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
+repo = 'vim-scripts/vectorscript.vim'
+
