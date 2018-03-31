@@ -1,6 +1,6 @@
 " Color Theme
-"set background=dark
-"colorscheme desert    
+set background=dark
+colorscheme xcode    
 
 " Editer
 set wildmenu                        "ナビゲーションバー
@@ -48,6 +48,7 @@ set modelines=5                     "5行までモードラインを検索する
 " 拡張子の設定
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.toml set filetype=toml
+au BufRead,BufNewFile *.vs set filetype=vectorscript
 
 " Command Mode Settings
 set sh=zsh
