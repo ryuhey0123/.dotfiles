@@ -1,5 +1,6 @@
 " Keymap
 inoremap jj <ESC>
+nnoremap ; :
 noremap <Esc><Esc> :<C-u>nohlsearch<cr><Esc>
 
 " Auto bracket

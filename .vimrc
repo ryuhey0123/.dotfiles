@@ -27,5 +27,6 @@ imap < <><left>
 imap ( ()<left>
 imap { {}<left>
 
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
-
+ninoremap jj <ESC>
+nnoremap ; :
+noremap <Esc><Esc> :<C-u>nohlsearch<cr><Esc>

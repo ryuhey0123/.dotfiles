@@ -1,6 +1,6 @@
 " Color Theme
 set background=dark
-colorscheme xcode    
+colorscheme xcode-low-key  
 
 " Editer
 set wildmenu                        "ナビゲーションバー
