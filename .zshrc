@@ -142,6 +142,43 @@ elif which putclip >/dev/null 2>&1 ; then
 fi
 
 
+########################################
+# ls の色設定
+export LSCOLORS=gxfxcxdxbxegedabagacad
+#   ---------------------LS_COLORS--------------------
+#   No	    Type	            Foreground	Background
+#   --------------------------------------------------
+#   1,2	    Directory	        blue	    (default)
+#   3,4	    Symlink	            magenta	    (default)
+#   5,6	    Socket	            green	    (default)
+#   7,8	    Pipe	            brown	    (default)
+#   9,10	Executable	        red	        (default)
+#   11,12	Block	            blue	    cyan
+#   13,14	Character	        blue	    brown
+#   15,16	Exec. w/ SUID   	black	    red
+#   17,18	Exec. w/ SGID	    black	    cyan
+#   19,20	Dir, o+w, sticky	black	    green
+#   21,22	Dir, o+w, unsticky	black	    brown
+#
+#   ----------------------COLORS----------------------
+#   --------------------------------------------------
+#   a	black
+#   b	red
+#   c	green
+#   d	brown
+#   e	blue
+#   f	magenta
+#   g	cyan
+#   h	light grey
+#   A	bold black, usually shows up as dark grey
+#   B	bold red
+#   C	bold green
+#   D	bold brown, usually shows up as yellow
+#   E	bold blue
+#   F	bold magenta
+#   G	bold cyan
+#   H	bold light grey; looks like bright white
+#   x	default foreground or background
 
 ########################################
 # OS 別の設定

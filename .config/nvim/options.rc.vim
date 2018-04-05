@@ -49,6 +49,7 @@ set modelines=5                     "5行までモードラインを検索する
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.toml set filetype=toml
 au BufRead,BufNewFile *.vs set filetype=vectorscript
+au BufRead,BufNewFile *.vss set filetype=vectorscript
 
 " Command Mode Settings
 set sh=zsh
