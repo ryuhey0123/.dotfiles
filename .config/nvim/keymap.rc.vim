@@ -9,6 +9,7 @@ inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap ( ()<Left>
 inoremap (<Enter> ()<Left><CR><Esc><S-o>
 inoremap < <><Left>
+inoremap [ []<Left>
 
 " The prefix key.
 nnoremap    [Tag]   <Nop>
