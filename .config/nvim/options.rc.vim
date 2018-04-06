@@ -39,11 +39,12 @@ set autoindent                      "新しい行のインデントを現在行�
 " Edit
 set smartindent
 set showmatch                       "閉じカッコが入力時対応するカッコを強調
-set matchtime=3                     "対応括弧表示を3秒に
+set matchtime=1                     "対応括弧表示を3秒に
 set backspace=indent,eol,start      "バックスペースで各種消せるよう
 set virtualedit+=block              "文字がない行末にも移動することができる
 set modeline                        "モードラインをオンにする
 set modelines=5                     "5行までモードラインを検索する<Paste>
+set clipboard+=unnamed              "クリップボードの共有
 
 " 拡張子の設定
 au BufRead,BufNewFile *.md set filetype=markdown
