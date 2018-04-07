@@ -1,5 +1,7 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # 色を使用出来るようにする
 autoload -Uz colors

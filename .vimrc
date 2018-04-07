@@ -10,7 +10,7 @@ set autoindent
 
 set ruler
 set number
-set list
+"set list
 set wildmenu
 set showcmd
 
