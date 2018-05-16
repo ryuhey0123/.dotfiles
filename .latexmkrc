@@ -1,4 +1,6 @@
-tex               = 'platex -synctex=1';
+#!/usr/bin/env perl
+
+$latex            = 'platex -synctex=1';
 $latex_silent     = 'platex -synctex=1 -interaction=batchmode';
 $pdflatex         = 'pdflatex -synctex=1 %O %S';
 $bibtex           = 'pbibtex';

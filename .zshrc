@@ -197,3 +197,9 @@ case ${OSTYPE} in
 esac
 
 # vim:set ft=zsh
+
+########################################
+# どこでもMyMacを使用したSSH接続
+function sshbtmm(){
+  ssh -2 -6 $1.$(echo show Setup:/Network/BackToMyMac | scutil | sed -n 's/.* : *\(.*\).$/\1/p')
+}
