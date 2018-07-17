@@ -19,3 +19,7 @@ rm -rf ~/.dotfiles/.config/i3/i3
 ln -sf ~/.dotfiles/.Xresources ~/.Xresources
 ln -sf ~/.dotfiles/.xprofile ~/.xprofile
 
+# ranger
+ln -sf ~/.dotfiles/.config/ranger ~/.config/ranger
+rm -rf ~/.dotfiles/.config/ranger/ranger
+
