@@ -123,6 +123,9 @@ alias mv='mv -i'
 
 alias mkdir='mkdir -p'
 
+alias JN='jupyter-notebook'
+alias JL='jupyter-lab'
+
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
