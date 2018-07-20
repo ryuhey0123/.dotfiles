@@ -42,6 +42,7 @@ endif
 filetype plugin indent on
 syntax enable
 
+
 "End dein Scripts-------------------------
 
 runtime! options.rc.vim

@@ -1,9 +1,26 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+# 非同期処理プラグイン
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+  if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif executable('gmake')
+    let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''
+
+# 補完プラグイン
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertCharPre'
+# on_event = 'InsertCharPre'
 hook_source = '''
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#auto_complete_delay = 0
@@ -14,52 +31,56 @@ hook_source = '''
     let g:deoplete#enable_smart_case = 1
     let g:deoplete#file#enable_buffer_path = 1
     let g:deoplete#max_list = 10000
-    inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-        \ neosnippet#expandable_or_jumpable() ?
-        \   "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+    " inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+    "     \ neosnippet#expandable_or_jumpable() ?
+    "    \   "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
     '''
 on_i = 1 
 
 
-[[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
+# カーソル位置のコンテキストに合わせてftを切り替える
+[[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
 
-[[plugins]] # カーソル位置のコンテキストのftを判定
+# カーソル位置のコンテキストのftを判定
+[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
-# [[plugins]]
-# repo = 'vim-airline/vim-airline'
-# hook_add = '''
-# t g:airline_powerline_fonts = 1
-#     set guifont=Ricty\ Regular\ for\ Powerline:h14
-#     let g:Powerline_symbols = 'fancy'
-#     set t_Co=256
-# 
-#     let g:airline_section_a = airline#section#create(['mode','','branch'])
-#     let g:airline#extensions#tabline#enabled = 1
-#     let g:airline#extensions#tabline#show_buffers = 0
-#     let g:airline#extensions#tabline#tab_nr_type = 1
-#     let g:airline#extensions#tabline#fnamemod = ':t' 
-#    
-#     "let g:airline_theme = 'deus'
-#     let g:airline_left_sep = '⮀'
-#     let g:airline_right_sep = '⮂'
-#     let g:airline_linecolumn_prefix = '⭡'
-#     let g:airline_branch_prefix = '⭠'
-#     let g:airline#extensions#tabline#left_sep = '⮀'
-#     let g:airline#extensions#tabline#left_alt_sep = '⮀'
-# 
-#     let g:airline#extensions#tabline#enabled = 1
-#     '''
- 
-# [[plugins]]
-# repo = 'vim-airline/vim-airline-themes'
-# hook_add = '''
-#     set laststatus=2
-#     set showtabline=2
-#     let g:airline#extensions#tabline#buffer_idx_mode = 1
-#     '''
+# vim-airline
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+    " let g:airline_powerline_fonts = 1
+    " set guifont=Ricty\ Regular\ for\ Powerline:h14
+    " let g:Powerline_symbols = 'fancy'
+    set t_Co=256
+
+    let g:airline_section_a = airline#section#create(['mode','','branch'])
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#show_buffers = 0
+    let g:airline#extensions#tabline#tab_nr_type = 1
+    let g:airline#extensions#tabline#fnamemod = ':t' 
+   
+    " let g:airline_left_sep = '⮀'
+    " let g:airline_right_sep = '⮂'
+    " let g:airline_linecolumn_prefix = '⭡'
+    " let g:airline_branch_prefix = '⭠'
+    " let g:airline#extensions#tabline#left_sep = '⮀'
+    " let g:airline#extensions#tabline#left_alt_sep = '⮀'
+
+    let g:airline#extensions#tabline#enabled = 1
+    '''
+
+# vim-airline-theme
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+hook_add = '''
+    let g:airline_theme='sol'
+    set laststatus=2
+    set showtabline=2
+    let g:airline#extensions#tabline#buffer_idx_mode = 1
+    '''
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
