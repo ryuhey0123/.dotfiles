@@ -4,12 +4,12 @@ nnoremap ; :
 noremap <Esc><Esc> :<C-u>nohlsearch<cr><Esc>
 
 " Auto bracket
-inoremap { {}<Left>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap ( ()<Left>
-inoremap (<Enter> ()<Left><CR><Esc><S-o>
-inoremap < <><Left>
-inoremap [ []<Left>
+"inoremap { {}<Left>
+"inoremap {<Enter> {}<Left><CR><ESC><S-o>
+"inoremap ( ()<Left>
+"inoremap (<Enter> ()<Left><CR><Esc><S-o>
+"inoremap < <><Left>
+"inoremap [ []<Left>
 
 " The prefix key.
 nnoremap    [Tag]   <Nop>
@@ -28,4 +28,8 @@ map <silent> [Tag]l :tabnext<CR>
 " tl 次のタブ
 map <silent> [Tag]h :tabprevious<CR>
 " th 前のタブ
+
+autocmd BufNewFile,BufRead *.rb nnoremap <C-e> :!ruby %
+autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
+autocmd BufNewFile,BufRead *.pl nnoremap <C-e> :!perl %
 
