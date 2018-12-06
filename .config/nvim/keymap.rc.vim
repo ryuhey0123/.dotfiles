@@ -29,6 +29,10 @@ map <silent> [Tag]l :tabnext<CR>
 map <silent> [Tag]h :tabprevious<CR>
 " th 前のタブ
 
+<<<<<<< HEAD
+=======
+" 実行用ショートカット
+>>>>>>> 97d31b7990b346567ef76a7d79524824bf4f29a3
 autocmd BufNewFile,BufRead *.rb nnoremap <C-e> :!ruby %
 autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
 autocmd BufNewFile,BufRead *.pl nnoremap <C-e> :!perl %
