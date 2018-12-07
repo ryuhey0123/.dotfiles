@@ -7,14 +7,14 @@ set wildmenu                        "ナビゲーションバー
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so
 set tw=0                            "自動改行オフ
-set cursorline                     "カーソル行をハイライト
+set cursorline                      "カーソル行をハイライト
 set hidden                          "変更中のでも保存せずで他のファイルを表示
 set number                          "行番号を表示する
 set nostartofline                   "移動コマンドを使った時行頭に移動しない
 set matchpairs& matchpairs+=<:>     "<>対応括弧ペアに
 set shiftround                      "インデントをshiftwidthの倍数に
 set wrap                            "ウィンドウより長い行は折り畳む
-set colorcolumn=79                  "79文字目にラインを入れる
+set colorcolumn=80                  "80文字目にラインを入れる
 set textwidth=0                     "テキストの最大幅を無効に
 set history=10000                   "コマンド、検索の履歴を１万個まで
 set mouse=a                         "マウスモード有効

@@ -6,6 +6,9 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
+"pyenv settings---------------------------
+let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim3/bin/python'
+
 "dein Scripts-----------------------------
 "Rquired:
 let s:dein_dir = expand('~/.cache/dein')

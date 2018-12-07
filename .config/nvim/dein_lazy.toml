@@ -50,21 +50,33 @@ hook_add = '''
     
     " lint結果をロケーションリストとQuickFixには表示しない
     " 出てると結構うざいしQuickFixを書き換えられるのは困る
-    let g:ale_set_loclist = 0
-    let g:ale_set_quickfix = 0
-    let g:ale_open_list = 0
-    let g:ale_keep_list_window_open = 0
+    "let g:ale_set_loclist = 0
+    "let g:ale_set_quickfix = 0
+    "let g:ale_open_list = 0
+    "let g:ale_keep_list_window_open = 0
     
     " 有効にするlinter
     let g:ale_linters = {
     \   'python': ['flake8'],
     \}
+
+    " 各ツールをFixerとして登録
+    let g:ale_fixers = {
+    \ 'python': ['autopep8', 'black', 'isort'],
+    \ }
     
-    " ALE用プレフィックス
-    nmap [ale] <Nop>
-    map <C-k> [ale]
+    " 各ツールの実行オプションを変更してPythonパスを固定
+    "let g:ale_python_flake8_executable = g:python3_host_prog
+    "let g:ale_python_flake8_options = '-m flake8'
+    "let g:ale_python_autopep8_executable = g:python3_host_prog
+    "let g:ale_python_autopep8_options = '-m autopep8'
+    "let g:ale_python_isort_executable = g:python3_host_prog
+    "let g:ale_python_isort_options = '-m isort'
+    "let g:ale_python_black_executable = g:python3_host_prog
+    "let g:ale_python_black_options = '-m black'
+
     " エラー行にジャンプ
-    nmap <silent> [ale]<C-P> <Plug>(ale_previous)
-    nmap <silent> [ale]<C-N> <Plug>(ale_next)
+    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+    nmap <silent> <C-j> <Plug>(ale_next_wrap)
     
 '''
