@@ -3,6 +3,8 @@ inoremap jj <ESC>
 nnoremap ; :
 noremap <Esc><Esc> :<C-u>nohlsearch<cr><Esc>
 
+nnoremap <silent><C-f> :NERDTreeToggle<CR>
+
 " Auto bracket
 "inoremap { {}<Left>
 "inoremap {<Enter> {}<Left><CR><ESC><S-o>

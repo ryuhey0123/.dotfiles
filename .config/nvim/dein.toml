@@ -5,6 +5,9 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
 # 補完プラグイン
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -25,6 +28,9 @@ hook_source = '''
     '''
 on_i = 1 
 
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
 
 # カーソル位置のコンテキストに合わせてftを切り替える
 [[plugins]]
