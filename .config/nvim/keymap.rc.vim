@@ -1,40 +1,9 @@
-" Keymap
-inoremap jj <ESC>
+" General--------------------------------------------------------------------- 
+inoremap <silent> jj <ESC>:<C-u>w<CR>
 nnoremap ; :
 noremap <Esc><Esc> :<C-u>nohlsearch<cr><Esc>
 
 nnoremap <silent><C-f> :NERDTreeToggle<CR>
-
-" Auto bracket
-"inoremap { {}<Left>
-"inoremap {<Enter> {}<Left><CR><ESC><S-o>
-"inoremap ( ()<Left>
-"inoremap (<Enter> ()<Left><CR><Esc><S-o>
-"inoremap < <><Left>
-"inoremap [ []<Left>
-
-" The prefix key.
-nnoremap    [Tag]   <Nop>
-nmap    t [Tag]
-" Tab jump
-for n in range(1, 9)
-  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
-" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
-
-map <silent> [Tag]n :tablast <bar> tabnew<CR>
-" tn 新しいタブを一番右に作る
-map <silent> [Tag]q :tabclose<CR>
-" tq タブを閉じる
-map <silent> [Tag]l :tabnext<CR>
-" tl 次のタブ
-map <silent> [Tag]h :tabprevious<CR>
-" th 前のタブ
-
-" 実行用ショートカット
-autocmd BufNewFile,BufRead *.rb nnoremap <C-e> :!ruby %
-autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
-autocmd BufNewFile,BufRead *.pl nnoremap <C-e> :!perl %
 
 " カーソル下の単語を * で検索
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>
@@ -50,6 +19,41 @@ nnoremap g# g#zz
 " j, k による移動を折り返されたテキストでも自然に振る舞うように変更
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " vを二回で行末まで選択
 vnoremap v $h
+
+
+" Tab-------------------------------------------------------------------------
+" Prefix
+nnoremap [Tag] <Nop>
+nmap t [Tag]
+" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+for n in range(1, 9)
+  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+" tn 新しいタブを一番右に作る
+map <silent> [Tag]n :tablast <bar> tabnew<CR>
+" tq タブを閉じる
+map <silent> [Tag]q :tabclose<CR>
+" tl 次のタブ
+map <silent> [Tag]l :tabnext<CR>
+" th 前のタブ
+map <silent> [Tag]h :tabprevious<CR>
+
+
+" Split-----------------------------------------------------------------------
+nnoremap <silent> <C-s>j :split<CR>
+nnoremap <silent> <C-s>l :vsplit<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Program Running-------------------------------------------------------------
+autocmd BufNewFile,BufRead *.rb nnoremap <C-e> :!ruby %
+autocmd BufNewFile,BufRead *.py nnoremap <C-e> :!python %
+autocmd BufNewFile,BufRead *.pl nnoremap <C-e> :!perl %
+
