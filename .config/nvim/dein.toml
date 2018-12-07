@@ -28,9 +28,32 @@ hook_source = '''
     '''
 on_i = 1 
 
-
+# file viewer
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = '''
+    " 表示幅
+    let g:nerdtreewinsize=50
+    
+    " ブックマークを表示
+    let g:NERDTreeShowBookmarks=1
+    
+    " 親ディレクトリへ移動
+    let g:NERDTreeMapUpdir=''
+    
+    " ファイルの開き方
+    let g:NERDTreeMapOpenSplit='<C-j>'
+    let g:NERDTreeMapOpenVSplit='<C-l>'
+    
+    " ファイルを開いたらNERDTreeを閉じる
+    let g:NERDTreeQuitOnOpen=1
+    
+    " 隠しファイルを表示
+    let g:NERDTreeShowHidden=1
+    
+    " 非表示ファイル
+    let g:NERDTreeIgnore=['\.git$', '\.clean$', '\.swp$', '\.bak$', '\~$']
+'''
 
 # カーソル位置のコンテキストに合わせてftを切り替える
 [[plugins]]
@@ -68,12 +91,9 @@ hook_add = '''
 
 # vim-airline-theme
 [[plugins]]
-repo = 'vim-airline/vim-airline-themes'
+repo = 'joshdick/onedark.vim'
 hook_add = '''
     let g:airline_theme='onedark'
-    set laststatus=2
-    set showtabline=2
-    let g:airline#extensions#tabline#buffer_idx_mode = 1
     '''
 
 [[plugins]]
@@ -86,7 +106,4 @@ hook_add = '''
 
 [[plugins]]
 repo = 'vim-scripts/vectorscript.vim'
-
-[[plugins]]
-repo = 'joshdick/onedark.vim'
 
