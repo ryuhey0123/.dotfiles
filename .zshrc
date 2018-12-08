@@ -11,6 +11,18 @@ if [[ -d $PYENV_ROOT ]];then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
+# rbenv 
+export RBENV_ROOT="$HOME/.rbenv"
+eval "$(rbenv init -)"
+
+# nodenv
+export NODENV_ROOT="$HOME/.nodenv"
+eval "$(nodenv init -)"
+
 # 色を使用出来るようにする
 autoload -Uz colors
 colors

@@ -4,6 +4,7 @@ repo = 'Shougo/dein.vim'
 # 非同期処理プラグイン
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
+build = 'make'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -34,23 +35,17 @@ repo = 'scrooloose/nerdtree'
 hook_add = '''
     " 表示幅
     let g:nerdtreewinsize=50
-    
     " ブックマークを表示
     let g:NERDTreeShowBookmarks=1
-    
     " 親ディレクトリへ移動
     let g:NERDTreeMapUpdir=''
-    
     " ファイルの開き方
     let g:NERDTreeMapOpenSplit='<C-j>'
     let g:NERDTreeMapOpenVSplit='<C-l>'
-    
     " ファイルを開いたらNERDTreeを閉じる
     let g:NERDTreeQuitOnOpen=1
-    
     " 隠しファイルを表示
     let g:NERDTreeShowHidden=1
-    
     " 非表示ファイル
     let g:NERDTreeIgnore=['\.git$', '\.clean$', '\.swp$', '\.bak$', '\~$']
 '''

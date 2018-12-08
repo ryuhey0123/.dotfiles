@@ -28,7 +28,6 @@ on_ft = ['python']
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
-
 [[plugins]]
 repo = 'w0rp/ale'
 on_ft = ['python']
@@ -80,3 +79,22 @@ hook_add = '''
     nmap <silent> <C-j> <Plug>(ale_next_wrap)
     
 '''
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+    " vimprocで非同期実行
+    " 成功時にバッファ、失敗時にQuickFixで表示
+    " 結果表示のサイズ調整など
+    let g:quickrun_config = {
+        \ '_' : {
+            \ 'runner' : 'vimproc',
+            \ 'runner/vimproc/updatetime' : 60,
+            \ 'outputter' : 'error',
+            \ 'outputter/error/success' : 'buffer',
+            \ 'outputter/error/error'   : 'quickfix',
+            \ 'outputter/buffer/split' : ':botright 8sp',
+        \ }
+    \}
+'''
+

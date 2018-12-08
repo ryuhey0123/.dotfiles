@@ -7,7 +7,14 @@ augroup MyAutoCmd
 augroup END
 
 "pyenv settings---------------------------
+let g:python_host_prog = $PYENV_ROOT . '/versions/neovim2/bin/python'
 let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim3/bin/python'
+
+"rbenv setings----------------------------
+let g:ruby_host_prog = $RBENV_ROOT . '/versions/2.5.3/bin/neovim-ruby-host' 
+
+"nodenv settings--------------------------
+let g:node_host_prog = $NODENV_ROOT . '/versions/11.3.0/bin/neovim-node-host'
 
 "dein Scripts-----------------------------
 "Rquired:
