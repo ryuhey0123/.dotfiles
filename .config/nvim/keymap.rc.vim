@@ -3,8 +3,6 @@ inoremap <silent> jj <ESC>:<C-u>w<CR>
 nnoremap ; :
 noremap <Esc><Esc> :<C-u>nohlsearch<cr><Esc>
 
-nnoremap <silent><C-f> :NERDTreeToggle<CR>
-
 " カーソル下の単語を * で検索
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>
 
@@ -45,8 +43,8 @@ map <silent> [Tag]h :tabprevious<CR>
 
 
 " Split-----------------------------------------------------------------------
-nnoremap <silent> <C-s>j :split<CR>
-nnoremap <silent> <C-s>l :vsplit<CR>
+nnoremap <silent> <C-s><C-j> :split<CR>
+nnoremap <silent> <C-s><C-l> :vsplit<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k

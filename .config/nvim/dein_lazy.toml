@@ -1,100 +1,89 @@
+# 非同期処理プラグイン
 [[plugins]]
-repo = 'scrooloose/syntastic'
-on_ft = ['python']
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+# File Luncher
+[[plugins]]
+repo = 'Shougo/denite.nvim'
 hook_add = '''
-    let g:syntastic_python_checkers = ['pydocstyle', 'pycodestyle', 'pyflakes']
-    '''
-
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = ['python']
-hook_add = '''
-    let g:jedi#force_py_version = 3
-    let g:jedi#auto_initialization = 0
-    let g:jedi#auto_vim_configuration = 0
-    let g:jedi#smart_auto_mappings = 0
-    let g:jedi#completions_enabled = 0
-    '''
-
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-on_ft = ['python']
-
-[[plugins]]
-repo = 'Vimjas/vim-python-pep8-indent'
-on_ft = ['python']
-
-[[plugins]] # toml syntax
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
-[[plugins]]
-repo = 'w0rp/ale'
-on_ft = ['python']
-hook_add = '''
-    " エラー行に表示するマーク
-    let g:ale_sign_error = '⨉'
-    let g:ale_sign_warning = '⚠'
-    " エラー行にカーソルをあわせた際に表示されるメッセージフォーマット
-    let g:ale_echo_mlg_format = '[%linter%] %s [%severity%]'
-    " エラー表示の列を常時表示
-    let g:ale_sign_column_always = 1
+    nnoremap [denite] <Nop>
+    nmap <C-f> [denite]
+    " プロジェクト内のファイル検索
+    nmap <silent> [denite]<C-p> :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
+    " バッファに展開中のファイル検索
+    nmap <silent> [denite]<C-b> :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
+    " ファイル内の関数/クラス等の検索
+    nmap <silent> [denite]<C-o> :<C-u>Denite outline -highlight-mode-insert=Search<CR>
+    " dotfiles配下をカレントにしてfile_rec起動
+    nmap <silent> [denite]<C-d> :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/.dotfiles']}]) -highlight-mode-insert=Search=Search<CR>
+    " 上下移動を<C-N>, <C-P>
+    call denite#custom#map('normal', '<C-N>', '<denite:move_to_next_line>')
+    call denite#custom#map('normal', '<C-P>', '<denite:move_to_previous_line>')
+    call denite#custom#map('insert', '<C-N>', '<denite:move_to_next_line>')
+    call denite#custom#map('insert', '<C-P>', '<denite:move_to_previous_line>')
+    " 入力履歴移動を<C-J>, <C-K>
+    " call denite#custom#map('insert', '<C-J>', '<denite:assign_next_text>')
+    " call denite#custom#map('insert', '<C-K>', '<denite:assign_previous_text>')
+    " 横割りオープンを`<C-j>`
+    call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>')
+    " 縦割りオープンを`<C-l>`
+    call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>')
+    " タブオープンを`<C-t>`
+    call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>')
     
-    " ファイルを開いlときにlint実行
-    let g:ale_lint_on_enter = 1
-    " ファイルを保存したときにlint実行
-    let g:ale_lint_on_save = 1
-    " 編集中のlintはしない
-    let g:ale_lint_on_text_changed = 'never'
+    " file_rec検索時にfuzzymatchを有効にし、検索対象から指定のファイルを除外
+    " call denite#custom#source(
+    "     \ 'file_rec', 'matchers', ['matcher_fuzzy', 'matcher_project_files', 'matcher_ignore_globs'])
     
-    " lint結果をロケーションリストとQuickFixには表示しない
-    " 出てると結構うざいしQuickFixを書き換えられるのは困る
-    "let g:ale_set_loclist = 0
-    "let g:ale_set_quickfix = 0
-    "let g:ale_open_list = 0
-    "let g:ale_keep_list_window_open = 0
-    
-    " 有効にするlinter
-    let g:ale_linters = {
-    \   'python': ['flake8'],
-    \}
-
-    " 各ツールをFixerとして登録
-    let g:ale_fixers = {
-    \ 'python': ['autopep8', 'black', 'isort'],
-    \ }
-    
-    " 各ツールの実行オプションを変更してPythonパスを固定
-    "let g:ale_python_flake8_executable = g:python3_host_prog
-    "let g:ale_python_flake8_options = '-m flake8'
-    "let g:ale_python_autopep8_executable = g:python3_host_prog
-    "let g:ale_python_autopep8_options = '-m autopep8'
-    "let g:ale_python_isort_executable = g:python3_host_prog
-    "let g:ale_python_isort_options = '-m isort'
-    "let g:ale_python_black_executable = g:python3_host_prog
-    "let g:ale_python_black_options = '-m black'
-
-    " エラー行にジャンプ
-    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-    nmap <silent> <C-j> <Plug>(ale_next_wrap)
-    
+    " 検索対象外のファイル指定
+    " call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+    "    \ [ '.git/', '.ropeproject/', '__pycache__/',
+    "    \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 '''
 
+# 補完プラグイン
 [[plugins]]
-repo = 'thinca/vim-quickrun'
+repo = 'Shougo/deoplete.nvim'
+#on_event = 'InsertCharPre'
+hook_source = '''
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#auto_complete_delay = 0
+    let g:deoplete#auto_complete_start_length = 1
+    let g:deoplete#enable_camel_case = 0
+    let g:deoplete#enable_ignore_case = 0
+    let g:deoplete#enable_refresh_always = 0
+    let g:deoplete#enable_smart_case = 1
+    let g:deoplete#file#enable_buffer_path = 1
+    let g:deoplete#max_list = 10
+    " inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+    "     \ neosnippet#expandable_or_jumpable() ?
+    "    \   "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+    '''
+on_i = 1 
+
+
+# file viewer
+[[plugins]]
+repo = 'scrooloose/nerdtree'
 hook_add = '''
-    " vimprocで非同期実行
-    " 成功時にバッファ、失敗時にQuickFixで表示
-    " 結果表示のサイズ調整など
-    let g:quickrun_config = {
-        \ '_' : {
-            \ 'runner' : 'vimproc',
-            \ 'runner/vimproc/updatetime' : 60,
-            \ 'outputter' : 'error',
-            \ 'outputter/error/success' : 'buffer',
-            \ 'outputter/error/error'   : 'quickfix',
-            \ 'outputter/buffer/split' : ':botright 8sp',
-        \ }
-    \}
+    " 表示幅
+    let g:nerdtreewinsize=50
+    " ブックマークを表示
+    let g:NERDTreeShowBookmarks=1
+    " 親ディレクトリへ移動
+    let g:NERDTreeMapUpdir=''
+    " ファイルの開き方
+    let g:NERDTreeMapOpenSplit='<C-j>'
+    let g:NERDTreeMapOpenVSplit='<C-l>'
+    " ファイルを開いたらNERDTreeを閉じる
+    let g:NERDTreeQuitOnOpen=1
+    " 隠しファイルを表示
+    let g:NERDTreeShowHidden=1
+    " 非表示ファイル
+    let g:NERDTreeIgnore=['\.git$', '\.clean$', '\.swp$', '\.bak$', '\~$']
+    " Keymap
+    " nnoremap <silent><C-f> :NERDTreeToggle<CR>
 '''
+
 

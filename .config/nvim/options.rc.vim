@@ -46,7 +46,7 @@ set modeline                        "モードラインをオンにする
 set modelines=5                     "5行までモードラインを検索する<Paste>
 set clipboard+=unnamed              "クリップボードの共有
 
-" 拡張子の設定
+" Filetype 
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.toml set filetype=toml
 au BufRead,BufNewFile *.vs set filetype=vectorscript
