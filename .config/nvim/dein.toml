@@ -1,6 +1,11 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+# 非同期処理プラグイン
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
 # カーソル位置のコンテキストに合わせてftを切り替える
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
@@ -63,4 +68,6 @@ hook_add = '''
             \ 'outputter/buffer/split' : ':botright 8sp',
         \ }
     \}
+    " keymap
+    nnoremap <C-e> :QuickRun<CR>
 '''

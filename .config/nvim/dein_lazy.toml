@@ -1,8 +1,3 @@
-# 非同期処理プラグイン
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-
 # File Luncher
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -17,29 +12,14 @@ hook_add = '''
     nmap <silent> [denite]<C-o> :<C-u>Denite outline -highlight-mode-insert=Search<CR>
     " dotfiles配下をカレントにしてfile_rec起動
     nmap <silent> [denite]<C-d> :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/.dotfiles']}]) -highlight-mode-insert=Search=Search<CR>
-    " 上下移動を<C-N>, <C-P>
-    call denite#custom#map('normal', '<C-N>', '<denite:move_to_next_line>')
-    call denite#custom#map('normal', '<C-P>', '<denite:move_to_previous_line>')
-    call denite#custom#map('insert', '<C-N>', '<denite:move_to_next_line>')
-    call denite#custom#map('insert', '<C-P>', '<denite:move_to_previous_line>')
-    " 入力履歴移動を<C-J>, <C-K>
-    " call denite#custom#map('insert', '<C-J>', '<denite:assign_next_text>')
-    " call denite#custom#map('insert', '<C-K>', '<denite:assign_previous_text>')
+'''
+hook_source = '''
     " 横割りオープンを`<C-j>`
     call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>')
     " 縦割りオープンを`<C-l>`
     call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>')
     " タブオープンを`<C-t>`
     call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>')
-    
-    " file_rec検索時にfuzzymatchを有効にし、検索対象から指定のファイルを除外
-    " call denite#custom#source(
-    "     \ 'file_rec', 'matchers', ['matcher_fuzzy', 'matcher_project_files', 'matcher_ignore_globs'])
-    
-    " 検索対象外のファイル指定
-    " call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-    "    \ [ '.git/', '.ropeproject/', '__pycache__/',
-    "    \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 '''
 
 # 補完プラグイン
