@@ -47,8 +47,8 @@ map <silent> [Tag]h :tabprevious<CR>
 
 
 " Split-----------------------------------------------------------------------
-nnoremap <silent> <C-s><C-j> :split<CR>
-nnoremap <silent> <C-s><C-l> :vsplit<CR>
+nnoremap <silent> <C-s><C-k> :split<CR>
+nnoremap <silent> <C-s><C-h> :vsplit<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k

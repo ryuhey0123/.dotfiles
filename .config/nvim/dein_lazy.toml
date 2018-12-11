@@ -1,4 +1,4 @@
-# File Lunchehh
+# File Luncher
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
@@ -15,21 +15,26 @@ hook_add = '''
     '''
 hook_source = '''
     " 横割りオープン
-    call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>')
+    call denite#custom#map('insert', '<C-K>', '<denite:do_action:split>')
     " 縦割りオープン
-    call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>')
+    call denite#custom#map('insert', '<C-H>', '<denite:do_action:vsplit>')
     " タブオープン
-    call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>')
+    call denite#custom#map('insert', '<C-T>', '<denite:do_action:tabopen>')
+    " 上下移動を<C-N>, <C-P>
+    call denite#custom#map('normal', '<C-n>', '<denite:move_to_next_line>')
+    call denite#custom#map('normal', '<C-p>', '<denite:move_to_previous_line>')
+    call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>')
+    call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>')
     '''
 
 # 補完プラグイン
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-#on_event = 'InsertCharPre'
+on_i = 1 
 hook_source = '''
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#auto_complete_delay = 0
-    let g:deoplete#auto_complete_start_length = 3
+    let g:deoplete#auto_complete_start_length = 1
     let g:deoplete#enable_camel_case = 0
     let g:deoplete#enable_ignore_case = 0
     let g:deoplete#enable_refresh_always = 0
@@ -40,10 +45,12 @@ hook_source = '''
         \ neosnippet#expandable_or_jumpable() ?
         \   "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
     '''
-on_i = 1 
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
+on_i  = 1
+on_ft = ['snippet']
+depends = ['neosnippet-snippets']
 hook_source = '''
   imap <C-k> <Plug>(neosnippet_expand_or_jump)
   smap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -52,9 +59,10 @@ hook_source = '''
     set conceallevel=2 concealcursor=niv
   endif
 '''
-on_i  = 1
-on_ft = ['snippet']
-depends = ['neosnippet-snippets']
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_i = 1
 
 # file viewer
 [[plugins]]
@@ -67,10 +75,10 @@ hook_add = '''
     " 親ディレクトリへ移動
     let g:NERDTreeMapUpdir=''
     " ファイルの開き方
-    let g:NERDTreeMapOpenSplit='<C-j>'
-    let g:NERDTreeMapOpenVSplit='<C-l>'
+    let g:NERDTreeMapOpenSplit='<C-K>'
+    let g:NERDTreeMapOpenVSplit='<C-H>'
     " ファイルを開いたらNERDTreeを閉じる
-    let g:NERDTreeQuitOnOpen=1
+    let g:NERDTreeQuitOnOpen=0
     " 隠しファイルを表示
     let g:NERDTreeShowHidden=1
     " 非表示ファイル
@@ -99,3 +107,7 @@ hook_add = '''
         \ }
     \}
     '''
+
+[[plugins]]
+repo = 'vim-scripts/Align'
+
