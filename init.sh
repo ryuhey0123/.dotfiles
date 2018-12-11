@@ -23,3 +23,5 @@ ln -sf ~/.dotfiles/.xprofile ~/.xprofile
 ln -sf ~/.dotfiles/.config/ranger ~/.config/ranger
 rm -rf ~/.dotfiles/.config/ranger/ranger
 
+# User command
+ln -sf ~/.dotfiles/.bin ~/.bin

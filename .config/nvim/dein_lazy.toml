@@ -1,4 +1,4 @@
-# File Luncher
+# File Lunchehh
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
@@ -12,15 +12,15 @@ hook_add = '''
     nmap <silent> [denite]<C-o> :<C-u>Denite outline -highlight-mode-insert=Search<CR>
     " dotfiles配下をカレントにしてfile_rec起動
     nmap <silent> [denite]<C-d> :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/.dotfiles']}]) -highlight-mode-insert=Search=Search<CR>
-'''
+    '''
 hook_source = '''
-    " 横割りオープンを`<C-j>`
+    " 横割りオープン
     call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>')
-    " 縦割りオープンを`<C-l>`
+    " 縦割りオープン
     call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>')
-    " タブオープンを`<C-t>`
+    " タブオープン
     call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>')
-'''
+    '''
 
 # 補完プラグイン
 [[plugins]]
@@ -29,19 +29,32 @@ repo = 'Shougo/deoplete.nvim'
 hook_source = '''
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#auto_complete_delay = 0
-    let g:deoplete#auto_complete_start_length = 1
+    let g:deoplete#auto_complete_start_length = 3
     let g:deoplete#enable_camel_case = 0
     let g:deoplete#enable_ignore_case = 0
     let g:deoplete#enable_refresh_always = 0
     let g:deoplete#enable_smart_case = 1
     let g:deoplete#file#enable_buffer_path = 1
     let g:deoplete#max_list = 10
-    " inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-    "     \ neosnippet#expandable_or_jumpable() ?
-    "    \   "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+    inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+        \ neosnippet#expandable_or_jumpable() ?
+        \   "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
     '''
 on_i = 1 
 
+[[plugins]]
+repo = 'Shougo/neosnippet'
+hook_source = '''
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+  if has('conceal')
+    set conceallevel=2 concealcursor=niv
+  endif
+'''
+on_i  = 1
+on_ft = ['snippet']
+depends = ['neosnippet-snippets']
 
 # file viewer
 [[plugins]]
@@ -62,8 +75,27 @@ hook_add = '''
     let g:NERDTreeShowHidden=1
     " 非表示ファイル
     let g:NERDTreeIgnore=['\.git$', '\.clean$', '\.swp$', '\.bak$', '\~$']
-    " Keymap
-    " nnoremap <silent><C-f> :NERDTreeToggle<CR>
-'''
+    let NERDTreeWinPos = 'left'
+    '''
 
+[[plugins]]
+repo = 'majutsushi/tagbar'
+hook_add = '''
+    let g:tagbar_left = 1
+    let g:tagbar_vertical = 25
+    '''
 
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+hook_add = '''
+    let g:quickrun_config = {
+        \ '_' : {
+            \ 'runner' : 'vimproc',
+            \ 'runner/vimproc/updatetime' : 60,
+            \ 'outputter' : 'error',
+            \ 'outputter/error/success' : 'buffer',
+            \ 'outputter/error/error'   : 'quickfix',
+            \ 'outputter/buffer/split' : ':botright 8sp',
+        \ }
+    \}
+    '''

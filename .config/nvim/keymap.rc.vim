@@ -1,7 +1,7 @@
 " General--------------------------------------------------------------------- 
 inoremap <silent> jj <ESC>:<C-u>w<CR>
 nnoremap ; :
-noremap <Esc><Esc> :<C-u>nohlsearch<cr><Esc>
+noremap <Esc><Esc> :<C-u>nohlsearch<CR><Esc>
 
 " カーソル下の単語を * で検索
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>
@@ -22,6 +22,10 @@ vnoremap k gk
 
 " vを二回で行末まで選択
 vnoremap v $h
+
+" TABにて対応ペアにジャンプ
+nnoremap <Tab> %
+vnoremap <Tab> %
 
 
 " Tab-------------------------------------------------------------------------
@@ -49,4 +53,14 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+"nnoremap <S-Left>  <C-w><<CR>
+"nnoremap <S-Right> <C-w>><CR>
+"nnoremap <S-Up>    <C-w>-<CR>
+"nnoremap <S-Down>  <C-w>+<CR>
+
+" Plugin Toggle----------------------------------------------------------------
+nnoremap <F2> :NERDTreeToggle <bar> :TagbarToggle<CR>
+nnoremap <F5> :QuickRun<CR>
+
 
