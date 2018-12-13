@@ -1,4 +1,4 @@
-# 環境変数
+### 環境変数 #################################################################
 export LANG=ja_JP.UTF-8
 export PATH=$PATH:$HOME/.bin
 
@@ -27,6 +27,8 @@ export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
 
+### プロンプト#################################################################
+
 # 色を使用出来るようにする
 autoload -Uz colors
 colors
@@ -49,8 +51,8 @@ select-word-style default
 zstyle ':zle:*' word-chars " /=;@:{},|"
 zstyle ':zle:*' word-style unspecified
 
-########################################
-# 補完
+
+### 補完 ######################################################################
 # 補完機能を有効にする
 autoload -Uz compinit
 setopt correct
@@ -60,20 +62,16 @@ zstyle ':completion:*' menu select
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
 # ../ の後は今いるディレクトリを補完しない
 zstyle ':completion:*' ignore-parents parent pwd ..
-
 # sudo の後ろでコマンド名を補完する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 
-########################################
-# vcs_info
+### vcs_info ##################################################################
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
 
@@ -87,8 +85,7 @@ function _update_vcs_info_msg() {
 add-zsh-hook precmd _update_vcs_info_msg
 
 
-########################################
-# オプション
+### オプション ################################################################ 
 # 日本語ファイル名を表示可能にする
 setopt print_eight_bit
 # beep を無効にする
@@ -116,14 +113,18 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
 # 高機能なワイルドカード展開を使用する
 setopt extended_glob
-########################################
-# キーバインド
+
+
+### キーバインド ############################################################## 
 
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 bindkey '^R' history-incremental-pattern-search-backward
 
-########################################
-# エイリアス
+# emacs 風キーバインドにする
+bindkey -e
+
+
+### エイリアス ################################################################
 
 alias la='ls -a'
 alias ll='ls -l'
@@ -159,7 +160,7 @@ elif which putclip >/dev/null 2>&1 ; then
 fi
 
 
-########################################
+### Colors #################################################################### 
 # ls の色設定
 export LSCOLORS=gxfxcxdxbxegedabagacad
 #   ---------------------LS_COLORS--------------------
@@ -197,8 +198,7 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 #   H	bold light grey; looks like bright white
 #   x	default foreground or background
 
-########################################
-# OS 別の設定
+### OS 別の設定 ###############################################################
 case ${OSTYPE} in
     darwin*)
         #Mac用の設定
@@ -211,9 +211,8 @@ case ${OSTYPE} in
         ;;
 esac
 
-# vim:set ft=zsh
 
-########################################
+### Commands ##################################################################
 # どこでもMyMacを使用したSSH接続
 function sshbtmm(){
   ssh -2 -6 $1.$(echo show Setup:/Network/BackToMyMac | scutil | sed -n 's/.* : *\(.*\).$/\1/p')
