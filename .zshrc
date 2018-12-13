@@ -1,6 +1,8 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 export PATH=$PATH:$HOME/.bin
+
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
@@ -12,12 +14,6 @@ if [[ -d $PYENV_ROOT ]];then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-# if command -v pyenv 1>/dev/null 2>&1; then
-#     eval "$(pyenv init -)"
-# fi
-# 
-# if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
 # rbenv 
 export RBENV_ROOT="$HOME/.rbenv"
 eval "$(rbenv init -)"
@@ -25,6 +21,11 @@ eval "$(rbenv init -)"
 # nodenv
 export NODENV_ROOT="$HOME/.nodenv"
 eval "$(nodenv init -)"
+
+# golang
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
+
 
 # 色を使用出来るようにする
 autoload -Uz colors

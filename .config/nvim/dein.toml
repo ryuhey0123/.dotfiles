@@ -1,25 +1,10 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# 非同期処理プラグイン
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
-# スニペット
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-# カーソル位置のコンテキストに合わせてftを切り替える
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
-
-# カーソル位置のコンテキストのftを判定
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-# タグ・カッコの入力補助
 [[plugins]]
 repo = 'tpope/vim-surround'
 
