@@ -221,15 +221,15 @@ function sshbtmm(){
 
 
 ### zplug #####################################################################
-source ~/.zplug/init.zsh
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-if ! zplug check --verbose; then
-    printf "Install new plugin? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
- 
-zplug load --verbose
+# source ~/.zplug/init.zsh
+# zplug "zsh-users/zsh-syntax-highlighting", defer:2
+# 
+# if ! zplug check --verbose; then
+#     printf "Install new plugin? [y/N]: "
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
+#  
+# zplug load --verbose
 
