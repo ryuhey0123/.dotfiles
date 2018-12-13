@@ -56,6 +56,8 @@ autoload -Uz compinit
 setopt correct
 compinit
 
+zstyle ':completion:*' menu select
+
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
@@ -125,6 +127,7 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 alias la='ls -a'
 alias ll='ls -l'
+alias lla='ll -a'
 
 alias rm='rm -i'
 alias cp='cp -i'
@@ -215,3 +218,18 @@ esac
 function sshbtmm(){
   ssh -2 -6 $1.$(echo show Setup:/Network/BackToMyMac | scutil | sed -n 's/.* : *\(.*\).$/\1/p')
 }
+
+
+### zplug #####################################################################
+source ~/.zplug/init.zsh
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+if ! zplug check --verbose; then
+    printf "Install new plugin? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+ 
+zplug load --verbose
+
