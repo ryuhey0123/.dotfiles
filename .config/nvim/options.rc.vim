@@ -24,8 +24,8 @@ set showtabline=2                   "常にタブラインを表示
 set wrap                            "ウィンドウより長い行は折り畳む
 set list                            "不可視文字の可視化
 
-set t_vb=
-set novisualbell
+"set t_vb=
+set visualbell t_vb=
 
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 

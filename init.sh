@@ -4,7 +4,6 @@
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 
 # vim/neovim
-ln -sf ~/.dotfiles/.vim ~/.vim
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.config/nvim ~/.config/nvim
 rm -rf ~/.dotfiles/.config/nvim/nvim
