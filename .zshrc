@@ -7,25 +7,32 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-if [[ -d $PYENV_ROOT ]];then
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+if which pyenv > /dev/null 2>&1; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    if [[ -d $PYENV_ROOT ]];then
+        export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init -)"
+        eval "$(pyenv virtualenv-init -)"
+    fi
 fi
 
 # rbenv 
-export RBENV_ROOT="$HOME/.rbenv"
-eval "$(rbenv init -)"
+if which rbenv > /dev/null 2>&1; then
+    export RBENV_ROOT="$HOME/.rbenv"
+    eval "$(rbenv init -)"
+fi
 
 # nodenv
-export NODENV_ROOT="$HOME/.nodenv"
-eval "$(nodenv init -)"
+if which nodenv > /dev/null 2>&1; then
+    export NODENV_ROOT="$HOME/.nodenv"
+    eval "$(nodenv init -)"
+fi
 
 # golang
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
-
+if which go > /dev/null 2>&1; then
+    export GOPATH=$HOME/.go
+    export PATH=$PATH:$GOPATH/bin
+fi
 
 ### プロンプト#################################################################
 
