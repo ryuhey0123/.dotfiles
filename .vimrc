@@ -66,6 +66,7 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', [
         \ '.DS_Store', '*.pyc', '*.class', 'tags'
         \ ])
 
+
 " QuickRun
 let g:quickrun_config = {
     \ '_' : {

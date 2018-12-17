@@ -8,7 +8,6 @@ build = 'make'
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-# vim-airline
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
@@ -30,7 +29,6 @@ hook_add = '''
     let g:airline#extensions#tabline#enabled = 1
     '''
 
-# vim-airline-theme
 [[plugins]]
 repo = 'joshdick/onedark.vim'
 hook_add = '''

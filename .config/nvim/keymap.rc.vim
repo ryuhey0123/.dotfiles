@@ -15,10 +15,10 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 
 " j, k による移動を折り返されたテキストでも自然に振る舞うように変更
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+vnoremap <silent> j gj
+vnoremap <silent> k gk
 
 " vを二回で行末まで選択
 vnoremap v $h
@@ -26,6 +26,8 @@ vnoremap v $h
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
 vnoremap <Tab> %
+
+nnoremap <silent> <F8> :source $HOME/.config/nvim/init.vim<CR> :nohlsearch<CR>
 
 
 " Tab-------------------------------------------------------------------------
@@ -36,19 +38,15 @@ nmap t [Tag]
 for n in range(1, 9)
   execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
-" tn 新しいタブを一番右に作る
 map <silent> [Tag]n :tablast <bar> tabnew<CR>
-" tq タブを閉じる
 map <silent> [Tag]q :tabclose<CR>
-" tl 次のタブ
 map <silent> [Tag]l :tabnext<CR>
-" th 前のタブ
 map <silent> [Tag]h :tabprevious<CR>
 
 
 " Split-----------------------------------------------------------------------
-nnoremap <silent> <C-s><C-j> :split<CR><C-w>w
-nnoremap <silent> <C-s><C-l> :vsplit<CR><C-w>w
+nnoremap <silent> <C-s><C-s> :split +enew<CR>
+nnoremap <silent> <C-s><C-v> :vsplit +enew<CR>
 nnoremap <Space> <C-w>w
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -61,7 +59,7 @@ nnoremap <C-l> <C-w>l
 "nnoremap <S-Down>  <C-w>+<CR>
 
 " Plugin Toggle----------------------------------------------------------------
-nnoremap <F2> :NERDTreeToggle <bar> :TagbarToggle<CR>
-nnoremap <F5> :QuickRun<CR>
+nnoremap <silent> <F2> :NERDTreeToggle <bar> :TagbarToggle<CR>
+nnoremap <silent> <F5> :QuickRun<CR>
 
 

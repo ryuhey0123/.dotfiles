@@ -89,8 +89,8 @@ hook_add = '''
     " 親ディレクトリへ移動
     let g:NERDTreeMapUpdir=''
     " ファイルの開き方
-    let g:NERDTreeMapOpenSplit='<C-K>'
-    let g:NERDTreeMapOpenVSplit='<C-H>'
+    let g:NERDTreeMapOpenSplit='<C-s>'
+    let g:NERDTreeMapOpenVSplit='<C-v><C-s>'
     " ファイルを開いたらNERDTreeを閉じる
     let g:NERDTreeQuitOnOpen=0
     " 隠しファイルを表示

@@ -3,6 +3,9 @@
 # zsh
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 
+# tmux
+ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
+
 # vim/neovim
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.config/nvim ~/.config/nvim
