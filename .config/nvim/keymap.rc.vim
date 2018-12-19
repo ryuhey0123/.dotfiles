@@ -1,5 +1,5 @@
 " General--------------------------------------------------------------------- 
-inoremap <silent> jj <ESC>:<C-u>w<CR>
+inoremap <silent> jj <ESC>
 nnoremap ; :
 noremap <Esc><Esc> :<C-u>nohlsearch<CR><Esc>
 
