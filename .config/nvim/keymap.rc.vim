@@ -3,9 +3,6 @@ inoremap <silent> jj <ESC>
 nnoremap ; :
 noremap <Esc><Esc> :<C-u>nohlsearch<CR><Esc>
 
-" カーソル下の単語を * で検索
-vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>
-
 " 検索後にジャンプした際に検索単語を画面中央に持ってくる
 nnoremap n nzz
 nnoremap N Nzz
@@ -45,8 +42,6 @@ map <silent> [Tag]h :tabprevious<CR>
 
 
 " Split-----------------------------------------------------------------------
-nnoremap <silent> <C-s><C-s> :split +enew<CR>
-nnoremap <silent> <C-s><C-v> :vsplit +enew<CR>
 nnoremap <Space> <C-w>w
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j

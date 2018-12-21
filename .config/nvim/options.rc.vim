@@ -1,6 +1,7 @@
 " Color Theme -----------------------------------------------------------------
 "set background=dark
 "colorcheme onedark
+hi CursorLine guifg=#E19972
 
 " Appearance -----------------------------------------------------------------
 set wildmenu                        "ナビゲーションバー

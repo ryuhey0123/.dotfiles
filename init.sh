@@ -14,16 +14,28 @@ rm -rf ~/.dotfiles/.config/nvim/nvim
 # LaTeX
 ln -sf ~/.dotfiles/.latexmkrc ~/.latexmkrc
 
-# i3
-ln -sf ~/.dotfiles/.config/i3 ~/.config/i3
-rm -rf ~/.dotfiles/.config/i3/i3
 
-ln -sf ~/.dotfiles/.Xresources ~/.Xresources
-ln -sf ~/.dotfiles/.xprofile ~/.xprofile
+if ["$(uname)" == 'Darwin']; then
+    echo "Finish"
+    exit 1
 
-# ranger
-ln -sf ~/.dotfiles/.config/ranger ~/.config/ranger
-rm -rf ~/.dotfiles/.config/ranger/ranger
+elif ["$(uname)" == 'Linux']; then
+    echo "Setup i3-wm and ranger config file."
+    # i3
+    ln -sf ~/.dotfiles/.config/i3 ~/.config/i3
+    rm -rf ~/.dotfiles/.config/i3/i3
 
-# User command
-ln -sf ~/.dotfiles/.bin ~/.bin
+    ln -sf ~/.dotfiles/.Xresources ~/.Xresources
+    ln -sf ~/.dotfiles/.xprofile ~/.xprofile
+
+    # ranger
+    ln -sf ~/.dotfiles/.config/ranger ~/.config/ranger
+    rm -rf ~/.dotfiles/.config/ranger/ranger
+    exit 1
+
+else
+    echo "Your platform ($(uname -a)) is not supported."
+    exit 1
+
+fi
+
