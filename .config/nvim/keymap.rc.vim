@@ -1,3 +1,10 @@
+" _  __ ________  _ _      ____  ____ 
+"/ |/ //  __/\  \/// \__/|/  _ \/  __\
+"|   / |  \   \  / | |\/||| / \||  \/|
+"|   \ |  /_  / /  | |  ||| |-|||  __/
+"\_|\_\\____\/_/   \_/  \|\_/ \|\_/   
+"                                     
+
 " General--------------------------------------------------------------------- 
 inoremap <silent> jj <ESC>
 nnoremap ; :
@@ -42,19 +49,18 @@ map <silent> [Tag]h :tabprevious<CR>
 
 
 " Split-----------------------------------------------------------------------
-nnoremap <Space> <C-w>w
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+"nnoremap <Space> <C-w>w
+"nnoremap <C-h> <C-w>h
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+"nnoremap <C-l> <C-w>l
 
-"nnoremap <S-Left>  <C-w><<CR>
-"nnoremap <S-Right> <C-w>><CR>
-"nnoremap <S-Up>    <C-w>-<CR>
-"nnoremap <S-Down>  <C-w>+<CR>
+nnoremap <S-Left>  <C-w><<CR>
+nnoremap <S-Right> <C-w>><CR>
+nnoremap <S-Up>    <C-w>-<CR>
+nnoremap <S-Down>  <C-w>+<CR>
 
 " Plugin Toggle----------------------------------------------------------------
 nnoremap <silent> <F2> :NERDTreeToggle <bar> :TagbarToggle<CR>
 nnoremap <silent> <F5> :QuickRun<CR>
-
 

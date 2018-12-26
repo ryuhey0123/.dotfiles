@@ -33,8 +33,7 @@ hook_source = '''
             \ 'images/', '*.o', '*.make', '*.min.*',
             \ 'img/', 'fonts/', '*~', '*.exe', '*.bak',
             \ '.DS_Store', '*.pyc', '*.class', 'tags'
-            \ ])
-    
+        \ ])
     '''
 
 # 補完プラグイン
