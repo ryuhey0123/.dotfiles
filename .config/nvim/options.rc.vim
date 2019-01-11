@@ -74,7 +74,7 @@ au BufRead,BufNewFile *.vss set filetype=vectorscript
 set sh=zsh
 
 " Spell check -----------------------------------------------------------------
-set spelllang=en,cjk
-hi clear SpellBad
-hi SpellBad cterm=underline
+"set spelllang=en,cjk
+"hi clear SpellBad
+"hi SpellBad cterm=underline
 
