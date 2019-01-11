@@ -82,12 +82,8 @@ hook_add = '''
     " エラー行にジャンプ
     nmap <silent> <C-k> <Plug>(ale_previous_wrap)
     nmap <silent> <C-j> <Plug>(ale_next_wrap)
-<<<<<<< HEAD
     '''
-=======
-'''
 
 [[plugins]]
 repo = 'jmcantrell/vim-virtualenv'
 
->>>>>>> bfe9f6f234176d2d8c2182258b23750d40eabb25
