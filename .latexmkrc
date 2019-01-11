@@ -1,8 +1,7 @@
 #!/usr/bin/env perl
 
-$latex            = 'platex -synctex=1';
-$latex_silent     = 'platex -synctex=1 -interaction=batchmode';
-$pdflatex         = 'pdflatex -synctex=1 %O %S';
+$latex            = 'platex -synctex=1 -halt-on-error';
+$latex_silent     = 'platex -synctex=1 -halt-on-error';
 $bibtex           = 'pbibtex';
 $dvipdf           = 'dvipdfmx %O -o %D %S';
 $makeindex        = 'mendex %O -o %D %S';
@@ -14,5 +13,5 @@ $pdf_mode         = 3; # generates pdf via dvipdfmx
 $pvc_view_file_via_temporary = 0;
 
 # Use Skim as a previewer
-$pdf_previewer    = "open -a /Applications/Skim.app";
+#$pdf_previewer    = "open -a /Applications/Skim.app";
 
