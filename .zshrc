@@ -133,9 +133,9 @@ bindkey -e
 
 ### エイリアス ################################################################
 
-alias la='ls -a'
+alias la='ls -A'
 alias ll='ls -l'
-alias lla='ll -a'
+alias lla='ll -A'
 
 alias rm='rm -i'
 alias cp='cp -i'
