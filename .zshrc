@@ -48,7 +48,7 @@ SAVEHIST=1000000
 # プロンプト
 # 2行表示
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
-%# "
+%F{red}>%f "
 
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
