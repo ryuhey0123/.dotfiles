@@ -34,6 +34,14 @@ if which go > /dev/null 2>&1; then
     export PATH=$PATH:$GOPATH/bin
 fi
 
+# z
+. `brew --prefix`/etc/profile.d/z.sh
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+
 ### プロンプト#################################################################
 
 # 色を使用出来るようにする
