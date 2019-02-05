@@ -122,19 +122,3 @@ hook_add = '''
     \}
     '''
 
-[[plugins]]
-repo = 'junegunn/vim-easy-align'
-on_cmd = 'EasyAlign'
-hook_add = '''
-    nmap ga <Plug>(EasyAlign)
-    xmap ga <Plug>(EasyAlign)
-    '''
-
-
-# git の変更履歴を表示
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-hook_source = '''
-    let g:gitgutter_map_keys = 0
-'''
-
