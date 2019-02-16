@@ -31,8 +31,11 @@ vnoremap v $h
 nnoremap <Tab> %
 vnoremap <Tab> %
 
+" F8キーで設定を再読み込み
 nnoremap <silent> <F8> :source $HOME/.config/nvim/init.vim<CR> :nohlsearch<CR>
 
+" C-jでインサートモード中にo
+inoremap <C-j> <ESC>o
 
 " Tab-------------------------------------------------------------------------
 " Prefix

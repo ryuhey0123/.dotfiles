@@ -229,21 +229,15 @@ esac
 
 ### Commands ##################################################################
 # どこでもMyMacを使用したSSH接続
-function sshbtmm(){
+function sshbtmm() {
   ssh -2 -6 $1.$(echo show Setup:/Network/BackToMyMac | scutil | sed -n 's/.* : *\(.*\).$/\1/p')
 }
 
-
-### zplug #####################################################################
-# source ~/.zplug/init.zsh
-# zplug "zsh-users/zsh-syntax-highlighting", defer:2
-# 
-# if ! zplug check --verbose; then
-#     printf "Install new plugin? [y/N]: "
-#     if read -q; then
-#         echo; zplug install
-#     fi
-# fi
-#  
-# zplug load --verbose
+# 構造計算書用ページ振り
+function addpages() {
+    for i in `seq $1 $2`
+    do
+        addpage -f "${i} - %d" -z 8 -o $i.pdf $i*.pdf
+    done
+}
 
