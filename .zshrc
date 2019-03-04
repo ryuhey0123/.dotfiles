@@ -234,6 +234,8 @@ function sshbtmm() {
 }
 
 # 構造計算書用ページ振り
+# 第一引数から第二引数までのページを振る
+# 例) addpages 0 7 -> 0*.pdf から 7*.pdf までのページが振られる
 function addpages() {
     for i in `seq $1 $2`
     do
