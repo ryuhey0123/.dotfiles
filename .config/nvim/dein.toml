@@ -11,36 +11,39 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
-    " let g:airline_powerline_fonts = 1
-    " set guifont=Ricty\ Regular\ for\ Powerline:h14
-    " let g:Powerline_symbols = 'fancy'
     set t_Co=256
     let g:airline_section_a = airline#section#create(['mode','','branch'])
     let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#show_buffers = 0
-    let g:airline#extensions#tabline#tab_nr_type = 1
+    let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
     let g:airline#extensions#tabline#fnamemod = ':t'
-    " let g:airline_left_sep = '⮀'
-    " let g:airline_right_sep = '⮂'
-    " let g:airline_linecolumn_prefix = '⭡'
-    " let g:airline_branch_prefix = '⭠'
-    " let g:airline#extensions#tabline#left_sep = '⮀'
-    " let g:airline#extensions#tabline#left_alt_sep = '⮀'
-    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#fnamecollapse=0
+    let g:airline#extensions#tabline#fnametruncate=0
+    let g:airline#extensions#tabline#show_buffers = 0
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+hook_add = '''
+    let g:airline_theme = 'simple'
+'''
+
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+    colorscheme molokai 
+'''
+
+[[plugins]]
+repo = 'yggdroot/indentline'
+hook_add = '''
+    let g:indentline_color_term = 111
+    let g:indentline_color_gui = '#708090'
+    let g:indentline_char = "|"
     '''
 
 [[plugins]]
-repo = 'joshdick/onedark.vim'
+repo = 'reireias/vim-cheatsheet'
 hook_add = '''
-    colorscheme onedark
-    let g:airline_theme='onedark'
-    '''
-
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-hook_add = '''
-    let g:indentLine_color_term = 111
-    let g:indentLine_color_gui = '#708090'
-    let g:indentLine_char = "|"
-    '''
+    let g:cheatsheet#cheat_file = '~/.dotfiles/vim_cheatsheet.md'
+'''
 

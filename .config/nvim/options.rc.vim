@@ -1,7 +1,5 @@
 " Color Theme -----------------------------------------------------------------
-"set background=dark
-"colorcheme onedark
-hi CursorLine guifg=#E19972
+" hi CursorLine guifg=#E19972
 
 " Appearance -----------------------------------------------------------------
 set wildmenu                        "ナビゲーションバー
@@ -77,4 +75,7 @@ set sh=zsh
 "set spelllang=en,cjk
 "hi clear SpellBad
 "hi SpellBad cterm=underline
+
+" Python color syntax ---------------------------------------------------------
+let python_highlight_all = 1
 

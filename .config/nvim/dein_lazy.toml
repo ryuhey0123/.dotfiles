@@ -5,7 +5,7 @@ hook_add = '''
     nnoremap [denite] <Nop>
     nmap <C-f> [denite]
     " プロジェクト内のファイル検索
-    nmap <silent> [denite]<C-p> :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
+    nmap <silent> [denite]<C-p> :<C-u>Denite file/rec -highlight-mode-insert=Search<CR>
     " バッファに展開中のファイル検索
     nmap <silent> [denite]<C-b> :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
     " ファイル内の関数/クラス等の検索
@@ -13,7 +13,7 @@ hook_add = '''
     " grep検索
     nmap <silent> [denite]<C-g> :<C-u>Denite -auto_preview grep -highlight-mode-insert=Search<CR>
     " dotfiles配下をカレントにしてfile_rec起動
-    nmap <silent> [denite]<C-d> :<C-u>call denite#start([{'name': 'file_rec', 'args': ['~/.dotfiles']}])<CR>
+    nmap <silent> [denite]<C-d> :<C-u>call denite#start([{'name': 'file/rec', 'args': ['~/.dotfiles']}])<CR>
     '''
 hook_source = '''
     " 横割りオープン
@@ -32,7 +32,8 @@ hook_source = '''
             \ '.git/', 'build/', '__pycache__/',
             \ 'images/', '*.o', '*.make', '*.min.*',
             \ 'img/', 'fonts/', '*~', '*.exe', '*.bak',
-            \ '.DS_Store', '*.pyc', '*.class', 'tags'
+            \ '.DS_Store', '*.pyc', '*.class', 'tags',
+            \ 'venv/'
         \ ])
     '''
 

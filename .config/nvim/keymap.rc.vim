@@ -7,6 +7,7 @@
 
 " General--------------------------------------------------------------------- 
 inoremap <silent> jj <ESC>
+inoremap <silent> っj <esc>
 nnoremap ; :
 noremap <Esc><Esc> :<C-u>nohlsearch<CR><Esc>
 
@@ -52,11 +53,11 @@ map <silent> [Tag]h :tabprevious<CR>
 
 
 " Split-----------------------------------------------------------------------
-"nnoremap <Space> <C-w>w
-"nnoremap <C-h> <C-w>h
-"nnoremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
-"nnoremap <C-l> <C-w>l
+nnoremap <Space> <C-w>w
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 nnoremap <S-Left>  <C-w><<CR>
 nnoremap <S-Right> <C-w>><CR>
