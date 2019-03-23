@@ -42,6 +42,9 @@ fi
 # export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
+# ctags
+alias ctags="`brew --prefix`/bin/ctags"
+
 ### プロンプト#################################################################
 
 # 色を使用出来るようにする

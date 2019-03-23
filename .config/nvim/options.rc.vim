@@ -1,6 +1,10 @@
 " Color Theme -----------------------------------------------------------------
 " hi CursorLine guifg=#E19972
 
+" Encoding --------------------------------------------------------------------
+set fileformats=unix,dos,mac
+set fileencodings=utf-8,sjis
+
 " Appearance -----------------------------------------------------------------
 set wildmenu                        "ナビゲーションバー
 set wildmode=list:full
