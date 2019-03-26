@@ -5,16 +5,21 @@ hook_add = '''
     nnoremap [denite] <Nop>
     nmap <C-f> [denite]
     " プロジェクト内のファイル検索
-    nmap <silent> [denite]<C-p> :<C-u>Denite file/rec -highlight-mode-insert=Search<CR>
+    nmap <silent> [denite]<C-p> :<C-u>Denite file/rec
+                \ -highlight-mode-insert=Search<CR>
     " バッファに展開中のファイル検索
-    nmap <silent> [denite]<C-b> :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
+    nmap <silent> [denite]<C-b> :<C-u>Denite buffer
+                \ -highlight-mode-insert=Search<CR>
     " ファイル内の関数/クラス等の検索
-    nmap <silent> [denite]<C-o> :<C-u>Denite outline -highlight-mode-insert=Search<CR>
+    nmap <silent> [denite]<C-o> :<C-u>Denite outline
+                \ -highlight-mode-insert=Search<CR>
     " grep検索
-    nmap <silent> [denite]<C-g> :<C-u>Denite -auto_preview grep -highlight-mode-insert=Search<CR>
+    nmap <silent> [denite]<C-g> :<C-u>Denite 
+                \ -auto_preview grep -highlight-mode-insert=Search<CR>
     " dotfiles配下をカレントにしてfile_rec起動
-    nmap <silent> [denite]<C-d> :<C-u>call denite#start([{'name': 'file/rec', 'args': ['~/.dotfiles']}])<CR>
-    '''
+    nmap <silent> [denite]<C-d> :<C-u>call denite#start(
+                \ [{'name': 'file/rec', 'args': ['~/.dotfiles']}])<CR>
+'''
 hook_source = '''
     " 横割りオープン
     call denite#custom#map('insert', '<C-K>', '<denite:do_action:split>')
@@ -35,7 +40,7 @@ hook_source = '''
             \ '.DS_Store', '*.pyc', '*.class', 'tags',
             \ 'venv/'
         \ ])
-    '''
+'''
 
 # 補完プラグイン
 [[plugins]]

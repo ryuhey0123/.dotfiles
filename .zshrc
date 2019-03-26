@@ -30,7 +30,7 @@ fi
 
 # golang
 if which go > /dev/null 2>&1; then
-    export GOPATH=$HOME/.go
+    export GOPATH=$HOME/Developer/Go
     export PATH=$PATH:$GOPATH/bin
 fi
 
