@@ -1,3 +1,31 @@
+#        ______     _____   __    __   ______       ____  
+#       (____  )   / ____\ (  \  /  ) (   __ \     / ___) 
+#           / /   ( (___    \ (__) /   ) (__) )   / /     
+#       ___/ /_    \___ \    ) __ (   (    __/   ( (      
+#      /__  ___)       ) )  ( (  ) )   ) \ \  _  ( (      
+#  __    / /____   ___/ /    ) )( (   ( ( \ \_))  \ \___  
+# (__)  (_______) /____/    /_/  \_\   )_) \__/    \____) 
+#                                                         
+
+# tmux auto start
+if [[ ! -n $TMUX && $- == *l* ]]; then
+  # get the IDs
+  ID="`tmux list-sessions`"
+  if [[ -z "$ID" ]]; then
+    tmux new-session
+  fi
+  create_new_session="Create New Session"
+  ID="$ID\n${create_new_session}:"
+  ID="`echo $ID | $PERCOL | cut -d: -f1`"
+  if [[ "$ID" = "${create_new_session}" ]]; then
+    tmux new-session
+  elif [[ -n "$ID" ]]; then
+    tmux attach-session -t "$ID"
+  else
+    :  # Start terminal normally
+  fi
+fi
+
 ### 環境変数 #################################################################
 export LANG=ja_JP.UTF-8
 export PATH=$PATH:$HOME/.bin
