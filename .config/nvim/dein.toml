@@ -47,3 +47,10 @@ hook_add = '''
     let g:cheatsheet#cheat_file = '~/.dotfiles/vim_cheatsheet.md'
 '''
 
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
