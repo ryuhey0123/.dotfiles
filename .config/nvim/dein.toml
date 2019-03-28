@@ -9,6 +9,12 @@ build = 'make'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
     set t_Co=256
@@ -16,8 +22,8 @@ hook_add = '''
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
     let g:airline#extensions#tabline#fnamemod = ':t'
-    let g:airline#extensions#tabline#fnamecollapse=0
-    let g:airline#extensions#tabline#fnametruncate=0
+    let g:airline#extensions#tabline#fnamecollapse = 0
+    let g:airline#extensions#tabline#fnametruncate = 0
     let g:airline#extensions#tabline#show_buffers = 0
 '''
 
@@ -47,10 +53,14 @@ hook_add = '''
     let g:cheatsheet#cheat_file = '~/.dotfiles/vim_cheatsheet.md'
 '''
 
-
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
+hook_add = '''
+    set signcolumn=yes
+    set updatetime=50
+    let g:gitgutter_sign_added = '∙'
+    let g:gitgutter_sign_modified = '∙'
+    let g:gitgutter_sign_removed = '∙'
+    let g:gitgutter_sign_modified_removed = '∙'
+'''
 
