@@ -19,14 +19,27 @@ $ sh install.sh
 - Hyper
 - Alacritty
 
+```
+$ brew cask install Alacritty
+```
+
 ### Shell
 
 - zsh
 - fish
 
+```
+$ brew install fish
+```
+
 ### Shell Plugin
 
 - tmux
+
+```
+$ brew cask install tumx
+```
+
 - fzf
 - z
 
