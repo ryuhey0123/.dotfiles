@@ -38,6 +38,13 @@ if [[ $yn = [yY] ]]; then
 fi
 echo
 
+# gvim
+read -n1 -p "Add .gvimrc? (y/N): " yn
+if [[ $yn = [yY] ]]; then
+    ln -sf ~/.dotfiles/.gvimrc ~/.gvimrc
+fi
+echo
+
 # LaTeX
 read -n1 -p "Add .latexmkrc? (y/N): " yn
 if [[ $yn = [yY] ]]; then

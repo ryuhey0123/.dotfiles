@@ -128,3 +128,7 @@ hook_add = '''
     \}
     '''
 
+[[plugins]]
+repo = 'dag/vim-fish'
+on_ft = ['fish']
+
