@@ -37,7 +37,7 @@ $ brew install fish
 - tmux
 
 ```
-$ brew cask install tumx
+$ brew install tumx
 ```
 
 - fzf
