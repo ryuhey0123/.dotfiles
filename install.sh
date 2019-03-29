@@ -15,10 +15,24 @@ This is Ryuhey's dotfiles.
 
 EOS
 
-# zsh
+# zsh/zpulg
 read -n1 -p "Add .zshrc? (y/N): " yn
 if [[ $yn = [yY] ]]; then
     ln -sf ~/.dotfiles/.zshrc ~/.zshrc
+    echo
+    if [ -e ~/.zplug ]; then
+        echo "Already installed zplug."
+    else
+        curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+    fi
+fi
+echo
+
+# Alacritty
+read -n1 -p "Add .config.alacritty? (y/N): " yn
+if [[ $yn = [yY] ]]; then
+    rm -rf ~/.config/alacritty
+    ln -sf ~/.dotfiles/.config/alacritty/ ~/.config/alacritty
 fi
 echo
 
@@ -81,7 +95,7 @@ elif ["$(uname)" == 'Linux']; then
         ln -sf ~/.dotfiles/.Xresources ~/.Xresources
     fi
     echo
-    
+
     # .xprofile
     read -n1 -p "Add .xprofile? (y/N): " yn
     if [[ $yn = [yY] ]]; then
