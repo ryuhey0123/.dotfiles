@@ -36,6 +36,8 @@ hook_add = '''
 [[plugins]]
 repo = 'tomasr/molokai'
 hook_add = '''
+    autocmd ColorScheme * highlight Normal ctermbg=none
+    autocmd ColorScheme * highlight LineNr ctermbg=none
     colorscheme molokai 
 '''
 

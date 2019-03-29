@@ -132,3 +132,6 @@ hook_add = '''
 repo = 'dag/vim-fish'
 on_ft = ['fish']
 
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+
