@@ -8,7 +8,7 @@ hook_add = '''
     nmap <silent> [denite]<C-p> :<C-u>Denite file/rec
                 \ -highlight-mode-insert=Search<CR>
     " バッファに展開中のファイル検索
-    nmap <silent> [denite]<C-b> :<C-u>Denite buffer
+    nmap <silent> [denite]<C-f> :<C-u>Denite buffer
                 \ -highlight-mode-insert=Search<CR>
     " ファイル内の関数/クラス等の検索
     nmap <silent> [denite]<C-o> :<C-u>Denite outline
