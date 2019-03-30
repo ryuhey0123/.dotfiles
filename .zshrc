@@ -195,14 +195,13 @@ function addpages() {
 # PLUGINS ---------------------------------------------------------------------
 zplug "plugins/git", from:oh-my-zsh
 zplug "mafredri/zsh-async", from:github
-# zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
 zplug "~/.dotfiles/bin/pure", use:pure.zsh, from:local, as:theme
 
-Install plugins if there are plugins that have not been installed
+# Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
    printf "Install? [y/N]: "
    if read -q; then
