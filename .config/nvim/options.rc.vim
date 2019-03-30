@@ -48,7 +48,7 @@ set autoindent                      "新しい行のインデントを現在行�
 
 " Edit ------------------------------------------------------------------------
 set smartindent
-"set virtualedit=all                 "文字が存在しない部分でも動けるようにする
+set virtualedit=all                 "文字が存在しない部分でも動けるようにする
 set infercase                       "補完時に大文字小文字を区別しない
 set tw=0                            "自動改行オフ
 set showmatch                       "閉じカッコが入力時対応するカッコを強調
@@ -76,9 +76,9 @@ au BufRead,BufNewFile *.vss set filetype=vectorscript
 set sh=zsh
 
 " Spell check -----------------------------------------------------------------
-"set spelllang=en,cjk
-"hi clear SpellBad
-"hi SpellBad cterm=underline
+set spelllang=en,cjk
+hi clear SpellBad
+hi SpellBad cterm=underline
 
 " Python color syntax ---------------------------------------------------------
 let python_highlight_all = 1

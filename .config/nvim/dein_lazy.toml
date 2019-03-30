@@ -75,7 +75,6 @@ hook_source = '''
   endif
 '''
 
-# スニペット
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 on_i = 1
@@ -84,26 +83,15 @@ on_i = 1
 repo = 'cohama/lexima.vim'
 on_i = 1
 
-# file viewer
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
-    " 表示幅
-    let g:nerdtreewinsize=50
-    " ブックマークを表示
-    let g:NERDTreeShowBookmarks=1
-    " 親ディレクトリへ移動
-    let g:NERDTreeMapUpdir=''
-    " ファイルの開き方
-    let g:NERDTreeMapOpenSplit='<C-s>'
-    let g:NERDTreeMapOpenVSplit='<C-v><C-s>'
-    " ファイルを開いたらNERDTreeを閉じる
-    let g:NERDTreeQuitOnOpen=0
-    " 隠しファイルを表示
-    let g:NERDTreeShowHidden=1
+    let NERDTreeWinPos='left'
+    let g:nerdtreewinsize=50        " 表示幅
+    let g:NERDTreeMapUpdir=''       " 親ディレクトリへ移動
+    let g:NERDTreeShowHidden=1      " 隠しファイルを表示
     " 非表示ファイル
     let g:NERDTreeIgnore=['\.git$', '\.clean$', '\.swp$', '\.bak$', '\~$']
-    let NERDTreeWinPos = 'left'
     '''
 
 [[plugins]]
@@ -134,4 +122,10 @@ on_ft = ['fish']
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
+
+[[plugins]]
+repo = 'reireias/vim-cheatsheet'
+hook_add = '''
+    let g:cheatsheet#cheat_file = '~/.dotfiles/doc/vim_cheatsheet.md'
+'''
 

@@ -21,9 +21,6 @@ hook_add = '''
     let g:airline_section_a = airline#section#create(['mode','','branch'])
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-    " let g:airline#extensions#tabline#fnamemod = ':t'
-    " let g:airline#extensions#tabline#fnamecollapse = 0
-    " let g:airline#extensions#tabline#fnametruncate = 0
     let g:airline#extensions#tabline#show_buffers = 0
 '''
 
@@ -36,7 +33,9 @@ hook_add = '''
 [[plugins]]
 repo = 'tomasr/molokai'
 hook_add = '''
-    " Caret color
+    " Pair caret color
+    autocmd ColorScheme * highlight MatchParen ctermbg=gray
+    " Caret bar color
     autocmd ColorScheme * highlight Normal ctermbg=none
     autocmd ColorScheme * highlight LineNr ctermbg=none
     " Selected color
@@ -51,12 +50,6 @@ hook_add = '''
     let g:indentline_color_gui = '#708090'
     let g:indentline_char = "|"
     '''
-
-[[plugins]]
-repo = 'reireias/vim-cheatsheet'
-hook_add = '''
-    let g:cheatsheet#cheat_file = '~/.dotfiles/vim_cheatsheet.md'
-'''
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
