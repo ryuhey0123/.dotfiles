@@ -1,4 +1,3 @@
-# File Luncher
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
@@ -21,13 +20,9 @@ hook_add = '''
                 \ [{'name': 'file/rec', 'args': ['~/.dotfiles']}])<CR>
 '''
 hook_source = '''
-    " 横割りオープン
     call denite#custom#map('insert', '<C-K>', '<denite:do_action:split>')
-    " 縦割りオープン
     call denite#custom#map('insert', '<C-H>', '<denite:do_action:vsplit>')
-    " タブオープン
     call denite#custom#map('insert', '<C-T>', '<denite:do_action:tabopen>')
-    " 上下移動を<C-N>, <C-P>
     call denite#custom#map('normal', '<C-n>', '<denite:move_to_next_line>')
     call denite#custom#map('normal', '<C-p>', '<denite:move_to_previous_line>')
     call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>')
@@ -42,10 +37,9 @@ hook_source = '''
         \ ])
 '''
 
-# 補完プラグイン
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-on_i = 1 
+on_i = 1
 hook_source = '''
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#auto_complete_delay = 0
@@ -90,7 +84,6 @@ hook_add = '''
     let g:nerdtreewinsize=50        " 表示幅
     let g:NERDTreeMapUpdir=''       " 親ディレクトリへ移動
     let g:NERDTreeShowHidden=1      " 隠しファイルを表示
-    " 非表示ファイル
     let g:NERDTreeIgnore=['\.git$', '\.clean$', '\.swp$', '\.bak$', '\~$']
     '''
 

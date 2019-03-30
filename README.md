@@ -1,6 +1,6 @@
 # .dotfiles
 
-## Initialize
+## Install
 
 ``` 
 $ sh install.sh
@@ -13,6 +13,7 @@ $ sh install.sh
 - neovim
 - pycahrm
 - MacVim
+- Typora
 
 ### Terminal emulator
 
@@ -22,6 +23,8 @@ $ sh install.sh
 ```
 $ brew cask install Alacritty
 ```
+
+- iTerm
 
 ### Shell
 
