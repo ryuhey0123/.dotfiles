@@ -8,6 +8,7 @@
 #                                                         
 
 source $HOME/.dotfiles/bin/tmux_startup.zsh
+alias tmux='tmux -u'
 
 # 環境変数 --------------------------------------------------------------------
 
@@ -17,7 +18,7 @@ autoload -U promptinit; promptinit
 export LANG=ja_JP.UTF-8
 export PATH=$PATH:$HOME/.bin
 
-# zpulg
+
 export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
 
@@ -193,15 +194,15 @@ function addpages() {
 
 # PLUGINS ---------------------------------------------------------------------
 zplug "plugins/git", from:oh-my-zsh
-zplug "zsh-users/zsh-autosuggestions"
 zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+# zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
+zplug "~/.dotfiles/bin/pure", use:pure.zsh, from:local, as:theme
 
-# Install plugins if there are plugins that have not been installed
+Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
    printf "Install? [y/N]: "
    if read -q; then
