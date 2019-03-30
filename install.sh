@@ -29,7 +29,7 @@ echo "\033[1;37m Done \033[0;39m \n"
 
 echo "\033[1;33m \
 alias settiong ------------------------------------------------------- \033[0;39m"
-sh $HOME/.dotfiles/install_alias.sh
+sh $HOME/.dotfiles/install_link.sh
 echo "\033[1;37m Done \033[0;39m \n"
 
 echo "\033[1;33m \

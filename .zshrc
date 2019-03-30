@@ -7,71 +7,15 @@
 # (__)  (_______) /____/    /_/  \_\   )_) \__/    \____) 
 #                                                         
 
-source $HOME/.dotfiles/bin/tmux_startup.zsh
-alias tmux='tmux -u'
-
-# 環境変数 --------------------------------------------------------------------
-
 autoload -U promptinit; promptinit
+export DOTFILES=$HOME/.dotfiles/
 
-# general
-export LANG=ja_JP.UTF-8
-export PATH=$PATH:$HOME/.bin
+# Startup ---------------------------------------------------------------------
+source $HOME/.dotfiles/bin/tmux_startup.zsh
+source $DOTFILES/.env
+source $DOTFILES/bin/addpages.sh
 
-
-export ZPLUG_HOME=~/.zplug
-source $ZPLUG_HOME/init.zsh
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# pyenv
-if which pyenv > /dev/null 2>&1; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    if [[ -d $PYENV_ROOT ]];then
-        export PATH="$PYENV_ROOT/bin:$PATH"
-        eval "$(pyenv init -)"
-        eval "$(pyenv virtualenv-init -)"
-    fi
-fi
-
-# rbenv 
-if which rbenv > /dev/null 2>&1; then
-    export RBENV_ROOT="$HOME/.rbenv"
-    eval "$(rbenv init -)"
-fi
-
-# nodenv
-if which nodenv > /dev/null 2>&1; then
-    export NODENV_ROOT="$HOME/.nodenv"
-    eval "$(nodenv init -)"
-fi
-
-# golang
-if which go > /dev/null 2>&1; then
-    export GOPATH=$HOME/Developer/Go
-    export PATH=$PATH:$GOPATH/bin
-fi
-
-# z
-. `brew --prefix`/etc/profile.d/z.sh
-
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
-
-# ctags
-alias ctags="`brew --prefix`/bin/ctags"
-
-# mas
-if [ "$TMUX" != "" ];then
-    alias mas="reattach-to-user-namespace mas"
-fi
-
-# オプション ------------------------------------------------------------------
-
+# Options ---------------------------------------------------------------------
 setopt print_eight_bit          # 日本語ファイル名を表示可能にする
 setopt no_beep                  # beep を無効にする
 setopt no_flow_control          # フローコントロールを無効にする
@@ -88,47 +32,38 @@ setopt hist_reduce_blanks       # ヒストリに保存するときに余分な�
 setopt extended_glob            # 高機能なワイルドカード展開を使用する
 setopt auto_list
 setopt auto_menu
-
-# ヒストリの設定
+# History
 HISTFILE=~/.zhistory
 HISTSIZE=1000000
 SAVEHIST=1000000
-
-# 補完機能を有効にする
+# compinit
 autoload -Uz compinit
 setopt correct
 compinit
 
-# キーバインド --------------------------------------------------------------- 
-
-# ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
+# Keybind ------------------------------------------------------------------- 
 bindkey '^R' history-incremental-pattern-search-backward
-# emacs 風キーバインドにする
 bindkey -e
 
-
-# エイリアス ----------------------------------------------------------------
-
+# Alias -----------------------------------------------------------------------
 alias la='ls -A'
 alias ll='ls -l'
 alias lla='ll -A'
-
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-
 alias mkdir='mkdir -p'
+alias sudo='sudo '          # sudo の後のコマンドでエイリアスを有効にする
+# tmux
+alias tmux='tmux -u'
+# ctags
+alias ctags="`brew --prefix`/bin/ctags"
+# mas
+if [ "$TMUX" != "" ];then
+    alias mas="reattach-to-user-namespace mas"
+fi
 
-# sudo の後のコマンドでエイリアスを有効にする
-alias sudo='sudo '
-
-# グローバルエイリアス
-alias -g L='| less'
-alias -g G='| grep'
-
-
-# Colors ----------------------------------------------------------------------
-# ls の色設定
+# Ls Colors ----------------------------------------------------------------------
 export LSCOLORS=gxfxcxdxbxegedabagacad
 #   ---------------------LS_COLORS--------------------
 #   No	    Type	            Foreground	Background
@@ -165,34 +100,10 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 #   H	bold light grey; looks like bright white
 #   x	default foreground or background
 
-# OS 別の設定 -----------------------------------------------------------------
-case ${OSTYPE} in
-    darwin*)
-        #Mac用の設定
-        export CLICOLOR=1
-        alias ls='ls -G -F'
-        ;;
-    linux*)
-        #Linux用の設定
-        alias ls='ls -F --color=auto'
-        ;;
-esac
+# zplug -----------------------------------------------------------------------
+export ZPLUG_HOME=~/.zplug
+source $ZPLUG_HOME/init.zsh
 
-
-### Commands ##################################################################
-
-# 構造計算書用ページ振り
-# 第一引数から第二引数までのページを振る
-# 例) addpages 0 7 -> 0*.pdf から 7*.pdf までのページが振られる
-function addpages() {
-    for i in `seq $1 $2`
-    do
-        addpage -f "${i} - %d" -z 8 -o $i.pdf $i*.pdf
-    done
-}
-
-
-# PLUGINS ---------------------------------------------------------------------
 zplug "plugins/git", from:oh-my-zsh
 zplug "mafredri/zsh-async", from:github
 zplug "zsh-users/zsh-syntax-highlighting"
