@@ -15,62 +15,49 @@ This is Ryuhey's dotfiles.
 
 EOS
 
-echo "dotfiles update --------------------------------------------------------"
+echo "\033[1;33m \
+dotfiles update ------------------------------------------------------ \033[0;39m"
+
 cd $HOME/.dotfiles
 git pull origin master
-echo
+echo "\033[1;37m Done \033[0;39m \n"
 
-echo "Application install ----------------------------------------------------"
+echo "\033[1;33m \
+brew application install / update ------------------------------------ \033[0;39m"
 sh $HOME/.dotfiles/install_brew.sh
-echo "Finish"
+echo "\033[1;37m Done \033[0;39m \n"
 
-echo "alias settiong ---------------------------------------------------------"
+echo "\033[1;33m \
+alias settiong ------------------------------------------------------- \033[0;39m"
 sh $HOME/.dotfiles/install_alias.sh
-echo "Finish"
+echo "\033[1;37m Done \033[0;39m \n"
 
-# OS settings
+echo "\033[1;33m \
+OS settiong ---------------------------------------------------------- \033[0;39m"
+
 if [[ "$(uname)" == 'Darwin' ]]; then
     echo "Your platform is Darwin. Finish."
-    exit 1
 
 elif ["$(uname)" == 'Linux']; then
     echo "Your platform is Linux"
-    echo "Setup i3-wm and ranger config file."
     # i3
-    read -n1 -p "Add .config/i3? (y/N): " yn
-    if [[ $yn = [yY] ]]; then
-        ln -sf ~/.dotfiles/.config/i3 ~/.config/i3
-        rm -rf ~/.dotfiles/.config/i3/i3
-    fi
-    echo
-
+    echo "Setup i3-wm config file."
+    rm -rf ~/.config/i3
+    ln -sf ~/.dotfiles/.config/i3 ~/.config/i3
     # .Xresources
-    read -n1 -p "Add .Xresources? (y/N): " yn
-    if [[ $yn = [yY] ]]; then
-        ln -sf ~/.dotfiles/.Xresources ~/.Xresources
-    fi
-    echo
-
-    # .xprofile
-    read -n1 -p "Add .xprofile? (y/N): " yn
-    if [[ $yn = [yY] ]]; then
-        ln -sf ~/.dotfiles/.xprofile ~/.xprofile
-    fi
-    echo
-    
+    echo "Xresources/xprofile config file."
+    ln -sf ~/.dotfiles/.Xresources ~/.Xresources
+    ln -sf ~/.dotfiles/.xprofile ~/.xprofile
     # ranger
-    read -n1 -p "Add .config/ranger? (y/N): " yn
-    if [[ $yn = [yY] ]]; then
-        ln -sf ~/.dotfiles/.config/ranger ~/.config/ranger
-        rm -rf ~/.dotfiles/.config/ranger/ranger
-    fi
-    echo
-    
-    exit 1
+    echo "ranger config file."
+    rm -rf ~/.config/ranger
+    ln -sf ~/.dotfiles/.config/ranger ~/.config/ranger
 
 else
     echo "Your platform ($(uname -a)) is not supported."
-    exit 1
 
 fi
+
+echo "\033[1;36m ALL DONE! \033[0:39m"
+exit 1
 
