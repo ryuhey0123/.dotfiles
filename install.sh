@@ -15,63 +15,18 @@ This is Ryuhey's dotfiles.
 
 EOS
 
-# zsh/zpulg
-read -n1 -p "Add .zshrc? (y/N): " yn
-if [[ $yn = [yY] ]]; then
-    ln -sf ~/.dotfiles/.zshrc ~/.zshrc
-    echo
-    if [ -e ~/.zplug ]; then
-        echo "Already installed zplug."
-    else
-        curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-    fi
-fi
+echo "dotfiles update --------------------------------------------------------"
+cd $HOME/.dotfiles
+git pull origin master
 echo
 
-# Alacritty
-read -n1 -p "Add .config.alacritty? (y/N): " yn
-if [[ $yn = [yY] ]]; then
-    rm -rf ~/.config/alacritty
-    ln -sf ~/.dotfiles/.config/alacritty/ ~/.config/alacritty
-fi
-echo
+echo "Application install ----------------------------------------------------"
+sh $HOME/.dotfiles/install_brew.sh
+echo "Finish"
 
-# tmux
-read -n1 -p "Add .tmux.conf? (y/N): " yn
-if [[ $yn = [yY] ]]; then
-    ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
-fi
-echo
-
-# vim/neovim
-read -n1 -p "Add .vimrc and .config/nvim? (y/N): " yn
-if [[ $yn = [yY] ]]; then
-    ln -sf ~/.dotfiles/.vimrc ~/.vimrc
-    ln -sf ~/.dotfiles/.config/nvim ~/.config/nvim
-    rm -rf ~/.dotfiles/.config/nvim/nvim
-fi
-echo
-
-# gvim
-read -n1 -p "Add .gvimrc? (y/N): " yn
-if [[ $yn = [yY] ]]; then
-    ln -sf ~/.dotfiles/.gvimrc ~/.gvimrc
-fi
-echo
-
-# LaTeX
-read -n1 -p "Add .latexmkrc? (y/N): " yn
-if [[ $yn = [yY] ]]; then
-    ln -sf ~/.dotfiles/.latexmkrc ~/.latexmkrc
-fi
-echo
-
-# ideavim
-read -n1 -p "Add .ideavimrc? (y/N): " yn
-if [[ $yn = [yY] ]]; then
-    ln -sf ~/.dotfiles/.ideavimrc ~/.ideavimrc
-fi
-echo
+echo "alias settiong ---------------------------------------------------------"
+sh $HOME/.dotfiles/install_alias.sh
+echo "Finish"
 
 # OS settings
 if [[ "$(uname)" == 'Darwin' ]]; then

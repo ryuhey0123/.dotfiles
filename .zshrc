@@ -64,6 +64,10 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 # ctags
 alias ctags="`brew --prefix`/bin/ctags"
 
+# mas
+if [ "$TMUX" != "" ];then
+    alias mas="reattach-to-user-namespace mas"
+fi
 
 # オプション ------------------------------------------------------------------
 

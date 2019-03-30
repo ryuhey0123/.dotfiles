@@ -48,7 +48,7 @@ set autoindent                      "新しい行のインデントを現在行�
 
 " Edit ------------------------------------------------------------------------
 set smartindent
-set virtualedit=all                 "文字が存在しない部分でも動けるようにする
+" set virtualedit=all                 "文字が存在しない部分でも動けるようにする
 set infercase                       "補完時に大文字小文字を区別しない
 set tw=0                            "自動改行オフ
 set showmatch                       "閉じカッコが入力時対応するカッコを強調
