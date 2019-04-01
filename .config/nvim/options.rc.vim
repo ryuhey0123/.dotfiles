@@ -58,7 +58,7 @@ set backspace=indent,eol,start      "バックスペースで各種消せるよ�
 set modeline                        "モードラインをオンにする
 set modelines=5                     "5行までモードラインを検索する<Paste>
 set clipboard+=unnamed              "クリップボードの共有
-set shiftround                      "インデントをshiftwidthの倍数に
+set shiftround                      "インデントをshift widthの倍数に
 set mouse=a                         "マウスモード有効
 set nostartofline                   "移動コマンドを使った時行頭に移動しない
 
@@ -77,8 +77,14 @@ set sh=zsh
 
 " Spell check -----------------------------------------------------------------
 set spelllang=en,cjk
-hi clear SpellBad
-hi SpellBad cterm=underline
+
+" :set spell    スペルチェック機能を ON
+" :set nospell  スペルチェック機能を OFF
+" ]s            次のスペルミスの箇所へ移動
+" [s            前のスペルミスの箇所へ移動
+" z             正しいスペルの候補を表示し、選択した単語でスペルミスを修正
+" zg            カーソル下の単語を正しいスペルとして辞書登録
+" zw            カーソル下の単語を誤ったスペルとして辞書登録
 
 " syntax ----------------------------------------------------------------------
 let g:python_highlight_all = 1

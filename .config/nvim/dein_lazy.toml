@@ -114,9 +114,6 @@ repo = 'dag/vim-fish'
 on_ft = ['fish']
 
 [[plugins]]
-repo = 'junegunn/vim-easy-align'
-
-[[plugins]]
 repo = 'reireias/vim-cheatsheet'
 hook_add = '''
     let g:cheatsheet#cheat_file = '~/.dotfiles/doc/vim_cheatsheet.md'
