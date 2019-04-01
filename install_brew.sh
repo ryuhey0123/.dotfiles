@@ -44,7 +44,7 @@ brew install neovim
 brew install tmux
 
 # fzf - A command-line fuzzy finder
-brew install fzf
+# brew install fzf
 
 # z - jump around
 brew install z
