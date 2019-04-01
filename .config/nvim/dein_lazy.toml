@@ -1,4 +1,32 @@
 [[plugins]]
+repo = 'junegunn/fzf.vim'
+# depends ='fzf'
+hook_add = '''
+    set rtp+=/usr/local/opt/fzf
+    nnoremap [fzf] <Nop>
+    nmap <C-x> [fzf]
+    " Project dir
+    nmap [fzf]<C-p> :Files<CR>
+    " Buffer
+    nmap [fzf]<C-f> :Buffers<CR>
+    " Function/Class in current buffers
+    nmap [fzf]<C-o> :BTags<CR>
+    " dotfiles
+    nmap [fzf]<C-d> :Files ~/.dotfiles<CR>
+    " keymap
+    let g:fzf_action = {
+        \ 'ctrl-t': 'tab split',
+        \ 'ctrl-k': 'split',
+        \ 'ctrl-h': 'vsplit' }
+    " Files コマンドでプレビュー表示
+    command! -bang -nargs=? -complete=dir Files
+        \ call fzf#vim#files(
+        \ <q-args>,
+        \ fzf#vim#with_preview({'source': 'ag --hidden --ignore .git -g ""'}),
+        \ <bang>0)
+'''
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
     nnoremap [denite] <Nop>

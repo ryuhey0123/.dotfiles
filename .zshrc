@@ -64,8 +64,8 @@ setopt hist_verify
 autoload history-search-end
 
 # Ctrl+rでヒストリーのインクリメンタルサーチ、Ctrl+sで逆順
-bindkey '^R' history-incremental-pattern-search-backward
-bindkey '^S' history-incremental-pattern-search-forward
+# bindkey '^R' history-incremental-pattern-search-backward
+# bindkey '^S' history-incremental-pattern-search-forward
 
 # コマンドを途中まで入力後、historyから絞り込み
 # 例 ls まで打ってCtrl+pでlsコマンドをさかのぼる、Ctrl+bで逆順
@@ -152,7 +152,7 @@ zplug "mafredri/zsh-async", from:github
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
+# zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "rupa/z", use:"*.sh"
 
 # lazy
@@ -171,3 +171,6 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
