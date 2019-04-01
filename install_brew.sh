@@ -47,11 +47,14 @@ brew install tmux
 # brew install fzf
 
 # z - jump around
-brew install z
+# brew install z
 
 # cask application install
 echo "\033[1;36m Running 'brew cask install' command... \033[0;39m"
 
 # alacritty
-brew cask install alacritty
+# brew cask install alacritty
+
+# iTerm
+brew cask install iTerm2
 
