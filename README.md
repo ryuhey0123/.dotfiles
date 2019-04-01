@@ -10,39 +10,32 @@ $ sh install.sh
 
 ### Editor
 
-- neovim
-- pycahrm
+- neovim ⭐️
+Vim-fork focused on extensibility and usability (https://github.com/neovim/neovim)
+- pycahrm ⭐️
+Python IDE (https://www.jetbrains.com/pycharm/)
 - MacVim
+GUI VIM(https://github.com/macvim-dev/macvim)
 - Typora
+Markdown editor (https://typora.io/)
 
 ### Terminal emulator
 
+- iTerm ⭐️
+Standard terminal emulator (https://www.iterm2.com/index.html)
 - Hyper
+Made up by electron (https://hyper.is/)
 - Alacritty
-
-```
-$ brew cask install Alacritty
-```
-
-- iTerm
+GPU supported terminal emulator (https://github.com/jwilm/alacritty)
 
 ### Shell
 
-- zsh
+- zsh ⭐️
 - fish
-
-```
-$ brew install fish
-```
 
 ### Shell Plugin
 
-- tmux
-
-```
-$ brew install tumx
-```
-
-- fzf
-- z
+- tmux ⭐️
+- fzf ⭐️
+- z ⭐️
 
