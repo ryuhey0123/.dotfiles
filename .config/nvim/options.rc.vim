@@ -80,6 +80,7 @@ set spelllang=en,cjk
 hi clear SpellBad
 hi SpellBad cterm=underline
 
-" Python color syntax ---------------------------------------------------------
-let python_highlight_all = 1
+" syntax ----------------------------------------------------------------------
+let g:python_highlight_all = 1
+let g:is_bash = 1
 

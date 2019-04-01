@@ -14,6 +14,7 @@ export DOTFILES=$HOME/.dotfiles/
 source $HOME/.dotfiles/bin/tmux_startup.zsh
 source $DOTFILES/.env
 source $DOTFILES/bin/addpages.sh
+source $DOTFILES/bin/pdf-concat.sh
 
 # Options ---------------------------------------------------------------------
 setopt print_eight_bit          # 日本語ファイル名を表示可能にする
