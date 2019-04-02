@@ -152,7 +152,6 @@ zplug "mafredri/zsh-async", from:github
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
-# zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "rupa/z", use:"*.sh"
 
 # lazy

@@ -15,12 +15,6 @@ repo = 'tpope/vim-commentary'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'junegunn/vim-easy-align'
-hook_add = '''
-    vmap <CR> <Plug>(EasyAlign)
-'''
-
-[[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
     set t_Co=256
@@ -72,4 +66,7 @@ hook_add = '''
     let g:gitgutter_sign_removed = '∙'
     let g:gitgutter_sign_modified_removed = '∙'
 '''
+
+[[plugins]]
+repo = 'wsdjeg/dein-ui.vim'
 

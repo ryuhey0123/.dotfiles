@@ -1,68 +1,25 @@
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-# depends ='fzf'
 hook_add = '''
-    set rtp+=/usr/local/opt/fzf
+    " set fzf command path
+    set runtimepath+=/usr/local/opt/fzf
+    " keybind
     nnoremap [fzf] <Nop>
-    nmap <C-x> [fzf]
-    " Project dir
-    nmap [fzf]<C-p> :Files<CR>
-    " Buffer
-    nmap [fzf]<C-f> :Buffers<CR>
-    " Function/Class in current buffers
-    nmap [fzf]<C-o> :BTags<CR>
-    " dotfiles
+    nmap <C-f> [fzf]
+    nmap [fzf]<C-f> :Files<CR>
+    nmap [fzf]<C-g> :GFiles?<CR>
+    nmap [fzf]<C-b> :Buffers<CR>
+    nmap [fzf]<C-t> :BTags<CR>
     nmap [fzf]<C-d> :Files ~/.dotfiles<CR>
-    " keymap
+    nmap [fzf]<C-h> :History<CR>
+    " Selection keybind
     let g:fzf_action = {
         \ 'ctrl-t': 'tab split',
         \ 'ctrl-k': 'split',
         \ 'ctrl-h': 'vsplit' }
-    " Files コマンドでプレビュー表示
+    " Files with preview window
     command! -bang -nargs=? -complete=dir Files
-        \ call fzf#vim#files(
-        \ <q-args>,
-        \ fzf#vim#with_preview({'source': 'ag --hidden --ignore .git -g ""'}),
-        \ <bang>0)
-'''
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = '''
-    nnoremap [denite] <Nop>
-    nmap <C-f> [denite]
-    " プロジェクト内のファイル検索
-    nmap <silent> [denite]<C-p> :<C-u>Denite file/rec
-                \ -highlight-mode-insert=Search<CR>
-    " バッファに展開中のファイル検索
-    nmap <silent> [denite]<C-f> :<C-u>Denite buffer
-                \ -highlight-mode-insert=Search<CR>
-    " ファイル内の関数/クラス等の検索
-    nmap <silent> [denite]<C-o> :<C-u>Denite outline
-                \ -highlight-mode-insert=Search<CR>
-    " grep検索
-    nmap <silent> [denite]<C-g> :<C-u>Denite 
-                \ -auto_preview grep -highlight-mode-insert=Search<CR>
-    " dotfiles配下をカレントにしてfile_rec起動
-    nmap <silent> [denite]<C-d> :<C-u>call denite#start(
-                \ [{'name': 'file/rec', 'args': ['~/.dotfiles']}])<CR>
-'''
-hook_source = '''
-    call denite#custom#map('insert', '<C-K>', '<denite:do_action:split>')
-    call denite#custom#map('insert', '<C-H>', '<denite:do_action:vsplit>')
-    call denite#custom#map('insert', '<C-T>', '<denite:do_action:tabopen>')
-    call denite#custom#map('normal', '<C-n>', '<denite:move_to_next_line>')
-    call denite#custom#map('normal', '<C-p>', '<denite:move_to_previous_line>')
-    call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>')
-    call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>')
-    " ignore files
-    call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', [
-            \ '.git/', 'build/', '__pycache__/',
-            \ 'images/', '*.o', '*.make', '*.min.*',
-            \ 'img/', 'fonts/', '*~', '*.exe', '*.bak',
-            \ '.DS_Store', '*.pyc', '*.class', 'tags',
-            \ 'venv/'
-        \ ])
+        \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 '''
 
 [[plugins]]
@@ -145,5 +102,11 @@ on_ft = ['fish']
 repo = 'reireias/vim-cheatsheet'
 hook_add = '''
     let g:cheatsheet#cheat_file = '~/.dotfiles/doc/vim_cheatsheet.md'
+'''
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+    vmap <CR> <Plug>(EasyAlign)
 '''
 

@@ -46,11 +46,14 @@ brew install tmux
 # fzf - A command-line fuzzy finder
 brew install fzf
 
+# ag - A code-searching tool similar to ack, but faster.
+brew install ag
+
 # tree
 brew install tree
 
 # z - jump around
-# brew install z
+# brew install z # -> zplug
 
 # cask application install
 echo "\033[1;36m Running 'brew cask install' command... \033[0;39m"
