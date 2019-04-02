@@ -11,7 +11,7 @@ autoload -U promptinit; promptinit
 export DOTFILES=$HOME/.dotfiles/
 
 # Startup ---------------------------------------------------------------------
-source $HOME/.dotfiles/bin/tmux_startup.zsh     # tmux auto startup script
+source $DOTFILES/bin/tmux_startup.zsh     # tmux auto startup script
 source $DOTFILES/.env                           # environment variable
 source $DOTFILES/bin/addpages.sh
 source $DOTFILES/bin/pdf-concat.sh
