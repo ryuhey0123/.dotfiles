@@ -8,7 +8,7 @@ hook_add = '''
     nmap <C-f> [fzf]
     nmap [fzf]<C-f> :Files<CR>
     nmap [fzf]<C-g> :GFiles?<CR>
-    nmap [fzf]<C-b> :Buffers<CR>
+    nmap [fzf]<C-u> :Buffers<CR>
     nmap [fzf]<C-t> :BTags<CR>
     nmap [fzf]<C-d> :Files ~/.dotfiles<CR>
     nmap [fzf]<C-h> :History<CR>
