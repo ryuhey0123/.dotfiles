@@ -153,7 +153,6 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
 zplug "rupa/z", use:"*.sh"
-
 # lazy
 zplug "zsh-users/zsh-syntax-highlighting"
 # local
@@ -170,6 +169,3 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
