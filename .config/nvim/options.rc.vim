@@ -1,11 +1,9 @@
-" Color Theme -----------------------------------------------------------------
-" hi CursorLine guifg=#E19972
-
 " Encoding --------------------------------------------------------------------
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
 
 " Appearance -----------------------------------------------------------------
+set t_Co=256
 set wildmenu                        "ナビゲーションバー
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so
@@ -26,11 +24,8 @@ set laststatus=2                    "2行目にステータスラインを常時
 set showtabline=2                   "常にタブラインを表示
 set wrap                            "ウィンドウより長い行は折り畳む
 set list                            "不可視文字の可視化
-
 set visualbell t_vb=
-
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
-
 
 " Searching --------------------------------------------------------------------
 set ignorecase                      "大文字小文字を区別しない
