@@ -67,4 +67,15 @@ nnoremap <S-Down>  <C-w>+
 " Plugin Toggle----------------------------------------------------------------
 nnoremap <silent> <F2> :NERDTreeToggle <bar> :TagbarToggle<CR>
 nnoremap <silent> <F5> :QuickRun<CR>
+vmap <CR> <Plug>(EasyAlign)
+
+" fzf -------------------------------------------------------------------------
+nnoremap [fzf] <Nop>
+nmap <C-f> [fzf]
+nmap [fzf]<C-p> :Files<CR>
+nmap [fzf]<C-g> :GFiles?<CR>
+nmap [fzf]<C-f> :Buffers<CR>
+nmap [fzf]<C-t> :BTags<CR>
+nmap [fzf]<C-d> :Files ~/.dotfiles<CR>
+nmap [fzf]<C-h> :History<CR>
 
