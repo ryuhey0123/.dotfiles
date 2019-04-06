@@ -14,17 +14,17 @@ augroup MyAutoCmd
     autocmd!
 augroup END
 
-"pyenv settings---------------------------
+"pyenv settings ---------------------------------------------------------------
 let g:python_host_prog = $PYENV_ROOT . '/versions/neovim2/bin/python'
 let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim3/bin/python'
 
-"rbenv setings----------------------------
+"rbenv setings ----------------------------------------------------------------
 let g:ruby_host_prog = $RBENV_ROOT . '/versions/2.5.3/bin/neovim-ruby-host' 
 
-"nodenv settings--------------------------
+"nodenv settings --------------------------------------------------------------
 let g:node_host_prog = $NODENV_ROOT . '/versions/11.3.0/bin/neovim-node-host'
 
-"dein Scripts-----------------------------
+"dein Scripts -----------------------------------------------------------------
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
@@ -70,8 +70,7 @@ filetype plugin indent on
 syntax enable
 
 
-"End dein Scripts-------------------------
-
+"call other settings ----------------------------------------------------------
 runtime! options.rc.vim
 runtime! keymap.rc.vim
 
