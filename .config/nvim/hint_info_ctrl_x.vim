@@ -1,3 +1,6 @@
+" Show hints at pushed Ctrl+x
+" Ctrl+x 補完時にヒントを自動表示するスクリプト
+
 " 入力キーの辞書
 let s:compl_key_dict = {
       \ char2nr("\<C-l>"): "\<C-x>\<C-l>",

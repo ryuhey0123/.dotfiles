@@ -1,3 +1,5 @@
+" Show syntax hilight information under cursol string
+" SyntaxInfo コマンドでカーソル下のシンタックスハイライト情報を表示する
 
 function! s:get_syn_id(transparent)
     let synid = synID(line("."), col("."), 1)
