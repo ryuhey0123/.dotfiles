@@ -9,7 +9,7 @@
 " |__/  \__/|________/    |__/    |__/     |__/|__/  |__/|__/      
 
 
-" General--------------------------------------------------------------------- 
+" General ---------------------------------------------------------------------
 inoremap <silent> jj <ESC>
 inoremap <silent> っj <esc>
 nnoremap ; :
@@ -32,17 +32,15 @@ vnoremap <silent> k gk
 " vを二回で行末まで選択
 vnoremap v $h
 
-" TABにて対応ペアにジャンプ
-nnoremap <Tab> %
-vnoremap <Tab> %
-
-" F8キーで設定を再読み込み
-nnoremap <silent> <F8> :source $HOME/.config/nvim/init.vim<CR> :nohlsearch<CR>
-
-" C-jでインサートモード中にo
+" C-jでインサートモード中にo/O
 inoremap <C-j> <ESC>o
+inoremap <C-k> <ESC>O
 
-" Tab-------------------------------------------------------------------------
+" インサートモード中に動けるように
+inoremap <C-l> <Right>
+inoremap <C-h> <Left>
+
+" Tab -------------------------------------------------------------------------
 " Prefix
 nnoremap [Tag] <Nop>
 nmap t [Tag]
@@ -55,8 +53,7 @@ map <silent> [Tag]q :tabclose<CR>
 map <silent> [Tag]l :tabnext<CR>
 map <silent> [Tag]h :tabprevious<CR>
 
-
-" Split-----------------------------------------------------------------------
+" Split -----------------------------------------------------------------------
 nnoremap <Space> <C-w>w
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -68,18 +65,6 @@ nnoremap <S-Right> <C-w>>
 nnoremap <S-Up>    <C-w>-
 nnoremap <S-Down>  <C-w>+
 
-" Plugin Toggle----------------------------------------------------------------
-nnoremap <silent> <F2> :NERDTreeToggle <bar> :TagbarToggle<CR>
-nnoremap <silent> <F5> :QuickRun<CR>
-vmap <CR> <Plug>(EasyAlign)
-
-" fzf -------------------------------------------------------------------------
-nnoremap [fzf] <Nop>
-nmap <C-f> [fzf]
-nmap [fzf]<C-p> :Files<CR>
-nmap [fzf]<C-g> :GFiles?<CR>
-nmap [fzf]<C-f> :Buffers<CR>
-nmap [fzf]<C-t> :BTags<CR>
-nmap [fzf]<C-d> :Files ~/.dotfiles<CR>
-nmap [fzf]<C-h> :History<CR>
+" Spell check -----------------------------------------------------------------
+nnoremap <F8> :<C-u>setlocal spell!<CR>
 
