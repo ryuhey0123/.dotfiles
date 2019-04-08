@@ -26,6 +26,8 @@ set wrap                            "ウィンドウより長い行は折り畳�
 set list                            "不可視文字の可視化
 set visualbell t_vb=
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+set signcolumn=yes
+set updatetime=50
 
 " Searching --------------------------------------------------------------------
 set ignorecase                      "大文字小文字を区別しない

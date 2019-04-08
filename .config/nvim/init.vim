@@ -29,4 +29,6 @@ let g:node_host_prog = $NODENV_ROOT . '/versions/11.3.0/bin/neovim-node-host'
 runtime! plug.rc.vim
 runtime! options.rc.vim
 runtime! keymap.rc.vim
+runtime! get_syc_id.vim
+runtime! hint_info_ctrl_x.vim
 
