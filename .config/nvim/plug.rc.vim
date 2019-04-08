@@ -106,3 +106,6 @@ let g:quickrun_config = {
     \ }
 \}
 
+"" vim-polyglot
+let g:polyglot_disabled = ['markdown']
+
