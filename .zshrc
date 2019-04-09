@@ -11,7 +11,7 @@ autoload -U promptinit; promptinit
 export DOTFILES=$HOME/.dotfiles/
 
 # Startup ---------------------------------------------------------------------
-source $DOTFILES/bin/tmux_startup.zsh     # tmux auto startup script
+# source $DOTFILES/bin/tmux_startup.zsh     # tmux auto startup script
 source $DOTFILES/.env                           # environment variable
 source $DOTFILES/bin/addpages.sh
 source $DOTFILES/bin/pdf-concat.sh
@@ -153,6 +153,7 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
 zplug "rupa/z", use:"*.sh"
+zplug "mafredri/zsh-async", from:github
 # lazy
 zplug "zsh-users/zsh-syntax-highlighting"
 # local
