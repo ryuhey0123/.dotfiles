@@ -15,6 +15,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug '/usr/local/opt/fzf'
 " Appearance
 Plug 'tomasr/molokai'
+Plug 'cocopon/iceberg.vim'
+Plug 'rakr/vim-one'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Integrations
@@ -43,28 +45,9 @@ call plug#end()
 
 
 "" Color scheme
-" Comment color
-autocmd ColorScheme * highlight clear vimComment
-autocmd ColorScheme * highlight vimComment cterm=italic ctermfg=darkgray
-autocmd ColorScheme * highlight clear vimLineComment
-autocmd ColorScheme * highlight vimLineComment cterm=italic ctermfg=darkgreen
-" Spell check highlight
-autocmd ColorScheme * highlight clear SpellBad
-autocmd ColorScheme * highlight clear SpellCap
-autocmd ColorScheme * highlight SpellBad cterm=undercurl
-autocmd ColorScheme * highlight SpellCap cterm=undercurl
-" Pair caret color
-autocmd ColorScheme * highlight MatchParen ctermbg=gray
-" Caret bar color
-autocmd ColorScheme * highlight Normal ctermbg=none
-autocmd ColorScheme * highlight LineNr ctermbg=none
-" Selected color
-autocmd ColorScheme * highlight Visual ctermbg=darkblue
-" Popup menu
-autocmd ColorScheme * highlight Pmenu ctermbg=darkgray ctermfg=lightblue
-autocmd ColorScheme * highlight PmenuSel ctermbg=gray
-" Scheme
-colorscheme molokai 
+set background=dark
+let g:one_allow_italics = 1
+colorscheme one
 
 "" deoplete
 let g:deoplete#enable_at_startup = 1
@@ -78,8 +61,8 @@ let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#max_list = 10
 
 "" Airline
-let g:airline_theme = 'deus'
-let g:airline_powerline_fonts = 1
+let g:airline_theme = 'iceberg'
+" let g:airline_powerline_fonts = 1
 let g:airline_section_a = airline#section#create(['mode','','branch'])
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
