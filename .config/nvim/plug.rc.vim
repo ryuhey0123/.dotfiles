@@ -28,9 +28,12 @@ Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 Plug 'yggdroot/indentline'              " Indent line
 " Language
 Plug 'sheerun/vim-polyglot'             " A solid language pack for Vim.
+" Complete
+Plug 'Shougo/deoplete.nvim'
 " Lazy
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'}
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'szw/vim-tags', {'on': 'TagsGenerate'}
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} 
 Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 " System
@@ -57,9 +60,22 @@ autocmd ColorScheme * highlight Normal ctermbg=none
 autocmd ColorScheme * highlight LineNr ctermbg=none
 " Selected color
 autocmd ColorScheme * highlight Visual ctermbg=darkblue
-" scheme
+" Popup menu
+autocmd ColorScheme * highlight Pmenu ctermbg=darkgray ctermfg=lightblue
+autocmd ColorScheme * highlight PmenuSel ctermbg=gray
+" Scheme
 colorscheme molokai 
 
+"" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_camel_case = 0
+let g:deoplete#enable_ignore_case = 0
+let g:deoplete#enable_refresh_always = 0
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#max_list = 10
 
 "" Airline
 let g:airline_theme = 'deus'
@@ -69,17 +85,14 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#show_buffers = 0
 
-
 " nerdtree/tagbar
 nnoremap <silent> <F2> :NERDTreeToggle <bar> :TagbarToggle<CR>
-
 
 "" gitgutter
 let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
-
 
 "" fzf
 " Selection keybind
@@ -111,15 +124,12 @@ nmap [fzf]<C-t> :BTags<CR>
 nmap [fzf]<C-d> :Files ~/.dotfiles<CR>
 nmap [fzf]<C-h> :History<CR>
 
-
 " Easy-align
 vmap <CR> <Plug>(EasyAlign)
-
 
 "" tagbar
 let g:tagbar_left = 1
 let g:tagbar_vertical = 25
-
 
 "" vim-quickrun
 let g:quickrun_config = {
@@ -133,7 +143,6 @@ let g:quickrun_config = {
     \ }
 \}
 nnoremap <silent> <F5> :QuickRun<CR>
-
 
 "" vim-polyglot
 let g:polyglot_disabled = ['markdown']
