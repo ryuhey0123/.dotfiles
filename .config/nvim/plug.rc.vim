@@ -21,18 +21,20 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'               " Add parentheses commands
 Plug 'tpope/vim-commentary'             " Add comment string commands
 Plug 'tpope/vim-fugitive'               " Add git commands
-Plug 'junegunn/vim-easy-align'          " Align tool
 Plug 'cohama/lexima.vim'                " Auto close parentheses
-Plug 'Shougo/vimproc.vim', {'do': 'make'}
-Plug 'thinca/vim-quickrun'              " Quick runner
 " Interface
 Plug 'airblade/vim-gitgutter'           " Show diffs
-Plug 'majutsushi/tagbar'                " Displays tags
-Plug 'scrooloose/nerdtree'              " File manager
 Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 Plug 'yggdroot/indentline'              " Indent line
 " Language
 Plug 'sheerun/vim-polyglot'             " A solid language pack for Vim.
+" Lazy
+Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'}
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} 
+Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
+" System
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
 call plug#end()
 
@@ -67,7 +69,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#show_buffers = 0
 
 
-" nerdtree
+" nerdtree/tagbar
 nnoremap <silent> <F2> :NERDTreeToggle <bar> :TagbarToggle<CR>
 
 
@@ -76,12 +78,6 @@ let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
-
-
-"" Indent line
-let g:indentline_color_term = 111
-let g:indentline_color_gui = '#708090'
-let g:indentline_char = "|"
 
 
 "" fzf
@@ -93,13 +89,10 @@ let g:fzf_action = {
 " Files with preview window
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-" [Buffers] Jump to the existing window if possible
-let g:fzf_buffers_jump = 1
-" Hide status line
+" status line
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-" Cosutom statusline
 function! s:fzf_statusline()
   highlight fzf1 ctermfg=161 ctermbg=251
   highlight fzf2 ctermfg=23 ctermbg=251
