@@ -79,14 +79,32 @@ bindkey "^N" history-beginning-search-forward-end
 bindkey -e
 
 # Alias -----------------------------------------------------------------------
+# Global
+alias -g G='| grep --color=auto' # 鉄板
+alias -g L='| less -R'
+alias -g X='| xargs'
+# ls
 alias la='ls -A'
 alias ll='ls -l'
 alias lla='ll -A'
+# safety
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+# mkdir
 alias mkdir='mkdir -p'
+function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+# sudo
 alias sudo='sudo '          # sudo の後のコマンドでエイリアスを有効にする
+# git
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+# editor
+alias vim='nvim'
+alias vi='nvim'
+alias ed='nvim'
+alias edit='nvim'
 # tmux
 alias tmux='tmux -u'
 # ctags
@@ -154,8 +172,9 @@ zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
 zplug "rupa/z", use:"*.sh"
 zplug "mafredri/zsh-async", from:github
+zplug "b4b4r07/enhancd", use:init.sh
 # lazy
-zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # local
 zplug "~/.dotfiles/bin/pure", use:pure.zsh, from:local, as:theme
 
