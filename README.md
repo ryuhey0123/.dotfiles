@@ -15,8 +15,34 @@ Welcome to Ryuhey's dotfiles. Using machine :
 Clone this repository to $HOME directory and run install script.
 
 ``` sh
-~/.dotfiles $ sh install.sh
+$ sh install.sh
 ```
+
+For Italic font support, making terminfo file.
+
+```
+$ vim /tmp/xterm-256color-italic.terminfo
+```
+
+Witre :
+
+```
+# A xterm-256color based TERMINFO that adds the escape sequences for italic.
+xterm-256color-italic|xterm with 256 colors and italic,
+  sitm=\E[3m, ritm=\E[23m,
+  use=xterm-256color,
+```
+
+And, 
+
+```sh
+$ tic /tmp/xterm-256color-italic.terminfo
+```
+
+At iTerm2,
+
+- Preferences → Profiles → Text  check  **italic text allowed**
+- Preferences → Profiles → Terminal → Report Terminal Type  input  **xterm-256color-italic**
 
 **ATTENTION**
 

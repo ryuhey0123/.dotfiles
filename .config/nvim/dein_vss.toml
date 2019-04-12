@@ -1,5 +1,0 @@
-# Vectorscript lazy plugins ########
-
-[[plugins]]
-repo = 'vim-scripts/vectorscript.vim'
-
