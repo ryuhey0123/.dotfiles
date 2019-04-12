@@ -32,14 +32,6 @@ vnoremap <silent> k gk
 " vを二回で行末まで選択
 vnoremap v $h
 
-" C-jでインサートモード中にo/O
-inoremap <C-j> <ESC>o
-inoremap <C-k> <ESC>O
-
-" インサートモード中に動けるように
-inoremap <C-l> <Right>
-inoremap <C-h> <Left>
-
 " Tab -------------------------------------------------------------------------
 " Prefix
 nnoremap [Tag] <Nop>

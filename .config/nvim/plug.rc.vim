@@ -30,6 +30,7 @@ Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 Plug 'yggdroot/indentline'              " Indent line
 " Language
 Plug 'sheerun/vim-polyglot'             " A solid language pack for Vim.
+Plug 'vim-scripts/vectorscript.vim'     " vectorscript syntax file
 " Complete
 Plug 'Shougo/deoplete.nvim'
 " Lazy
