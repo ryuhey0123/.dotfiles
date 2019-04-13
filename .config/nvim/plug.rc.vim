@@ -15,7 +15,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug '/usr/local/opt/fzf'
 " Appearance
 Plug 'rakr/vim-one'
-Plug 'omaryoussef/civic-vim'
 Plug 'itchyny/lightline.vim'
 " Integrations
 Plug 'tpope/vim-surround'               " Add parentheses commands
