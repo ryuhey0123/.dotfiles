@@ -66,7 +66,7 @@ set clipboard+=unnamed              "クリップボードの共有
 set shiftround                      "インデントをshift widthの倍数に
 set mouse=a                         "マウスモード有効
 set nostartofline                   "移動コマンドを使った時行頭に移動しない
-set gdefault                        "置換の時gオプションをデフォルトで有効にする
+" set gdefault                        "置換の時gオプションをデフォルトで有効にする
 set autoread                        "編集中のファイルが変更されたら、自動的に読み直す 
 
 set nowritebackup

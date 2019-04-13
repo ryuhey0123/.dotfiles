@@ -170,7 +170,7 @@ zplug "mafredri/zsh-async", from:github
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "chrissicool/zsh-256color"
-zplug "rupa/z", use:"*.sh"
+# zplug "rupa/z", use:"*.sh"
 zplug "mafredri/zsh-async", from:github
 zplug "b4b4r07/enhancd", use:init.sh
 # lazy

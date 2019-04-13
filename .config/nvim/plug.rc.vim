@@ -17,13 +17,13 @@ Plug '/usr/local/opt/fzf'
 Plug 'tomasr/molokai'
 Plug 'cocopon/iceberg.vim'
 Plug 'rakr/vim-one'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 " Integrations
 Plug 'tpope/vim-surround'               " Add parentheses commands
 Plug 'tpope/vim-commentary'             " Add comment string commands
 Plug 'tpope/vim-fugitive'               " Add git commands
 Plug 'cohama/lexima.vim'                " Auto close parentheses
+Plug 'osyo-manga/vim-over'              " Substitute preview
 " Interface
 Plug 'airblade/vim-gitgutter'           " Show diffs
 Plug 'junegunn/fzf.vim'                 " Fuzzy finder
@@ -61,13 +61,56 @@ let g:deoplete#enable_smart_case = 1
 let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#max_list = 10
 
-"" Airline
-let g:airline_theme = 'iceberg'
-" let g:airline_powerline_fonts = 1
-let g:airline_section_a = airline#section#create(['mode','','branch'])
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#tabline#show_buffers = 0
+"" Lightline (ref statico/dotfiles/.vim/vimrc)
+let g:lightline = {
+    \ 'colorscheme': 'one',
+    \ 'active': {
+        \ 'left': [['mode', 'paste'], ['filename', 'modified']],
+        \ 'right': [
+            \ ['lineinfo'], ['percent'], 
+            \ ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+    \ },
+    \ 'component_expand': {
+        \ 'linter_warnings': 'LightlineLinterWarnings',
+        \ 'linter_errors': 'LightlineLinterErrors',
+        \ 'linter_ok': 'LightlineLinterOK'
+    \ },
+    \ 'component_type': {
+        \ 'readonly': 'error',
+        \ 'linter_warnings': 'warning',
+        \ 'linter_errors': 'error'
+    \ },
+\ }
+
+function! LightlineLinterWarnings() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+endfunction
+
+function! LightlineLinterErrors() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+endfunction
+
+function! LightlineLinterOK() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? '✓ ' : ''
+endfunction
+
+autocmd User ALELint call s:MaybeUpdateLightline()
+
+" Update and show lightline but only if it's visible (e.g., not in Goyo)
+function! s:MaybeUpdateLightline()
+    if exists('#lightline')
+        call lightline#update()
+    end
+endfunction
 
 " nerdtree/tagbar
 nnoremap <silent> <F2> :NERDTreeToggle <bar> :TagbarToggle<CR>
@@ -130,4 +173,8 @@ nnoremap <silent> <F5> :QuickRun<CR>
 
 "" vim-polyglot
 let g:polyglot_disabled = ['markdown']
+
+"" vim-over
+nnoremap <C-s><C-s> :OverCommandLine<CR>%s/
+nnoremap <C-s><C-u> :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 

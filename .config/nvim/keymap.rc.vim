@@ -60,3 +60,21 @@ nnoremap <S-Down>  <C-w>+
 " Spell check -----------------------------------------------------------------
 nnoremap <F8> :<C-u>setlocal spell!<CR>
 
+" Emacs like Insert Mode ------------------------------------------------------
+inoremap <C-a> <Home>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-d> <Del>
+inoremap <C-e> <End>
+
+" Emacs like Command line -----------------------------------------------------
+cnoremap <C-a> <Home>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-d> <Del>
+cnoremap <C-e> <End>
+
+" Folds toggle ----------------------------------------------------------------
+nnoremap <space> za
+vnoremap <space> zf
+
