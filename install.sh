@@ -25,13 +25,13 @@ echo "\033[1;37m Done \033[0;39m \n"
 echo "\033[1;33m \
 brew application install / update ------------------------------------ \033[0;39m"
 
-sh $HOME/.dotfiles/install_brew.sh
+sh $HOME/.dotfile/etc/install_brew.sh
 echo "\033[1;37m Done \033[0;39m \n"
 
 echo "\033[1;33m \
 alias settiong ------------------------------------------------------- \033[0;39m"
 
-sh $HOME/.dotfiles/install_link.sh
+sh $HOME/.dotfiles/etc/install_link.sh
 echo "\033[1;37m Done \033[0;39m \n"
 
 echo "\033[1;33m \
