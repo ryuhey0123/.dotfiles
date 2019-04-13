@@ -99,7 +99,8 @@ alias sudo='sudo '          # sudo の後のコマンドでエイリアスを有
 # git
 alias ga='git add'
 alias gc='git commit'
-alias gp='git push'
+alias gps='git push'
+alias gpl='git pull'
 # editor
 alias vim='nvim'
 alias vi='nvim'
