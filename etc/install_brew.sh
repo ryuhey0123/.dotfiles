@@ -31,11 +31,11 @@ fi
 echo "\033[1;36m Running 'brew install' command... \033[0;39m"
 
 # Install zsh and chsh
-brew install zsh
+# brew install zsh
 
 # mas-cli - A simple command line interface for the Mac App Store.
-brew install mas
-brew install reattach-to-user-namespace # depending
+# brew install mas
+# brew install reattach-to-user-namespace # depending
 
 # Neovim - Refactor Vim.
 brew install neovim
@@ -62,5 +62,5 @@ echo "\033[1;36m Running 'brew cask install' command... \033[0;39m"
 # brew cask install alacritty
 
 # iTerm
-brew cask install iTerm2
+# brew cask install iTerm2
 
