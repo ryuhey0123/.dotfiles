@@ -37,6 +37,7 @@ set visualbell t_vb=                "ビジュアルベルの無効化
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set signcolumn=yes                  "行コラムの隣に空白
 set updatetime=50
+set ambiwidth=double                "全角記号の表示がずれる問題への対応
 
 " Searching --------------------------------------------------------------------
 set ignorecase                      "大文字小文字を区別しない

@@ -201,6 +201,9 @@ let g:ale_python_isort_executable = g:python3_host_prog
 let g:ale_python_isort_options = '-m isort'
 let g:ale_python_black_executable = g:python3_host_prog
 let g:ale_python_black_options = '-m black'
+let g:ale_echo_msg_error_str = '🚫'
+let g:ale_echo_msg_warning_str = '⚠️'
+let g:ale_echo_msg_format = '%severity%  %code%: %s [%linter%]'
 
 nmap <silent> <F8> <Plug>(ale_fix)
 
