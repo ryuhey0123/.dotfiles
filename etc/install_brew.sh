@@ -31,7 +31,7 @@ fi
 echo "\033[1;36m Running 'brew install' command... \033[0;39m"
 
 # Install zsh and chsh
-# brew install zsh
+brew install zsh
 
 # mas-cli - A simple command line interface for the Mac App Store.
 # brew install mas
@@ -52,6 +52,9 @@ brew install ag
 # tree
 brew install tree
 
+# ghostscript - An interpreter for the PostScript language and for PDF.
+brew install ghostscript
+
 # z - jump around
 # brew install z # -> zplug
 
@@ -62,5 +65,5 @@ echo "\033[1;36m Running 'brew cask install' command... \033[0;39m"
 # brew cask install alacritty
 
 # iTerm
-# brew cask install iTerm2
+brew cask install iTerm2
 

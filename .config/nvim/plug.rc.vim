@@ -39,6 +39,8 @@ Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 " System
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
+" Python
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -47,6 +49,7 @@ call plug#end()
 set background=dark
 let g:one_allow_italics = 1
 colorscheme one
+
 
 "" deoplete
 let g:deoplete#enable_at_startup = 1
@@ -58,6 +61,7 @@ let g:deoplete#enable_refresh_always = 0
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#max_list = 10
+
 
 "" Lightline (ref statico/dotfiles/.vim/vimrc)
 let g:lightline = {
@@ -110,14 +114,17 @@ function! s:MaybeUpdateLightline()
     end
 endfunction
 
+
 " nerdtree/tagbar
 nnoremap <silent> <F2> :NERDTreeToggle <bar> :TagbarToggle<CR>
+
 
 "" gitgutter
 let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
+
 
 "" fzf
 " Selection keybind
@@ -149,12 +156,15 @@ nmap [fzf]<C-t> :BTags<CR>
 nmap [fzf]<C-d> :Files ~/.dotfiles<CR>
 nmap [fzf]<C-h> :History<CR>
 
+
 " Easy-align
 vmap <CR> <Plug>(EasyAlign)
+
 
 "" tagbar
 let g:tagbar_left = 1
 let g:tagbar_vertical = 25
+
 
 "" vim-quickrun
 let g:quickrun_config = {
@@ -169,10 +179,28 @@ let g:quickrun_config = {
 \}
 nnoremap <silent> <F5> :QuickRun<CR>
 
+
 "" vim-polyglot
 let g:polyglot_disabled = ['markdown']
+
 
 "" vim-over
 nnoremap <C-s><C-s> :OverCommandLine<CR>%s/
 nnoremap <C-s><C-u> :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+
+
+"" ALE
+let g:ale_linters = {'python': ['flake8'],}
+let g:ale_fixers = {'python': ['autopep8', 'black', 'isort'],}
+
+let g:ale_python_flake8_executable = g:python3_host_prog
+let g:ale_python_flake8_options = '-m flake8'
+let g:ale_python_autopep8_executable = g:python3_host_prog
+let g:ale_python_autopep8_options = '-m autopep8'
+let g:ale_python_isort_executable = g:python3_host_prog
+let g:ale_python_isort_options = '-m isort'
+let g:ale_python_black_executable = g:python3_host_prog
+let g:ale_python_black_options = '-m black'
+
+nmap <silent> <F8> <Plug>(ale_fix)
 
