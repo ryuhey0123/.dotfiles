@@ -45,6 +45,8 @@ brew install tmux
 
 # fzf - A command-line fuzzy finder
 brew install fzf
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
 
 # ag - A code-searching tool similar to ack, but faster.
 brew install ag
