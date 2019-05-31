@@ -22,13 +22,14 @@ Plug 'tpope/vim-commentary'             " Add comment string commands
 Plug 'tpope/vim-fugitive'               " Add git commands
 Plug 'cohama/lexima.vim'                " Auto close parentheses
 Plug 'osyo-manga/vim-over'              " Substitute preview
+Plug 'w0rp/ale'
 " Interface
 Plug 'airblade/vim-gitgutter'           " Show diffs
 Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 Plug 'yggdroot/indentline'              " Indent line
 " Language
 Plug 'sheerun/vim-polyglot'             " A solid language pack for Vim.
-Plug 'vim-scripts/vectorscript.vim'     " vectorscript syntax file
+Plug 'vim-scripts/vectorscript.vim', {'for': 'vectorscript'}
 " Complete
 Plug 'Shougo/deoplete.nvim'
 " Lazy
@@ -39,8 +40,8 @@ Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 " System
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
-" Python
-Plug 'w0rp/ale'
+" HTML/CSS
+Plug 'mattn/emmet-vim', {'for': ['html', 'css']}
 
 call plug#end()
 
@@ -48,6 +49,9 @@ call plug#end()
 "" Color scheme
 set background=dark
 let g:one_allow_italics = 1
+" Popup menu
+autocmd ColorScheme * highlight Pmenu ctermbg=darkgray ctermfg=lightblue
+autocmd ColorScheme * highlight PmenuSel ctermbg=gray
 colorscheme one
 
 
