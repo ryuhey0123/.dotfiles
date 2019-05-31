@@ -14,7 +14,7 @@ set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
 
 " Appearance -----------------------------------------------------------------
-set termguicolors
+" set termguicolors
 set wildmenu                        "ナビゲーションバー
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so
