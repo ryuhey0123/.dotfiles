@@ -103,3 +103,9 @@ if has("autocmd")
     \ endif
 endif
 
+" Eternal undo
+if has('persistent_undo')
+    set undodir=~/.cache/nvim/undo
+    set undofile
+endif
+
