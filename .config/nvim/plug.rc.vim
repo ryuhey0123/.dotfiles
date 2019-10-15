@@ -27,6 +27,7 @@ Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'           " Show diffs
 Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 Plug 'yggdroot/indentline'              " Indent line
+Plug 'gorodinskiy/vim-coloresque'       " Color preview
 " Language
 Plug 'sheerun/vim-polyglot'             " A solid language pack for Vim.
 Plug 'vim-scripts/vectorscript.vim', {'for': 'vectorscript'}

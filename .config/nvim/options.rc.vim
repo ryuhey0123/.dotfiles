@@ -79,6 +79,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.toml set filetype=toml
 au BufRead,BufNewFile *.vs set filetype=vectorscript
 au BufRead,BufNewFile *.vss set filetype=vectorscript
+au BufRead,BufNewFile *.mgt set filetype=midascommand
 
 " Command Mode Settings -------------------------------------------------------
 set sh=zsh
@@ -91,10 +92,14 @@ set spelllang=en,cjk
 " zg            カーソル下の単語を正しいスペルとして辞書登録
 " zw            カーソル下の単語を誤ったスペルとして辞書登録
 
-" syntax ----------------------------------------------------------------------
+" Syntax ----------------------------------------------------------------------
 let g:python_highlight_all = 1
 let g:is_bash = 1
 
+" Comment Settings
+autocmd FileType midascommand setlocal commentstring=;\ %s
+
+" Script ----------------------------------------------------------------------
 " memorize cursol position
 if has("autocmd")
     autocmd BufReadPost *
