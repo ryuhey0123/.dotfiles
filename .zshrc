@@ -103,8 +103,6 @@ alias gps='git push'
 alias gpl='git pull'
 # tmux
 alias tmux='tmux -u'
-# ctags
-alias ctags="`brew --prefix`/bin/ctags"
 
 
 # Colors -----------------------------------------------------------------------
@@ -151,6 +149,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # OS 
 case "${OSTYPE}" in
     darwin*) source $DOTFILES/etc/zsh/zshrc.osx ;;
-    linux-gnueabihf*) $DOTFILES/etc/zsh/zshrc.raspi ;;
+    linux-gnueabihf*) source $DOTFILES/etc/zsh/zshrc.raspi ;;
 esac
 

@@ -10,6 +10,9 @@ source $DOTFILES/bin/pdf-concat.sh
 # ls color
 alias ls="ls -G"
 
+# ctags
+alias ctags="`brew --prefix`/bin/ctags"
+
 # zplug -----------------------------------------------------------------------
 export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
