@@ -29,10 +29,10 @@ let g:node_host_prog = $NODENV_ROOT . '/versions/11.3.0/bin/neovim-node-host'
 if $VIM_OSTYPE =~ "darwin"
     let g:python_host_prog = $PYENV_ROOT . '/versions/neovim2/bin/python'
     let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim3/bin/python'
-elseif $VIM_OSTYPE =~ "linux-gnu"
+elseif $VIM_OSTYPE == "linux-gnu"
     let g:python_host_prog = $PYENV_ROOT . '/versions/neovim2/bin/python'
     let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim3/bin/python'
-elseif $VIM_OSTYPE =~ "linux-gnueabihf"
+elseif $VIM_OSTYPE == "linux-gnueabihf"
     let g:python_host_prog = '/usr/bin/python2'
     let g:python3_host_prog = '/usr/bin/python3'
 endif
