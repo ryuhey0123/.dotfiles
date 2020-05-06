@@ -14,7 +14,7 @@ URxvt.fading:               40
 URxvt.font:                 xft:DejavuSansMono-11:antialias=true
 !URxvt.font:                 xft:SourceHanCodeJP-11
 !URxvt.font:                 xft:NotoSans-11
-URxvt.letterSpace:          -1
+!URxvt.letterSpace:          -1
 
 URxvt.depth:                32
 
