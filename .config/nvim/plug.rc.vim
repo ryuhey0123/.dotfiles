@@ -11,23 +11,30 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" local
-Plug '/usr/local/opt/fzf'
+
+if $VIM_OSTYPE =~ "darwin"
+    " local
+    Plug '/usr/local/opt/fzf'
+    Plug 'tpope/vim-fugitive'               " Add git commands
+    Plug 'osyo-manga/vim-over'              " Substitute preview
+    Plug 'airblade/vim-gitgutter'           " Show diffs
+    Plug 'gorodinskiy/vim-coloresque'       " Color preview
+elseif $VIM_OSTYPE =~ "linux-gnueabihf"
+    " local
+    Plug '~/.fzf'
+endif
+
 " Appearance
 " Plug 'rakr/vim-one'
 Plug 'itchyny/lightline.vim'
 " Integrations
 Plug 'tpope/vim-surround'               " Add parentheses commands
 Plug 'tpope/vim-commentary'             " Add comment string commands
-Plug 'tpope/vim-fugitive'               " Add git commands
 Plug 'cohama/lexima.vim'                " Auto close parentheses
-Plug 'osyo-manga/vim-over'              " Substitute preview
 Plug 'w0rp/ale'
 " Interface
-Plug 'airblade/vim-gitgutter'           " Show diffs
 Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 Plug 'yggdroot/indentline'              " Indent line
-Plug 'gorodinskiy/vim-coloresque'       " Color preview
 " Language
 Plug 'sheerun/vim-polyglot'             " A solid language pack for Vim.
 Plug 'vim-scripts/vectorscript.vim', {'for': 'vectorscript'}
