@@ -15,54 +15,43 @@ This is Ryuhey's dotfiles.
 
 EOS
 
-echo "\033[1;33m \
-dotfiles update ------------------------------------------------------ \033[0;39m"
+
+printf "\033[1;33m \
+dotfiles update ------------------------------------------------------ \033[0;39m \n"
 
 cd $HOME/.dotfiles
 git pull origin master
-echo "\033[1;37m Done \033[0;39m \n"
+printf "\033[1;37m Done \033[0;39m \n\n"
 
-echo "\033[1;33m \
-brew application install / update ------------------------------------ \033[0;39m"
 
-sh $HOME/.dotfile/etc/install_brew.sh
-echo "\033[1;37m Done \033[0;39m \n"
+printf "\033[1;33m \
+Alias settiong ------------------------------------------------------- \033[0;39m \n"
 
-echo "\033[1;33m \
-alias settiong ------------------------------------------------------- \033[0;39m"
+# sh $HOME/.dotfiles/etc/install_link.sh
+printf "\033[1;37m Done \033[0;39m \n\n"
 
-sh $HOME/.dotfiles/etc/install_link.sh
-echo "\033[1;37m Done \033[0;39m \n"
 
-echo "\033[1;33m \
-OS settiong ---------------------------------------------------------- \033[0;39m"
+printf "\033[1;33m \
+OS settiong ---------------------------------------------------------- \033[0;39m \n"
 
-if [[ "$(uname)" == 'Darwin' ]]; then
-    echo "Your platform is Darwin. Finish."
+case "${OSTYPE}" in
+    darwin)
+        printf "Your platform is Darwin.\n"
+        sh $DOTFILES/bin/install_osx.sh ;;
+    linux-gnu)
+        printf "Your platform is Linux(Arch)\n"
+        sh $DOTFILES/bin/install_arch.sh ;;
+    linux-gnueabihf)
+        printf "Your platform is Linux(RaspberryPi)\n"
+        sh $DOTFILES/bin/install_raspi.sh ;;
+    *)
+        printf "Your platform ($(uname -a)) is not supported.\n"
+esac
 
-elif ["$(uname)" == 'Linux']; then
-    echo "Your platform is Linux"
-    # i3
-    echo "Setup i3-wm config file."
-    rm -rf ~/.config/i3
-    ln -sf ~/.dotfiles/.config/i3 ~/.config/i3
-    # .Xresources
-    echo "Setup Xresources/xprofile config file."
-    ln -sf ~/.dotfiles/.Xresources ~/.Xresources
-    ln -sf ~/.dotfiles/.xprofile ~/.xprofile
-    # ranger
-    echo "Setup ranger config file."
-    rm -rf ~/.config/ranger
-    ln -sf ~/.dotfiles/.config/ranger ~/.config/ranger
+printf "\033[1;37m Done \033[0;39m \n\n"
 
-else
-    echo "Your platform ($(uname -a)) is not supported."
 
-fi
-
-echo "\033[1;36m ALL DONE! \033[0:39m"
-
-source ~/.zshrc
+printf "\033[1;36m ALL DONE! \033[0:39m\n\n"
 
 exit 1
 
