@@ -18,7 +18,7 @@ set fileencodings=utf-8,sjis
 set wildmenu                        "ナビゲーションバー
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so
-set cursorline                      "カーソル行をハイライト
+" set cursorline                      "カーソル行をハイライト
 set hidden                          "変更中のでも保存せずで他のファイルを表示
 set number                          "行番号を表示する
 set colorcolumn=80                  "80文字目にラインを入れる
@@ -28,7 +28,7 @@ set ruler                           "右下に行・列番号を表示
 set cmdheight=2                     "コマンドラインに使われる行数
 set showcmd                         "入力中のコマンドをステータスに表示する
 set title                           "タイトルをウィンドウ枠に表示する
-set scrolloff=2                     "スクロールするとき下が見えるように
+set scrolloff=5                     "スクロールするとき下が見えるように
 set laststatus=2                    "2行目にステータスラインを常時表示
 set showtabline=2                   "常にタブラインを表示
 " set wrap                            "ウィンドウより長い行は折り畳む
@@ -113,4 +113,14 @@ if has('persistent_undo')
     set undodir=~/.cache/nvim/undo
     set undofile
 endif
+
+" tmux cursor
+" if exists('$TMUX')
+"     let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+"     let &t_SR = "\<Esc>Ptmux;\<Esc>\e[3 q\<Esc>\\"
+"     let &t_EI = "\<Esc>Ptmux;\<Esc>\e[1 q\<Esc>\\"
+" else
+"     let &t_SI = "\e[5 q"
+"     let &t_EI = "\e[2 q"
+" endif
 

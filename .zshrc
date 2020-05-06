@@ -12,9 +12,11 @@ export DOTFILES=$HOME/.dotfiles/
 
 # Startup ---------------------------------------------------------------------
 # source $DOTFILES/bin/tmux_startup.zsh     # tmux auto startup script
-source $DOTFILES/.env                           # environment variable
-source $DOTFILES/bin/addpages.sh
-source $DOTFILES/bin/pdf-concat.sh
+# environment variable
+case "${OSTYPE}" in
+    darwin*) source $DOTFILES/env/env.osx ;;
+    linux-gnueabihf*) source $DOTFILES/env/env.raspi ;;
+esac
 
 # Options ---------------------------------------------------------------------
 setopt print_eight_bit          # 日本語ファイル名を表示可能にする
@@ -46,6 +48,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:default' menu select=2
 # 変数の添字を補完する
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
+# キャッシュの利用による補完の高速化
+zstyle ':completion::complete:*' use-cache true
 
 # History ---------------------------------------------------------------------
 HISTFILE=$HOME/.zhistory
@@ -62,10 +66,6 @@ setopt inc_append_history       # 履歴をインクリメンタルに追加
 # ヒストリを呼び出してから実行する間に一旦編集可能
 setopt hist_verify
 autoload history-search-end
-
-# Ctrl+rでヒストリーのインクリメンタルサーチ、Ctrl+sで逆順
-# bindkey '^R' history-incremental-pattern-search-backward
-# bindkey '^S' history-incremental-pattern-search-forward
 
 # コマンドを途中まで入力後、historyから絞り込み
 # 例 ls まで打ってCtrl+pでlsコマンドをさかのぼる、Ctrl+bで逆順
@@ -101,23 +101,15 @@ alias ga='git add'
 alias gc='git commit'
 alias gps='git push'
 alias gpl='git pull'
-# editor
-alias vim='nvim'
-alias vi='nvim'
-alias ed='nvim'
-alias edit='nvim'
 # tmux
 alias tmux='tmux -u'
 # ctags
 alias ctags="`brew --prefix`/bin/ctags"
-# mas
-if [ "$TMUX" != "" ];then
-    alias mas="reattach-to-user-namespace mas"
-fi
+
 
 # Colors -----------------------------------------------------------------------
-export LSCOLORS=Hxfxcxdxbxegedabagacad
-export LS_COLORS='di=01;37:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+export LSCOLORS=Gxfxcxdxbxegedabagacad
+export LS_COLORS='di=01;36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 #   ---------------------LSCOLORS---------------------
 #   No	    Type	            Foreground	Background
 #   --------------------------------------------------
@@ -158,37 +150,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # OS 
 case "${OSTYPE}" in
-    darwin*) alias ls="ls -G" ;;
-    linux*) alias ls='ls --color' ;;
+    darwin*) source $DOTFILES/etc/zsh/zshrc.osx ;;
+    linux-gnueabihf*) $DOTFILES/etc/zsh/zshrc.raspi ;;
 esac
 
-# zplug -----------------------------------------------------------------------
-export ZPLUG_HOME=~/.zplug
-source $ZPLUG_HOME/init.zsh
-
-zplug "plugins/git", from:oh-my-zsh
-zplug "mafredri/zsh-async", from:github
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-zplug "chrissicool/zsh-256color"
-# zplug "rupa/z", use:"*.sh"
-zplug "mafredri/zsh-async", from:github
-zplug "b4b4r07/enhancd", use:init.sh
-# lazy
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-# local
-zplug "~/.dotfiles/bin/pure", use:pure.zsh, from:local, as:theme
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-   printf "Install? [y/N]: "
-   if read -q; then
-       echo; zplug install
-   fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

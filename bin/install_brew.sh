@@ -67,5 +67,5 @@ echo "\033[1;36m Running 'brew cask install' command... \033[0;39m"
 # brew cask install alacritty
 
 # iTerm
-brew cask install iTerm2
+# brew cask install iTerm2
 

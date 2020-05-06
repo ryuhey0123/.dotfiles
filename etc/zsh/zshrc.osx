@@ -1,0 +1,39 @@
+# Load User command
+source $DOTFILES/bin/addpages.sh
+source $DOTFILES/bin/pdf-concat.sh
+
+# mas
+# if [ "$TMUX" != "" ];then
+#     alias mas="reattach-to-user-namespace mas"
+# fi
+
+# ls color
+alias ls="ls -G"
+
+# zplug -----------------------------------------------------------------------
+export ZPLUG_HOME=~/.zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "plugins/git", from:oh-my-zsh
+zplug "mafredri/zsh-async", from:github
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "chrissicool/zsh-256color"
+# zplug "rupa/z", use:"*.sh"
+zplug "b4b4r07/enhancd", use:init.sh
+# lazy
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+# local
+zplug "~/.dotfiles/etc/pure", use:pure.zsh, from:local, as:theme
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+   printf "Install? [y/N]: "
+   if read -q; then
+       echo; zplug install
+   fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+

@@ -7,8 +7,8 @@ else
 fi
 
 # Alacritty
-rm -rf ~/.config/alacritty
-ln -sf ~/.dotfiles/.config/alacritty/ ~/.config/alacritty
+# rm -rf ~/.config/alacritty
+# ln -sf ~/.dotfiles/.config/alacritty/ ~/.config/alacritty
 
 # tmux
 ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
@@ -19,11 +19,11 @@ ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.config/nvim/ ~/.config/nvim
 
 # gvim
-ln -sf ~/.dotfiles/.gvimrc ~/.gvimrc
+# ln -sf ~/.dotfiles/.gvimrc ~/.gvimrc
 
 # LaTeX
-ln -sf ~/.dotfiles/.latexmkrc ~/.latexmkrc
+# ln -sf ~/.dotfiles/.latexmkrc ~/.latexmkrc
 
 # ideavim
-ln -sf ~/.dotfiles/.ideavimrc ~/.ideavimrc
+# ln -sf ~/.dotfiles/.ideavimrc ~/.ideavimrc
 

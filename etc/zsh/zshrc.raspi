@@ -1,0 +1,48 @@
+# PROMPT
+PROMPT="
+  %B%F{red}%n@%m%f%b %~
+  %B%(?,%F{white},%F{red})%(!,#,❯)%f%b "
+
+# ls color
+alias ls='ls --color'
+
+# vcs_info
+autoload -Uz vcs_info
+autoload -Uz add-zsh-hook
+
+zstyle ':vcs_info:*' formats '%F{green}(%s)-[%b]%f'
+zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
+
+function _update_vcs_info_msg() {
+    LANG=en_US.UTF-8 vcs_info
+    RPROMPT="${vcs_info_msg_0_}"
+}
+add-zsh-hook precmd _update_vcs_info_msg
+
+# zplug -----------------------------------------------------------------------
+export ZPLUG_HOME=~/.zplug
+source $ZPLUG_HOME/init.zsh
+
+# zplug "plugins/git", from:oh-my-zsh
+zplug "mafredri/zsh-async", from:github
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+# zplug "chrissicool/zsh-256color"
+# zplug "rupa/z", use:"*.sh"
+# zplug "b4b4r07/enhancd", use:init.sh
+# lazy
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+# local
+# zplug "~/.dotfiles/etc/pure", use:pure.zsh, from:local, as:theme
+
+# Install plugins if there are plugins that have not been installed
+# if ! zplug check --verbose; then
+#    printf "Install? [y/N]: "
+#    if read -q; then
+#        echo; zplug install
+#    fi
+# fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+
