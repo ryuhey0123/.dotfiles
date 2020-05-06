@@ -9,6 +9,7 @@
 
 autoload -U promptinit; promptinit
 export DOTFILES=$HOME/.dotfiles/
+export VIM_OSTYPE=$OSTYPE
 
 # Startup ---------------------------------------------------------------------
 # source $DOTFILES/bin/tmux_startup.zsh     # tmux auto startup script
