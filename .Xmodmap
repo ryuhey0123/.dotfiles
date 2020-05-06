@@ -1,0 +1,14 @@
+!remove Lock = Caps_Lock
+!keysym Caps_Lock = Control_L
+!add Control = Control_L
+
+!keycode 128 = XF86LaunchA NoSymbol XF86LaunchA
+!keycode 212 = XF86LaunchB NoSymbol XF86LaunchB
+!keycode 173 = XF86AudioPrev NoSymbol XF86AudioPrev
+!keycode 172 = XF86AudioPlay XF86AudioPause XF86AudioPlay XF86AudioPause
+!keycode 171 = XF86AudioNext NoSymbol XF86AudioNext
+
+clear lock
+clear control
+keycode 66 = Control_L
+add control = Control_L Control_R

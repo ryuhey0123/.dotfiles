@@ -16,6 +16,7 @@ export VIM_OSTYPE=$OSTYPE
 # environment variable
 case "${OSTYPE}" in
     darwin*) source $DOTFILES/env/env.osx ;;
+    linux-gnu*) source $DOTFILES/env/env.arch ;;
     linux-gnueabihf*) source $DOTFILES/env/env.raspi ;;
 esac
 
@@ -150,6 +151,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # OS 
 case "${OSTYPE}" in
     darwin*) source $DOTFILES/etc/zsh/zshrc.osx ;;
+    linux-gnu*) source $DOTFILES/etc/zsh/zshrc.arch ;;
     linux-gnueabihf*) source $DOTFILES/etc/zsh/zshrc.raspi ;;
 esac
 
