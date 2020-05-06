@@ -1,3 +1,8 @@
+!Xft.autohint:               0
+!Xft.hinting:                1
+
+Xft.dpi:                    96
+
 URxvt.scrollBar:            false
 URxvt.cursorBlink:          true
 URxvt.cursorUnderline:      true
@@ -6,9 +11,10 @@ URxvt.visualBell:           true
 URxvt.saveLines:            3000
 URxvt.fading:               40
 
-URxvt.font:                 xft:Dejavu Sans Mono-11
+URxvt.font:                 xft:DejavuSansMono-11:antialias=true
 !URxvt.font:                 xft:SourceHanCodeJP-11
-!URxvt.letterSpace:          -1
+!URxvt.font:                 xft:NotoSans-11
+URxvt.letterSpace:          -1
 
 URxvt.depth:                32
 
