@@ -150,7 +150,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # OS 
 case "${OSTYPE}" in
-    darwin) source $DOTFILES/etc/zsh/zshrc.osx ;;
+    darwin*) source $DOTFILES/etc/zsh/zshrc.osx ;;
     linux-gnu) source $DOTFILES/etc/zsh/zshrc.arch ;;
     linux-gnueabihf) source $DOTFILES/etc/zsh/zshrc.raspi ;;
 esac
