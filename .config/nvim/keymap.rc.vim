@@ -10,8 +10,9 @@
 
 
 " General ---------------------------------------------------------------------
-inoremap <silent> jj <ESC>
-inoremap <silent> っj <esc>
+" inoremap <silent> jj <ESC>
+inoremap jj <ESC>
+inoremap っj <esc>
 nnoremap ; :
 noremap <Esc><Esc> :<C-u>nohlsearch<CR><Esc>
 
@@ -24,10 +25,10 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 
 " j, k による移動を折り返されたテキストでも自然に振る舞うように変更
-nnoremap <silent> j gj
-nnoremap <silent> k gk
-vnoremap <silent> j gj
-vnoremap <silent> k gk
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " vを二回で行末まで選択
 vnoremap v $h
