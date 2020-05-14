@@ -11,11 +11,10 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-
+" OS Type
 if $VIM_OSTYPE =~ "darwin"
     " local
     Plug '/usr/local/opt/fzf'
-    Plug 'tpope/vim-fugitive'               " Add git commands
     Plug 'osyo-manga/vim-over'              " Substitute preview
     Plug 'airblade/vim-gitgutter'           " Show diffs
     Plug 'gorodinskiy/vim-coloresque'       " Color preview
@@ -27,7 +26,6 @@ if $VIM_OSTYPE =~ "darwin"
 elseif $VIM_OSTYPE == "linux-gnueabihf"
     " local
     Plug '~/.fzf'
-    Plug 'w0rp/ale'
 endif
 
 " Appearance
@@ -41,18 +39,13 @@ Plug 'cohama/lexima.vim'                " Auto close parentheses
 Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 Plug 'yggdroot/indentline'              " Indent line
 " Language
-Plug 'sheerun/vim-polyglot'             " A solid language pack for Vim.
+" Plug 'sheerun/vim-polyglot'             " A solid language pack for Vim.
 Plug 'vim-scripts/vectorscript.vim', {'for': 'vectorscript'}
 " Complete
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " Lazy
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'}
-" Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-" Plug 'szw/vim-tags', {'on': 'TagsGenerate'}
-" Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} 
 " Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
-" System
-Plug 'Shougo/vimproc.vim', {'do': 'make'}
 " HTML/CSS
 Plug 'mattn/emmet-vim', {'for': ['html', 'css']}
 
@@ -205,35 +198,19 @@ nnoremap <C-s><C-s> :OverCommandLine<CR>%s/
 nnoremap <C-s><C-u> :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 
 
-"" ALE
-"let g:ale_fixers = {'python': ['autopep8', 'black', 'isort'],}
-"let g:ale_python_flake8_executable = g:python3_host_prog
-"let g:ale_python_flake8_options = '-m flake8'
-"let g:ale_python_autopep8_executable = g:python3_host_prog
-"let g:ale_python_autopep8_options = '-m autopep8'
-"let g:ale_python_isort_executable = g:python3_host_prog
-"let g:ale_python_isort_options = '-m isort'
-"let g:ale_python_black_executable = g:python3_host_prog
-"let g:ale_python_black_options = '-m black'
-"let g:ale_echo_msg_error_str = '🚫'
-"let g:ale_echo_msg_warning_str = '⚠️'
-"let g:ale_echo_msg_format = '%severity%  %code%: %s [%linter%]'
-"let g:ale_linters = {
-"    \ 'python': ['flake8'],
-"    \ 'c': ['clangd'],
-"    \ 'cpp': ['clangd']
-"\ }
-"
-"nmap <silent> <F8> <Plug>(ale_fix)
-"
-
 "" LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
+<<<<<<< HEAD
     \'c': ['clangd', '-compile-commands-dir=' . getcwd()],
     \'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
     \'python': ['/usr/local/bin/pyls'],
     \'javascript': ['javascript-typescript-stdio'],
     \'typescript': ['javascript-typescript-stdio'],
+=======
+    \ 'c': ['clangd', '-compile-commands-dir=' . getcwd()],
+    \ 'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
+    \ 'python': ['pyls'],
+>>>>>>> 6693afe80bb80147e623d95703f336923441e87b
 \}
 let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_hasSnippetSupport = 0
