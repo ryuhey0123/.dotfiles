@@ -11,43 +11,32 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" OS Type
 if $VIM_OSTYPE =~ "darwin"
-    " local
     Plug '/usr/local/opt/fzf'
-    Plug 'osyo-manga/vim-over'              " Substitute preview
-    Plug 'airblade/vim-gitgutter'           " Show diffs
-    Plug 'gorodinskiy/vim-coloresque'       " Color preview
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'sh install.sh',
-    \ }
-    Plug 'coddingtonbear/neomake-platformio'
 elseif $VIM_OSTYPE == "linux-gnueabihf"
-    " local
     Plug '~/.fzf'
 endif
 
 " Appearance
-" Plug 'rakr/vim-one'
 Plug 'itchyny/lightline.vim'
 " Integrations
 Plug 'tpope/vim-surround'               " Add parentheses commands
 Plug 'tpope/vim-commentary'             " Add comment string commands
 Plug 'cohama/lexima.vim'                " Auto close parentheses
+Plug 'airblade/vim-gitgutter'           " Show diffs
+Plug 'gorodinskiy/vim-coloresque'       " Color preview
+Plug 'osyo-manga/vim-over'              " Substitute preview
+Plug 'mattn/emmet-vim'
 " Interface
 Plug 'junegunn/fzf.vim'                 " Fuzzy finder
-Plug 'yggdroot/indentline'              " Indent line
-" Language
-" Plug 'sheerun/vim-polyglot'             " A solid language pack for Vim.
+" Syntax
 Plug 'vim-scripts/vectorscript.vim', {'for': 'vectorscript'}
 " Complete
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+" LSP
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'sh install.sh'}
 " Lazy
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'}
-" Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
-" HTML/CSS
-Plug 'mattn/emmet-vim', {'for': ['html', 'css']}
 
 call plug#end()
 
@@ -71,6 +60,7 @@ call deoplete#custom#option({
     \ 'smart_case': v:true,
     \ 'max_list': 20
 \ })
+
 
 "" Lightline (ref statico/dotfiles/.vim/vimrc)
 let g:lightline = {
@@ -124,10 +114,6 @@ function! s:MaybeUpdateLightline()
 endfunction
 
 
-" nerdtree/tagbar
-" nnoremap <silent> <F2> :NERDTreeToggle <bar> :TagbarToggle<CR>
-
-
 "" gitgutter
 let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
@@ -170,29 +156,6 @@ nmap [fzf]<C-h> :History<CR>
 vmap <CR> <Plug>(EasyAlign)
 
 
-"" tagbar
-" let g:tagbar_left = 1
-" let g:tagbar_vertical = 25
-
-
-"" vim-quickrun
-"let g:quickrun_config = {
-"    \ '_' : {
-"        \ 'runner' : 'vimproc',
-"        \ 'runner/vimproc/updatetime' : 60,
-"        \ 'outputter' : 'error',
-"        \ 'outputter/error/success' : 'buffer',
-"        \ 'outputter/error/error'   : 'quickfix',
-"        \ 'outputter/buffer/split' : ':botright 8sp',
-"    \ }
-"\}
-"nnoremap <silent> <F5> :QuickRun<CR>
-
-
-"" vim-polyglot
-let g:polyglot_disabled = ['markdown']
-
-
 "" vim-over
 nnoremap <C-s><C-s> :OverCommandLine<CR>%s/
 nnoremap <C-s><C-u> :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
@@ -202,24 +165,28 @@ nnoremap <C-s><C-u> :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 let g:LanguageClient_serverCommands = {
     \'c': ['clangd', '-compile-commands-dir=' . getcwd()],
     \'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
-    \'python': ['/usr/local/bin/pyls'],
+    \'python': ['pyls'],
     \'javascript': ['javascript-typescript-stdio'],
     \'typescript': ['javascript-typescript-stdio'],
 \}
 let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_hasSnippetSupport = 0
-let g:neosnippet#enable_complete_done = 1
+let g:LanguageClient_hasSnippetSupport = 1
 
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap [LSP] <Nop>
+nmap <C-x> [LSP]
+nmap [LSP]<C-d> :call LanguageClient#textDocument_definition()<CR>
+nmap [LSP]<C-r> :call LanguageClient#textDocument_rename()<CR>
+nmap [LSP]<C-f> :call LanguageClient#textDocument_formatting()<CR>
+nmap [LSP]<C-t> :call LanguageClient#textDocument_typeDefinition()<CR>
+nmap [LSP]<C-x> :call LanguageClient#textDocument_references()<CR>
+nmap [LSP]<C-a> :call LanguageClient_workspace_applyEdit()<CR>
+nmap [LSP]<C-c> :call LanguageClient#textDocument_completion()<CR>
+nmap [LSP]<C-h> :call LanguageClient#textDocument_hover()<CR>
+nmap [LSP]<C-s> :call LanguageClient_textDocument_documentSymbol()<CR>
+nmap [LSP]<C-m> :call LanguageClient_contextMenu()<CR>
 
 augroup LCHighlight
     autocmd!
     autocmd CursorHold,CursorHoldI *.py,*.c,*.cpp call LanguageClient#textDocument_documentHighlight()
 augroup END
-
-set updatetime=50  " カーソル停止から更新までの時間をミリ秒で記入。デフォルトは4秒=4000
 

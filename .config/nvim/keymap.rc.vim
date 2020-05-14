@@ -10,7 +10,7 @@
 
 
 " General ---------------------------------------------------------------------
-" inoremap <silent> jj <ESC>
+
 inoremap jj <ESC>
 inoremap っj <esc>
 nnoremap ; :
