@@ -44,7 +44,7 @@ Plug 'yggdroot/indentline'              " Indent line
 Plug 'sheerun/vim-polyglot'             " A solid language pack for Vim.
 Plug 'vim-scripts/vectorscript.vim', {'for': 'vectorscript'}
 " Complete
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " Lazy
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'}
 " Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -77,8 +77,7 @@ call deoplete#custom#option({
     \ 'refresh_always': v:false,
     \ 'smart_case': v:true,
     \ 'max_list': 20
-    \ })
-
+\ })
 
 "" Lightline (ref statico/dotfiles/.vim/vimrc)
 let g:lightline = {
@@ -232,9 +231,13 @@ nnoremap <C-s><C-u> :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 let g:LanguageClient_serverCommands = {
     \'c': ['clangd', '-compile-commands-dir=' . getcwd()],
     \'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
+    \'python': ['/usr/local/bin/pyls'],
+    \'javascript': ['javascript-typescript-stdio'],
+    \'typescript': ['javascript-typescript-stdio'],
 \}
 let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_hasSnippetSupport = 0
+let g:neosnippet#enable_complete_done = 1
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
@@ -247,5 +250,5 @@ augroup LCHighlight
     autocmd CursorHold,CursorHoldI *.py,*.c,*.cpp call LanguageClient#textDocument_documentHighlight()
 augroup END
 
-" set updatetime=50  " カーソル停止から更新までの時間をミリ秒で記入。デフォルトは4秒=4000
+set updatetime=50  " カーソル停止から更新までの時間をミリ秒で記入。デフォルトは4秒=4000
 
