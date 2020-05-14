@@ -200,17 +200,11 @@ nnoremap <C-s><C-u> :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 
 "" LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
-<<<<<<< HEAD
     \'c': ['clangd', '-compile-commands-dir=' . getcwd()],
     \'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
     \'python': ['/usr/local/bin/pyls'],
     \'javascript': ['javascript-typescript-stdio'],
     \'typescript': ['javascript-typescript-stdio'],
-=======
-    \ 'c': ['clangd', '-compile-commands-dir=' . getcwd()],
-    \ 'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
-    \ 'python': ['pyls'],
->>>>>>> 6693afe80bb80147e623d95703f336923441e87b
 \}
 let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_hasSnippetSupport = 0
