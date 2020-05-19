@@ -82,7 +82,7 @@ bindkey -e
 
 # Alias -----------------------------------------------------------------------
 # Global
-alias -g G='| grep --color=auto' # 鉄板
+alias -g G='| grep --color=auto'
 alias -g L='| less -R'
 alias -g X='| xargs'
 # ls

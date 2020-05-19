@@ -24,12 +24,13 @@ Plug 'tpope/vim-surround'               " Add parentheses commands
 Plug 'tpope/vim-commentary'             " Add comment string commands
 Plug 'cohama/lexima.vim'                " Auto close parentheses
 Plug 'airblade/vim-gitgutter'           " Show diffs
-Plug 'gorodinskiy/vim-coloresque'       " Color preview
+" Plug 'gorodinskiy/vim-coloresque'       " Color preview
 Plug 'osyo-manga/vim-over'              " Substitute preview
 Plug 'mattn/emmet-vim'
 " Interface
 Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 " Syntax
+Plug 'wilriker/gcode.vim', {'for': 'gcode'}
 Plug 'vim-scripts/vectorscript.vim', {'for': 'vectorscript'}
 " Complete
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
