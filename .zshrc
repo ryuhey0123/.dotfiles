@@ -155,3 +155,6 @@ case "${OSTYPE}" in
     linux-gnueabihf) source $DOTFILES/etc/zsh/zshrc.raspi ;;
 esac
 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
