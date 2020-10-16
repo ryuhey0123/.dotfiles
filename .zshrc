@@ -15,9 +15,9 @@ export VIM_OSTYPE=$OSTYPE
 # source $DOTFILES/bin/tmux_startup.zsh     # tmux auto startup script
 # environment variable
 case "${OSTYPE}" in
-    darwin*) source $DOTFILES/env/env.osx ;;
-    linux-gnu*) source $DOTFILES/env/env.arch ;;
-    linux-gnueabihf*) source $DOTFILES/env/env.raspi ;;
+    darwin) source $DOTFILES/env/env.osx ;;
+    linux-gnu) source $DOTFILES/env/env.arch ;;
+    linux-gnueabihf) source $DOTFILES/env/env.raspi ;;
 esac
 
 # Options ---------------------------------------------------------------------
