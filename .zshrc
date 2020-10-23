@@ -53,6 +53,9 @@ zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 # キャッシュの利用による補完の高速化
 zstyle ':completion::complete:*' use-cache true
 
+# pipenv
+eval "$(pipenv --completion)"
+
 # History ---------------------------------------------------------------------
 HISTFILE=$HOME/.zhistory
 HISTSIZE=100000
