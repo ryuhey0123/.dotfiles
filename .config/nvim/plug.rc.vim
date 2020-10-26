@@ -32,6 +32,7 @@ Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 " Syntax
 Plug 'wilriker/gcode.vim', {'for': 'gcode'}
 Plug 'vim-scripts/vectorscript.vim', {'for': 'vectorscript'}
+Plug 'ryuhey0123/midas-mgt-syntax', {'for': 'mgtcommand'}
 " Complete
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " LSP

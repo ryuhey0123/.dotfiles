@@ -79,7 +79,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.toml set filetype=toml
 au BufRead,BufNewFile *.vs set filetype=vectorscript
 au BufRead,BufNewFile *.vss set filetype=vectorscript
-au BufRead,BufNewFile *.mgt set filetype=mgt
+au BufRead,BufNewFile *.mgt set filetype=mgtcommand
 
 " Command Mode Settings -------------------------------------------------------
 set sh=zsh
