@@ -9,11 +9,13 @@
 "  \______/ |__/         |__/   |______/ \______/ |__/  \__/ \______/ 
 "                                                                    
 
-" Encoding --------------------------------------------------------------------
+" Encoding -----------------------------------------------------------------{{{
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
 
-" Appearance -----------------------------------------------------------------
+" }}}
+
+" Appearance ---------------------------------------------------------------{{{
 " set termguicolors
 set wildmenu                        "ナビゲーションバー
 set wildmode=list:full
@@ -38,6 +40,8 @@ set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set signcolumn=yes                  "行コラムの隣に空白
 set updatetime=50
 set ambiwidth=double                "全角記号の表示がずれる問題への対応
+
+" }}}
 
 " Searching --------------------------------------------------------------------
 set ignorecase                      "大文字小文字を区別しない
@@ -124,3 +128,4 @@ endif
 "     let &t_EI = "\e[2 q"
 " endif
 
+" vim: set fdl=0 fdm=marker:

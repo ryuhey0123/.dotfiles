@@ -19,12 +19,13 @@ endif
 
 " Appearance
 Plug 'itchyny/lightline.vim'
+Plug 'joshdick/onedark.vim'
 " Integrations
-Plug 'tpope/vim-surround'               " Add parentheses commands
+Plug 'machakann/vim-sandwich'           " The set of operator and textobject
 Plug 'tpope/vim-commentary'             " Add comment string commands
 Plug 'cohama/lexima.vim'                " Auto close parentheses
 Plug 'airblade/vim-gitgutter'           " Show diffs
-" Plug 'gorodinskiy/vim-coloresque'       " Color preview
+Plug 'gorodinskiy/vim-coloresque'       " Color preview
 Plug 'osyo-manga/vim-over'              " Substitute preview
 Plug 'mattn/emmet-vim'
 " Interface
@@ -43,16 +44,40 @@ Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'}
 call plug#end()
 
 
-"" Color scheme
+" Color scheme ------------------------------------------------------------{{{
+let g:onedark_terminal_italics = 1
+
+if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+if (has("autocmd"))
+  augroup colorextend
+    autocmd!
+    autocmd ColorScheme * call onedark#extend_highlight("Function", { "gui": "bold" })
+    autocmd ColorScheme * call onedark#extend_highlight("Folded", { "bg": { "gui": "#1C1C1C", "cterm": 234 } })
+    autocmd ColorScheme * call onedark#extend_highlight("Normal", { "bg": { "gui": "NONE", "cterm": "NONE" } })
+    autocmd ColorScheme * call onedark#extend_highlight("ColorColumn", { "bg": { "gui": "#121212", "cterm": 233 } })
+  augroup END
+endif
+
+" autocmd ColorScheme * highlight Normal ctermbg=none
+" autocmd ColorScheme * highlight LineNr ctermbg=none
+
 set background=dark
-let g:one_allow_italics = 1
+colorscheme onedark
+
 " Popup menu
 autocmd ColorScheme * highlight Pmenu ctermbg=darkgray ctermfg=lightblue
 autocmd ColorScheme * highlight PmenuSel ctermbg=gray
-colorscheme one
 
+"}}}
 
-"" deoplete
+" deoplete ----------------------------------------------------------------{{{
 let g:deoplete#enable_at_startup = 1
 
 call deoplete#custom#option({
@@ -63,8 +88,10 @@ call deoplete#custom#option({
     \ 'max_list': 20
 \ })
 
+"}}}
 
-"" Lightline (ref statico/dotfiles/.vim/vimrc)
+" Lightline  --------------------------------------------------------------{{{
+" (ref statico/dotfiles/.vim/vimrc)
 let g:lightline = {
     \ 'colorscheme': 'one',
     \ 'active': {
@@ -115,15 +142,17 @@ function! s:MaybeUpdateLightline()
     end
 endfunction
 
+"}}}
 
-"" gitgutter
+" gitgutter ---------------------------------------------------------------{{{
 let g:gitgutter_sign_added = '∙'
 let g:gitgutter_sign_modified = '∙'
 let g:gitgutter_sign_removed = '∙'
 let g:gitgutter_sign_modified_removed = '∙'
 
+"}}}
 
-"" fzf
+" fzf ---------------------------------------------------------------------{{{
 " Selection keybind
 let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
@@ -145,7 +174,7 @@ endfunction
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 " keymap
 nnoremap [fzf] <Nop>
-nmap <C-f> [fzf]
+nmap <C-p> [fzf]
 nmap [fzf]<C-p> :Files<CR>
 nmap [fzf]<C-g> :GFiles?<CR>
 nmap [fzf]<C-f> :Buffers<CR>
@@ -153,17 +182,20 @@ nmap [fzf]<C-t> :BTags<CR>
 nmap [fzf]<C-d> :Files ~/.dotfiles<CR>
 nmap [fzf]<C-h> :History<CR>
 
+"}}}
 
-" Easy-align
+" Easy-align --------------------------------------------------------------{{{
 vmap <CR> <Plug>(EasyAlign)
 
+" }}}
 
-"" vim-over
+" vim-over ----------------------------------------------------------------{{{
 nnoremap <C-s><C-s> :OverCommandLine<CR>%s/
 nnoremap <C-s><C-u> :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 
+"}}}
 
-"" LanguageClient-neovim
+" LanguageClient-neovim ---------------------------------------------------{{{
 let g:LanguageClient_serverCommands = {
     \'c': ['clangd', '-compile-commands-dir=' . getcwd()],
     \'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
@@ -192,3 +224,6 @@ augroup LCHighlight
     autocmd CursorHold,CursorHoldI *.py,*.c,*.cpp call LanguageClient#textDocument_documentHighlight()
 augroup END
 
+"}}}
+
+" vim: set fdl=0 fdm=marker:

@@ -79,3 +79,5 @@ cnoremap <C-e> <End>
 nnoremap <space> za
 vnoremap <space> zf
 
+nnoremap <leader>sv :source $HOME/.config/nvim/init.vim<CR>
+
