@@ -19,6 +19,8 @@ endif
 
 " Appearance
 Plug 'itchyny/lightline.vim'
+Plug 'cocopon/iceberg.vim'
+Plug 'ayu-theme/ayu-vim'
 Plug 'joshdick/onedark.vim'
 " Integrations
 Plug 'machakann/vim-sandwich'           " The set of operator and textobject
@@ -45,35 +47,14 @@ call plug#end()
 
 
 " Color scheme ------------------------------------------------------------{{{
-let g:onedark_terminal_italics = 1
 
-if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-
-" if (has("termguicolors"))
-"     set termguicolors
-" endif
-
-if (has("autocmd"))
-  augroup colorextend
-    autocmd!
-    autocmd ColorScheme * call onedark#extend_highlight("Function", { "gui": "bold" })
-    autocmd ColorScheme * call onedark#extend_highlight("Folded", { "bg": { "gui": "#1C1C1C", "cterm": 234 } })
-    autocmd ColorScheme * call onedark#extend_highlight("Normal", { "bg": { "gui": "NONE", "cterm": "NONE" } })
-    autocmd ColorScheme * call onedark#extend_highlight("ColorColumn", { "bg": { "gui": "#121212", "cterm": 233 } })
-  augroup END
-endif
-
-" autocmd ColorScheme * highlight Normal ctermbg=none
-" autocmd ColorScheme * highlight LineNr ctermbg=none
-
-set background=dark
-colorscheme onedark
+runtime! iceberg.rc.vim
+" runtime! onedark.rc.vim
+" runtime! ayu.rc.vim
 
 " Popup menu
-autocmd ColorScheme * highlight Pmenu ctermbg=darkgray ctermfg=lightblue
-autocmd ColorScheme * highlight PmenuSel ctermbg=gray
+" autocmd ColorScheme * highlight Pmenu ctermbg=darkgray ctermfg=lightblue
+" autocmd ColorScheme * highlight PmenuSel ctermbg=gray
 
 "}}}
 
@@ -93,7 +74,7 @@ call deoplete#custom#option({
 " Lightline  --------------------------------------------------------------{{{
 " (ref statico/dotfiles/.vim/vimrc)
 let g:lightline = {
-    \ 'colorscheme': 'one',
+    \ 'colorscheme': 'iceberg',
     \ 'active': {
         \ 'left': [['mode', 'paste'], ['filename', 'modified']],
         \ 'right': [
