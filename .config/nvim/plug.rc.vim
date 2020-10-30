@@ -20,7 +20,7 @@ endif
 " Appearance
 Plug 'itchyny/lightline.vim'
 Plug 'cocopon/iceberg.vim'
-Plug 'ayu-theme/ayu-vim'
+Plug 'ayu-theme/ayu-vim'                " Nice color. But only true color.
 Plug 'joshdick/onedark.vim'
 " Integrations
 Plug 'machakann/vim-sandwich'           " The set of operator and textobject
@@ -48,9 +48,19 @@ call plug#end()
 
 " Color scheme ------------------------------------------------------------{{{
 
-runtime! iceberg.rc.vim
 " runtime! onedark.rc.vim
-" runtime! ayu.rc.vim
+
+let lightlineTheme = ''
+if has('termguicolors') && $TERM_PROGRAM ==# 'iTerm.app'
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    let lightlineTheme = 'ayu'
+    set termguicolors
+    runtime! ayu.rc.vim
+else
+    let lightlineTheme = 'iceberg'
+    runtime! iceberg.rc.vim
+endif
 
 " Popup menu
 " autocmd ColorScheme * highlight Pmenu ctermbg=darkgray ctermfg=lightblue
@@ -74,7 +84,7 @@ call deoplete#custom#option({
 " Lightline  --------------------------------------------------------------{{{
 " (ref statico/dotfiles/.vim/vimrc)
 let g:lightline = {
-    \ 'colorscheme': 'iceberg',
+    \ 'colorscheme': lightlineTheme,
     \ 'active': {
         \ 'left': [['mode', 'paste'], ['filename', 'modified']],
         \ 'right': [
