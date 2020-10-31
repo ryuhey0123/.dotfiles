@@ -35,6 +35,9 @@ Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 " Syntax
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'wilriker/gcode.vim', {'for': 'gcode'}
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'vim-scripts/vectorscript.vim', {'for': 'vectorscript'}
 Plug 'ryuhey0123/midas-mgt-syntax', {'for': 'mgtcommand'}
 " LSP
@@ -43,7 +46,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'}
 
 call plug#end()
-
 
 " Color scheme ------------------------------------------------------------{{{
 
