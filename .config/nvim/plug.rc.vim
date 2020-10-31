@@ -37,7 +37,7 @@ Plug 'wilriker/gcode.vim', {'for': 'gcode'}
 Plug 'vim-scripts/vectorscript.vim', {'for': 'vectorscript'}
 Plug 'ryuhey0123/midas-mgt-syntax', {'for': 'mgtcommand'}
 " Complete
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+" Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " LSP
 Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'sh install.sh'}
 " Lazy
@@ -69,15 +69,15 @@ endif
 "}}}
 
 " deoplete ----------------------------------------------------------------{{{
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
-call deoplete#custom#option({
-    \ 'auto_complete_delay': 0,
-    \ 'camel_case': v:true,
-    \ 'refresh_always': v:false,
-    \ 'smart_case': v:true,
-    \ 'max_list': 20
-\ })
+" call deoplete#custom#option({
+"     \ 'auto_complete_delay': 0,
+"     \ 'camel_case': v:true,
+"     \ 'refresh_always': v:false,
+"     \ 'smart_case': v:true,
+"     \ 'max_list': 20
+" \ })
 
 "}}}
 
