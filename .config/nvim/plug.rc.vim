@@ -185,37 +185,6 @@ nnoremap <C-s><C-u> :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 
 "}}}
 
-" LanguageClient-neovim ---------------------------------------------------{{{
-" let g:LanguageClient_serverCommands = {
-"     \'c': ['clangd', '-compile-commands-dir=' . getcwd()],
-"     \'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
-"     \'python': ['pyls'],
-"     \'javascript': ['javascript-typescript-stdio'],
-"     \'typescript': ['javascript-typescript-stdio'],
-" \}
-" let g:LanguageClient_loadSettings = 1
-" let g:LanguageClient_hasSnippetSupport = 1
-
-" nnoremap [LSP] <Nop>
-" nmap <C-x> [LSP]
-" nmap [LSP]<C-d> :call LanguageClient#textDocument_definition()<CR>
-" nmap [LSP]<C-r> :call LanguageClient#textDocument_rename()<CR>
-" nmap [LSP]<C-f> :call LanguageClient#textDocument_formatting()<CR>
-" nmap [LSP]<C-t> :call LanguageClient#textDocument_typeDefinition()<CR>
-" nmap [LSP]<C-x> :call LanguageClient#textDocument_references()<CR>
-" nmap [LSP]<C-a> :call LanguageClient_workspace_applyEdit()<CR>
-" nmap [LSP]<C-c> :call LanguageClient#textDocument_completion()<CR>
-" nmap [LSP]<C-h> :call LanguageClient#textDocument_hover()<CR>
-" nmap [LSP]<C-s> :call LanguageClient_textDocument_documentSymbol()<CR>
-" nmap [LSP]<C-m> :call LanguageClient_contextMenu()<CR>
-
-" augroup LCHighlight
-"     autocmd!
-"     autocmd CursorHold,CursorHoldI *.py,*.c,*.cpp call LanguageClient#textDocument_documentHighlight()
-" augroup END
-
-"}}}
-
 " Coc.nvim -----------------------------------------------------------------{{{
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -245,6 +214,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 "}}}
 
 " Semshi -------------------------------------------------------------------{{{
+let g:semshi#error_sign = v:false
 
 "}}}
 
