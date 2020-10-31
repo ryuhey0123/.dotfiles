@@ -8,7 +8,7 @@
 #                                                         
 
 autoload -U promptinit; promptinit
-export DOTFILES=$HOME/.dotfiles/
+export DOTFILES=$HOME/.dotfiles
 export VIM_OSTYPE=$OSTYPE
 
 # Startup ---------------------------------------------------------------------
