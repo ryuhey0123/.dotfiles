@@ -33,13 +33,12 @@ Plug 'mattn/emmet-vim'
 " Interface
 Plug 'junegunn/fzf.vim'                 " Fuzzy finder
 " Syntax
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'wilriker/gcode.vim', {'for': 'gcode'}
 Plug 'vim-scripts/vectorscript.vim', {'for': 'vectorscript'}
 Plug 'ryuhey0123/midas-mgt-syntax', {'for': 'mgtcommand'}
-" Complete
-" Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 " LSP
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'sh install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Lazy
 Plug 'junegunn/vim-easy-align', {'on': 'EasyAlign'}
 
@@ -187,33 +186,65 @@ nnoremap <C-s><C-u> :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 "}}}
 
 " LanguageClient-neovim ---------------------------------------------------{{{
-let g:LanguageClient_serverCommands = {
-    \'c': ['clangd', '-compile-commands-dir=' . getcwd()],
-    \'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
-    \'python': ['pyls'],
-    \'javascript': ['javascript-typescript-stdio'],
-    \'typescript': ['javascript-typescript-stdio'],
-\}
-let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_hasSnippetSupport = 1
+" let g:LanguageClient_serverCommands = {
+"     \'c': ['clangd', '-compile-commands-dir=' . getcwd()],
+"     \'cpp': ['clangd', '-compile-commands-dir=' . getcwd()],
+"     \'python': ['pyls'],
+"     \'javascript': ['javascript-typescript-stdio'],
+"     \'typescript': ['javascript-typescript-stdio'],
+" \}
+" let g:LanguageClient_loadSettings = 1
+" let g:LanguageClient_hasSnippetSupport = 1
 
-nnoremap [LSP] <Nop>
-nmap <C-x> [LSP]
-nmap [LSP]<C-d> :call LanguageClient#textDocument_definition()<CR>
-nmap [LSP]<C-r> :call LanguageClient#textDocument_rename()<CR>
-nmap [LSP]<C-f> :call LanguageClient#textDocument_formatting()<CR>
-nmap [LSP]<C-t> :call LanguageClient#textDocument_typeDefinition()<CR>
-nmap [LSP]<C-x> :call LanguageClient#textDocument_references()<CR>
-nmap [LSP]<C-a> :call LanguageClient_workspace_applyEdit()<CR>
-nmap [LSP]<C-c> :call LanguageClient#textDocument_completion()<CR>
-nmap [LSP]<C-h> :call LanguageClient#textDocument_hover()<CR>
-nmap [LSP]<C-s> :call LanguageClient_textDocument_documentSymbol()<CR>
-nmap [LSP]<C-m> :call LanguageClient_contextMenu()<CR>
+" nnoremap [LSP] <Nop>
+" nmap <C-x> [LSP]
+" nmap [LSP]<C-d> :call LanguageClient#textDocument_definition()<CR>
+" nmap [LSP]<C-r> :call LanguageClient#textDocument_rename()<CR>
+" nmap [LSP]<C-f> :call LanguageClient#textDocument_formatting()<CR>
+" nmap [LSP]<C-t> :call LanguageClient#textDocument_typeDefinition()<CR>
+" nmap [LSP]<C-x> :call LanguageClient#textDocument_references()<CR>
+" nmap [LSP]<C-a> :call LanguageClient_workspace_applyEdit()<CR>
+" nmap [LSP]<C-c> :call LanguageClient#textDocument_completion()<CR>
+" nmap [LSP]<C-h> :call LanguageClient#textDocument_hover()<CR>
+" nmap [LSP]<C-s> :call LanguageClient_textDocument_documentSymbol()<CR>
+" nmap [LSP]<C-m> :call LanguageClient_contextMenu()<CR>
 
-augroup LCHighlight
-    autocmd!
-    autocmd CursorHold,CursorHoldI *.py,*.c,*.cpp call LanguageClient#textDocument_documentHighlight()
-augroup END
+" augroup LCHighlight
+"     autocmd!
+"     autocmd CursorHold,CursorHoldI *.py,*.c,*.cpp call LanguageClient#textDocument_documentHighlight()
+" augroup END
+
+"}}}
+
+" Coc.nvim -----------------------------------------------------------------{{{
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+"}}}
+
+" Semshi -------------------------------------------------------------------{{{
 
 "}}}
 

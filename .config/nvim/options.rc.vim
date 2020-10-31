@@ -15,8 +15,9 @@ set fileencodings=utf-8,sjis
 
 " }}}
 
-" Appearance ---------------------------------------------------------------{{{
-" set termguicolors
+" Settings -----------------------------------------------------------------{{{
+
+" Appearance
 set wildmenu                        "ナビゲーションバー
 set wildmode=list:full
 set wildignore=*.o,*.obj,*.pyc,*.so
@@ -38,18 +39,18 @@ set list                            "不可視文字の可視化
 set visualbell t_vb=                "ビジュアルベルの無効化
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 set signcolumn=yes                  "行コラムの隣に空白
-set updatetime=50
+set updatetime=300
 set ambiwidth=double                "全角記号の表示がずれる問題への対応
+set shortmess+=c                    "メッセージを省略しない
+set pumblend=10                     "補完ウインドウの透明度
 
-" }}}
-
-" Searching --------------------------------------------------------------------
+" Searching
 set ignorecase                      "大文字小文字を区別しない
 set smartcase                       "検索文字に大文字がある場合は大文字小文字を区別
 set incsearch                       "インクリメンタルサーチ
 set hlsearch                        "検索マッチテキストをハイライト
 
-" Tab -------------------------------------------------------------------------
+" Tab
 set tabstop=4                       "タブは4スペース
 set shiftwidth=4                    "自動インデントのスペース指定
 set smarttab                        "新しい行を作った時高度なインデントを行う
@@ -57,7 +58,7 @@ set expandtab                       "タブのかわりに空白を使う
 set softtabstop=4
 set autoindent                      "新しい行のインデントを現在行と同じにする
 
-" Edit ------------------------------------------------------------------------
+" Edit
 set smartindent                     "C言語風インデント
 set infercase                       "補完時に大文字小文字を区別しない
 set tw=0                            "自動改行オフ
@@ -74,16 +75,10 @@ set nostartofline                   "移動コマンドを使った時行頭に�
 " set gdefault                        "置換の時gオプションをデフォルトで有効にする
 set autoread                        "編集中のファイルが変更されたら、自動的に読み直す 
 
+" System
 set nowritebackup
 set nobackup
 set noswapfile
-
-" File type --------------------------------------------------------------------
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.toml set filetype=toml
-au BufRead,BufNewFile *.vs set filetype=vectorscript
-au BufRead,BufNewFile *.vss set filetype=vectorscript
-au BufRead,BufNewFile *.mgt set filetype=mgtcommand
 
 " Command Mode Settings -------------------------------------------------------
 set sh=zsh
@@ -96,14 +91,18 @@ set spelllang=en,cjk
 " zg            カーソル下の単語を正しいスペルとして辞書登録
 " zw            カーソル下の単語を誤ったスペルとして辞書登録
 
-" Syntax ----------------------------------------------------------------------
-let g:python_highlight_all = 1
-let g:is_bash = 1
+" }}}
 
-" Comment Settings
-autocmd FileType midascommand setlocal commentstring=;\ %s
+" File type -----------------------------------------------------------------{{{
+au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.toml set filetype=toml
+au BufRead,BufNewFile *.vs set filetype=vectorscript
+au BufRead,BufNewFile *.vss set filetype=vectorscript
+au BufRead,BufNewFile *.mgt set filetype=mgtcommand
 
-" Script ----------------------------------------------------------------------
+" }}}
+
+" Script -------------------------------------------------------------------{{{
 " memorize cursol position
 if has("autocmd")
     autocmd BufReadPost *
@@ -127,5 +126,11 @@ endif
 "     let &t_SI = "\e[5 q"
 "     let &t_EI = "\e[2 q"
 " endif
+
+" }}}
+
+" Syntax ----------------------------------------------------------------------
+" let g:python_highlight_all = 1
+" let g:is_bash = 1
 
 " vim: set fdl=0 fdm=marker:
