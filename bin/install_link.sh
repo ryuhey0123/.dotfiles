@@ -1,3 +1,5 @@
+#!/ bin/zsh
+
 # zsh/zpulg
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 if [ -e ~/.zplug ]; then
@@ -26,4 +28,7 @@ ln -sf ~/.dotfiles/.config/nvim/ ~/.config/nvim
 
 # ideavim
 # ln -sf ~/.dotfiles/.ideavimrc ~/.ideavimrc
+
+# git
+ln -sf ~/.dotfiles/.gitignore_global ~/.gitignore_global
 
