@@ -57,7 +57,11 @@ brew install tree
 # ghostscript - An interpreter for the PostScript language and for PDF.
 brew install ghostscript
 
+# pipenv
 brew install pipenv
+
+# nodebrew
+brew install nodebrew
 
 # z - jump around
 # brew install z # -> zplug
