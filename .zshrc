@@ -103,8 +103,7 @@ function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 alias sudo='sudo '          # sudo の後のコマンドでエイリアスを有効にする
 # git
 alias ga='git add'
-alias gc='git commit'
-alias gps='git push'
+alias gc='git commit' alias gps='git push'
 alias gpl='git pull'
 # tmux
 alias tmux='tmux -u'
