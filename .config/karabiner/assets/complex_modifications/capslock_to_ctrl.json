@@ -1,0 +1,31 @@
+{
+  "title": "Change caps_lock key to control",
+  "rules": [
+    {
+      "description": "Caps lockをControlキーに置き換える(ただし仮想環境は除く)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock",
+            "modifiers": {
+              "optional": [ "any" ]
+            }
+          },
+          "to": [
+            { "key_code": "left_control" }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.parallels\\.desktop\\.console$",
+                "^com\\.vmware\\.fusion$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "title": "For Japanese （日本語環境向けの設定） (rev 6) edit ver.",
   "rules": [
     {
-      "description": "コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな) ただしParallelsを除く",
+      "description": "コマンドキーを単体で押したときに、英数・かなキーを送信する。（左コマンドキーは英数、右コマンドキーはかな) ただし仮想環境は除く",
       "manipulators": [
         {
           "type": "basic",
