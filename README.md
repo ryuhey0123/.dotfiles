@@ -33,7 +33,7 @@ xterm-256color-italic|xterm with 256 colors and italic,
   use=xterm-256color,
 ```
 
-And, 
+And,
 
 ```sh
 $ tic /tmp/xterm-256color-italic.terminfo

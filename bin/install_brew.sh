@@ -69,3 +69,8 @@ echo "\033[1;36m Running 'brew cask install' command... \033[0;39m"
 # iTerm
 # brew cask install iTerm2
 
+# pipenv / pyenv
+brew install pipenv
+brew install pyenv
+brew install pyenv-virtualenv
+

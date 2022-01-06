@@ -54,7 +54,8 @@ zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 zstyle ':completion::complete:*' use-cache true
 
 # pipenv
-eval "$(pipenv --completion)"
+# eval "$(pipenv --completion)"
+eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
 # History ---------------------------------------------------------------------
 HISTFILE=$HOME/.zhistory

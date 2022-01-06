@@ -27,16 +27,16 @@ syntax enable
 " let g:node_host_prog = $HOME . '/.nodebrew/current/bin/node'
 
 "pyenv settings
-" if $VIM_OSTYPE =~ "darwin"
-"     let g:python_host_prog = $PYENV_ROOT . '/versions/neovim2/bin/python'
-"     let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim3/bin/python'
-" elseif $VIM_OSTYPE == "linux-gnu"
-"     let g:python_host_prog = $PYENV_ROOT . '/versions/neovim2/bin/python'
-"     let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim3/bin/python'
-" elseif $VIM_OSTYPE == "linux-gnueabihf"
-"     let g:python_host_prog = '/usr/bin/python2'
-"     let g:python3_host_prog = '/usr/bin/python3'
-" endif
+if $VIM_OSTYPE =~ "darwin"
+    let g:python_host_prog = $PYENV_ROOT . '/versions/neovim2/bin/python'
+    let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim3/bin/python'
+elseif $VIM_OSTYPE == "linux-gnu"
+    let g:python_host_prog = $PYENV_ROOT . '/versions/neovim2/bin/python'
+    let g:python3_host_prog = $PYENV_ROOT . '/versions/neovim3/bin/python'
+elseif $VIM_OSTYPE == "linux-gnueabihf"
+    let g:python_host_prog = '/usr/bin/python2'
+    let g:python3_host_prog = '/usr/bin/python3'
+endif
 
 "call other settings ----------------------------------------------------------
 runtime! plug.rc.vim
