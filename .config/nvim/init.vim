@@ -23,7 +23,7 @@ syntax enable
 "rbenv setings
 "let g:ruby_host_prog = $RBENV_ROOT . '/versions/2.5.3/bin/neovim-ruby-host' 
 
-""node.js settings
+"node.js settings
 " let g:node_host_prog = $HOME . '/.nodebrew/current/bin/node'
 
 "pyenv settings
