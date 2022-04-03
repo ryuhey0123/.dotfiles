@@ -34,5 +34,6 @@ ln -sf ~/.dotfiles/.gitignore_global ~/.gitignore_global
 
 # karabiner
 rm -rf ~/.config/karabiner/assets
-ln -sf ~/.dotfiles/.config/karabiner/assets ~/.config/karabiner/assets
+mkdir ~/.config/karabiner
+ln -sf ~/.dotfiles/.config/karabiner/assets/ ~/.config/karabiner/assets
 
