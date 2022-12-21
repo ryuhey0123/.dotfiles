@@ -161,3 +161,6 @@ esac
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+# Created by `pipx` on 2022-12-21 08:31:32
+export PATH="$PATH:/Users/fujita/.local/bin"
