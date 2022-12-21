@@ -54,8 +54,12 @@ zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 zstyle ':completion::complete:*' use-cache true
 
 # pipenv
-# eval "$(pipenv --completion)"
 eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+
+# pipx
+autoload -U bashcompinit
+bashcompinit
+eval "$(register-python-argcomplete pipx)"
 
 # History ---------------------------------------------------------------------
 HISTFILE=$HOME/.zhistory
@@ -157,7 +161,6 @@ case "${OSTYPE}" in
     linux-gnu) source $DOTFILES/etc/zsh/zshrc.arch ;;
     linux-gnueabihf) source $DOTFILES/etc/zsh/zshrc.raspi ;;
 esac
-
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
