@@ -56,11 +56,6 @@ zstyle ':completion::complete:*' use-cache true
 # pipenv
 eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 
-# pipx
-autoload -U bashcompinit
-bashcompinit
-eval "$(register-python-argcomplete pipx)"
-
 # History ---------------------------------------------------------------------
 HISTFILE=$HOME/.zhistory
 HISTSIZE=100000
