@@ -1,0 +1,51 @@
+# vim: set filetype=sh :
+
+# zplug -----------------------------------------------------------------------
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
+# shellcheck disable=SC1091
+source $ZPLUG_HOME/init.zsh
+
+zplug "plugins/git", from:oh-my-zsh
+zplug "mafredri/zsh-async", from:github
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "chrissicool/zsh-256color"
+zplug "b4b4r07/enhancd", use:init.sh
+
+# lazy
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  # shellcheck disable=SC2162
+  if read -q; then
+    echo
+    zplug install
+  fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+
+# fzf -------------------------------------------------------------------------
+# shellcheck disable=SC1090
+source <(fzf --zsh)
+if which fzf >/dev/null 3>&1; then
+  # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  # export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+  export FZF_DEFAULT_OPTS='--height 40% --reverse --border --margin=1,3'
+  # export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+  # export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+  export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+  export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+  export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'tree -C {}'"
+fi

@@ -1,0 +1,24 @@
+theme = "Raycast Dark"
+
+background-opacity = 0.95
+background-blur-radius = 40
+
+font-family = ""
+font-family = "Menlo"
+
+font-size = 13
+font-thicken = true
+font-thicken-strength = 0
+
+adjust-cell-height = 10%
+
+quick-terminal-position = right
+keybind = "global:option+space=toggle_quick_terminal"
+
+macos-titlebar-style = transparent
+macos-window-shadow = true
+mouse-hide-while-typing = true
+
+window-padding-x = 10
+window-padding-balance = true
+
