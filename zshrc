@@ -105,7 +105,7 @@ alias ga='git add'
 alias gc='git commit' alias gps='git push'
 alias gpl='git pull'
 # tmux
-alias tmux='tmux -u'
+alias tmux='tmux -u'  # UTF-8 を有効にして起動
 
 # Colors -----------------------------------------------------------------------
 # ls color
