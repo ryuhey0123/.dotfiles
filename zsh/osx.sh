@@ -1,11 +1,5 @@
 #!/bin/zsh
 
-TOOLS=(
-  "fzf"
-  "tmux"
-  # "nvm"
-)
-
 # PATH ----------------------------------------------------------------------- 
 
 export PATH="$PATH:$HOME/.local/bin"
@@ -16,7 +10,17 @@ fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
 
-# Toolの読み込み --------------------------------------------------------------
+# Tools -------------------------------------------------------------------
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Common tools
+
+TOOLS=(
+  "fzf"
+  "tmux"
+  # "nvm"
+)
 
 for tool in "${TOOLS[@]}"; do
   if command -v "$tool" >/dev/null 2>&1; then
