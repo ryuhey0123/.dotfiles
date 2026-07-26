@@ -20,6 +20,8 @@ TOOLS=(
   "fzf"
   "tmux"
   # "nvm"
+  "zoxide"
+  "fuck"
 )
 
 for tool in "${TOOLS[@]}"; do
