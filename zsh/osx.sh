@@ -3,7 +3,7 @@
 TOOLS=(
   "fzf"
   "tmux"
-  "nvm"
+  # "nvm"
 )
 
 # PATH ----------------------------------------------------------------------- 
@@ -21,5 +21,7 @@ prompt pure
 for tool in "${TOOLS[@]}"; do
   if command -v "$tool" >/dev/null 2>&1; then
     source "$DOTFILES/zsh/$tool.sh"
+  else
+    echo "$tool が見つかりませんでした"
   fi
 done
