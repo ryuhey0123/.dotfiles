@@ -12,7 +12,11 @@ prompt pure
 
 # Tools -------------------------------------------------------------------
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# コマンドのシンタックスハイライトを追加
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# コマンドのヒストリをゴースト表示
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Common tools
 
