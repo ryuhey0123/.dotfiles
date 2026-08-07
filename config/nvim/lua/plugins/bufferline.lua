@@ -1,9 +1,9 @@
 return {
   "akinsho/bufferline.nvim",
-  enabled = false,
+  -- enabled = false,
   opts = {
     options = {
-      always_show_bufferline = true,
+      -- always_show_bufferline = true,
       indicator = { icon = "", style = "underline" },
       separator_style = { "", "" },
       offsets = {
