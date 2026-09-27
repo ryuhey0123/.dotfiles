@@ -3,11 +3,11 @@
 DOTFILES=$HOME/.dotfiles
 
 # 環境変数を更新する
-case "${OSTYPE}" in
-darwin*) source "$DOTFILES"/env/env.osx ;;
-linux-gnu) source "$DOTFILES"/env/env.arch ;;
-linux-gnueabihf) source "$DOTFILES"/env/env.raspi ;;
-esac
+# case "${OSTYPE}" in
+# darwin*) source "$DOTFILES"/env/env.osx ;;
+# linux-gnu) source "$DOTFILES"/env/env.arch ;;
+# linux-gnueabihf) source "$DOTFILES"/env/env.raspi ;;
+# esac
 
 # .zshrc ----------------------------------------------------------------------
 ln -sniv "$DOTFILES"/zshrc "$HOME"/.zshrc
