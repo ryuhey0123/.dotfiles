@@ -23,7 +23,7 @@ brew install fd fzf ripgrep thefuck zoxide
 brew install neovim lazygit markdownlint-cli2 git-delta
 
 # other
-brew install herdr
+brew install herdr gh
 ```
 
 ### Applications
