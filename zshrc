@@ -85,7 +85,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # History ---------------------------------------------------------------------
 
-HISTFILE=$HOME/.zhistory
+HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt share_history            # 同時に起動したzshの間でヒストリを共有する
