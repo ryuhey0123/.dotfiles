@@ -18,6 +18,7 @@ configs=(
   "tmux"
   "ghostty"
   "lazygit"
+  "karabiner/assets"
 )
 
 for config in "${configs[@]}"; do
