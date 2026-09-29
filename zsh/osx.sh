@@ -17,6 +17,15 @@ esac
 autoload -U promptinit; promptinit
 prompt pure
 
+
+# Homebrew completion ---------------------------------------------------------
+
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+  compinit
+fi
+
 # Tools -------------------------------------------------------------------
 
 # コマンドのシンタックスハイライトを追加
@@ -29,7 +38,7 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 TOOLS=(
   "fzf"
-  "tmux"
+  # "tmux"
   # "nvm"
   "zoxide"
   "fuck"
