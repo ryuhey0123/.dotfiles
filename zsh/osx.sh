@@ -6,7 +6,7 @@ export PATH="$PATH:$HOME/.local/bin"
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 # pnpm
-export PNPM_HOME='/Users/ryuhey/Library/pnpm'
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
