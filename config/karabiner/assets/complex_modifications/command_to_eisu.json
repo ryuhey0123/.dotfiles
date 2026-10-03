@@ -140,6 +140,25 @@
               ]
             }
           ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": { "mandatory": ["control"], "optional": ["shift"] }
+          },
+          "to": [{ "key_code": "spacebar", "modifiers": ["left_command"] }],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^com\\.parallels\\.winapp\\."
+              ]
+            }
+          ]
         }
       ]
     }
