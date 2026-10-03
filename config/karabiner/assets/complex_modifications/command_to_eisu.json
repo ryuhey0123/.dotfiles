@@ -3,7 +3,6 @@
   "rules": [
     {
       "description": "コマンドキーを単体で押したときに、英数・かなキーを送信する + Parallels Windows",
-      "enabled": false,
       "manipulators": [
         {
           "type": "basic",
@@ -75,10 +74,10 @@
           "to_if_alone": [
             {
               "key_code": "f9",
-              "modifiers": ["left_shift", "left_control"]
+              "modifiers": ["left_control", "left_shift"]
             }
           ],
-          "to_if_held_down": [{ "key_code": "left_command" }],
+          "to_if_held_down": [{ "key_code": "left_control" }],
           "conditions": [
             {
               "type": "frontmost_application_if",
@@ -106,11 +105,30 @@
           ],
           "to_if_alone": [
             {
-              "key_code": "f11",
-              "modifiers": ["left_shift", "left_control"]
+              "key_code": "f10",
+              "modifiers": ["left_control", "left_shift"]
             }
           ],
-          "to_if_held_down": [{ "key_code": "right_command" }],
+          "to_if_held_down": [{ "key_code": "right_control" }],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^com\\.parallels\\.winapp\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": { "optional": ["any"] }
+          },
+          "to": [{ "key_code": "left_command" }],
           "conditions": [
             {
               "type": "frontmost_application_if",
