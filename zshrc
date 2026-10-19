@@ -17,6 +17,8 @@ export VIM_OSTYPE=$OSTYPE
 export DOTFILES=$HOME/.dotfiles
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# LS COLORS -------------------------------------------------------------------
+
 # For GNU
 export LS_COLORS='di=01;36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 # For macOS
@@ -86,16 +88,16 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # History ---------------------------------------------------------------------
 
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt share_history            # 同時に起動したzshの間でヒストリを共有する
+setopt extended_history         # 履歴ファイルに時刻を記録
 setopt hist_ignore_dups         # 直前と同じコマンドの場合は履歴に追加しない
 setopt hist_ignore_all_dups     # 重複するコマンドは古い法を削除する
 setopt hist_ignore_space        # スペースから始まるコマンド行はヒストリに残さない
 setopt hist_reduce_blanks       # ヒストリに保存するときに余分なスペースを削除する
 setopt hist_no_store            # ヒストリにhistoryコマンドを記録しない
-setopt extended_history         # 履歴ファイルに時刻を記録
-setopt hist_verify              # ヒストリを呼び出してから一旦編集可能にする
+setopt hist_verify              # history から実行時に確認
 
 # Keybind/Alias -------------------------------------------------------------- 
 
