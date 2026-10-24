@@ -18,6 +18,7 @@ configs=(
   "tmux"
   "ghostty"
   "lazygit"
+  "herdr"
   "karabiner/assets"
 )
 
