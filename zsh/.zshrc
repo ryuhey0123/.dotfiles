@@ -14,11 +14,6 @@ export VIM_OSTYPE=$OSTYPE
 export DOTFILES=$HOME/.dotfiles
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# LS COLORS -------------------------------------------------------------------
-
-# For GNU
-export LS_COLORS='di=01;36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-
 # Options ---------------------------------------------------------------------
 
 setopt no_beep                  # beep を無効にする
@@ -64,7 +59,6 @@ setopt hist_verify              # history から実行時に確認
 bindkey -e  # emacs キーバインドを有効にする
 
 # ls
-alias ls="ls -G"  # 色つきをデフォルト
 alias la='ls -A'
 alias ll='ls -l'
 alias lla='ll -A'

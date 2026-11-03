@@ -23,6 +23,7 @@ prompt pure
 
 # LS COLORS
 export LSCOLORS=Gxfxcxdxbxegedabagacad
+alias ls="ls -G"
 
 #  No      Type
 #  ---------------------------
