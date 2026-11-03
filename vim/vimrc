@@ -1,40 +1,62 @@
+" Options ---------------------------------------------------------------------
+colorscheme slate
+
 syntax on
 filetype plugin indent on
 
-" Options ---------------------------------------------------------------------
 set nocompatible
-set cursorline " Enable highlighting of the current line
-set autoindent
-set colorcolumn=80,100
-set conceallevel=0
-set hidden
-set hlsearch
-set expandtab " Use spaces instead of tabs
-set ignorecase " Ignore case
-set laststatus=2
-set list " Show some invisible characters (tabs...
-set number " Print line number
-set relativenumber " Relative line numbers
-set scrolloff=10 " Lines of context
-set shiftwidth=2 " Size of an indent
-set sidescrolloff=0 " Columns of context
-set signcolumn=yes " Always show the signcolumn, otherwise it would shift the text each time
-set smartcase " Don't ignore case with capitals
-set nospell
-set smartindent " Insert indents automatically
-set tabstop=2 " Number of spaces tabs count for
-set wrap " Enable line wrap
+
+" Appearance
+set wildmenu                        "コマンドライン補完
+set wildmode=list:full
+set wildignore=*.o,*.obj,*.pyc,*.so
+set cursorline                      "カーソル行をハイライト
+set hidden                          "編集中に他のバッファへ移動可能にする
+set number                          "行番号を表示する
+set relativenumber                  "相対行表示
+set scrolloff=10                    "スクロールするとき下が見えるように
+set laststatus=2                    "ステータスラインを常時表示
+set wrap                            "ウィンドウより長い行は折り畳む
+set list                            "不可視文字の可視化
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+set visualbell t_vb=                "ビジュアルベルの無効化
+set signcolumn=yes                  "行コラムの隣に空白
+set mouse=a                         "マウスモード有効
+
+" Searching
+set ignorecase                      "大文字小文字を区別しない
+set smartcase                       "検索文字に大文字がある場合は大文字小文字を区別
+set incsearch                       "インクリメンタルサーチ
+set hlsearch                        "検索マッチテキストをハイライト
+
+" Tab/Indent
+set tabstop=4                       "タブは4スペース
+set shiftwidth=4                    "自動インデントのスペース指定
+set smarttab                        "新しい行を作った時高度なインデントを行う
+set expandtab                       "タブのかわりに空白を使う
+set softtabstop=4
+set autoindent                      "新しい行のインデントを現在行と同じにする
+set smartindent                     "C言語風インデント
+set shiftround                      "インデントをshift widthの倍数に
+
+" Edit
+set infercase                       "補完時に大文字小文字を区別しない
+set showmatch                       "閉じカッコが入力時対応するカッコを強調
+set matchtime=3                     "対応括弧表示を3秒に
+set backspace=indent,eol,start      "バックスペースで各種消せるように
+set autoread                        "編集中のファイルが変更されたら、自動的に読み直す
+
+" System
+set nowritebackup
+set nobackup
+set noswapfile
 
 " Keymaps ---------------------------------------------------------------------
 " better up/down
 nnoremap <expr> <silent> j v:count == 0 ? 'gj' : 'j'
 xnoremap <expr> <silent> j v:count == 0 ? 'gj' : 'j'
-nnoremap <expr> <silent> <Down> v:count == 0 ? 'gj' : 'j'
-xnoremap <expr> <silent> <Down> v:count == 0 ? 'gj' : 'j'
 nnoremap <expr> <silent> k v:count == 0 ? 'gk' : 'k'
 xnoremap <expr> <silent> k v:count == 0 ? 'gk' : 'k'
-nnoremap <expr> <silent> <Up> v:count == 0 ? 'gk' : 'k'
-xnoremap <expr> <silent> <Up> v:count == 0 ? 'gk' : 'k'
 
 " Move to window using the <ctrl> hjkl keys
 nnoremap <C-h> <C-w>h
@@ -47,8 +69,8 @@ nnoremap <S-h> <Cmd>bprevious<CR>
 nnoremap <S-l> <Cmd>bnext<CR>
 
 " Clear search on escape
-nnoremap <silent> <Esc> <Cmd>nohlsearch<CR>
-inoremap <silent> <Esc> <Cmd>nohlsearch<CR><Esc>
+" nnoremap <silent> <Esc> <Cmd>nohlsearch<CR>
+" inoremap <silent> <Esc> <Cmd>nohlsearch<CR><Esc>
 
 " Escape
 inoremap jk <Esc>
@@ -60,12 +82,9 @@ nnoremap <S-Down> <Cmd>resize -2<CR>
 nnoremap <S-Left> <Cmd>vertical resize -2<CR>
 nnoremap <S-Right> <Cmd>vertical resize +2<CR>
 
-" emacs Keybindings（挿入モード + コマンドライン）
-noremap! <C-a> <Home>
-noremap! <C-e> <End>
-noremap! <C-b> <Left>
-noremap! <C-f> <Right>
-noremap! <C-p> <Up>
-noremap! <C-n> <Down>
-noremap! <C-d> <Del>
-noremap! <C-h> <BS>
+" Package --------------------------------------------------------------------
+packadd! comment
+packadd! matchit
+packadd! editorconfig
+packadd! hlyank
+packadd! nohlsearch
