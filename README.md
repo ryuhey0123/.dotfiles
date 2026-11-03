@@ -2,10 +2,10 @@
 
 ## Install
 
-Clone this repository to $HOME directory and run link script.
+Clone this repository to $HOME directory and run setup script.
 
 ```sh
-sh link.sh
+./setup.sh
 ```
 
 ## Requirements

@@ -73,5 +73,9 @@ $RECYCLE.BIN/
 
 
 # herdr
-config/herdr/*
-!config/herdr/config.toml
+herdr/*
+!herdr/config.toml
+
+# karabiner
+karabiner/*
+!karabiner/karabiner.json
