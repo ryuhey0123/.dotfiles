@@ -3,6 +3,7 @@
 # PATH -----------------------------------------------------------------------
 
 export LANG=ja_JP.UTF-8
+export TERM=xterm-256color
 
 # Theme -----------------------------------------------------------------------
 
@@ -51,9 +52,7 @@ compinit
 TOOLS=(
   "fzf"
   "tmux"
-  # "nvm"
   "zoxide"
-  # "fuck"
 )
 
 for tool in "${TOOLS[@]}"; do
