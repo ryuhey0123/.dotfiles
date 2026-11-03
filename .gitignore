@@ -80,3 +80,6 @@ herdr/*
 # karabiner
 karabiner/*
 !karabiner/karabiner.json
+
+# vim
+.netrwhist
