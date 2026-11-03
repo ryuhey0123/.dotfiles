@@ -1,0 +1,71 @@
+syntax on
+filetype plugin indent on
+
+" Options ---------------------------------------------------------------------
+set nocompatible
+set cursorline " Enable highlighting of the current line
+set autoindent
+set colorcolumn=80,100
+set conceallevel=0
+set hidden
+set hlsearch
+set expandtab " Use spaces instead of tabs
+set ignorecase " Ignore case
+set laststatus=2
+set list " Show some invisible characters (tabs...
+set number " Print line number
+set relativenumber " Relative line numbers
+set scrolloff=10 " Lines of context
+set shiftwidth=2 " Size of an indent
+set sidescrolloff=0 " Columns of context
+set signcolumn=yes " Always show the signcolumn, otherwise it would shift the text each time
+set smartcase " Don't ignore case with capitals
+set nospell
+set smartindent " Insert indents automatically
+set tabstop=2 " Number of spaces tabs count for
+set wrap " Enable line wrap
+
+" Keymaps ---------------------------------------------------------------------
+" better up/down
+nnoremap <expr> <silent> j v:count == 0 ? 'gj' : 'j'
+xnoremap <expr> <silent> j v:count == 0 ? 'gj' : 'j'
+nnoremap <expr> <silent> <Down> v:count == 0 ? 'gj' : 'j'
+xnoremap <expr> <silent> <Down> v:count == 0 ? 'gj' : 'j'
+nnoremap <expr> <silent> k v:count == 0 ? 'gk' : 'k'
+xnoremap <expr> <silent> k v:count == 0 ? 'gk' : 'k'
+nnoremap <expr> <silent> <Up> v:count == 0 ? 'gk' : 'k'
+xnoremap <expr> <silent> <Up> v:count == 0 ? 'gk' : 'k'
+
+" Move to window using the <ctrl> hjkl keys
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" buffers
+nnoremap <S-h> <Cmd>bprevious<CR>
+nnoremap <S-l> <Cmd>bnext<CR>
+
+" Clear search on escape
+nnoremap <silent> <Esc> <Cmd>nohlsearch<CR>
+inoremap <silent> <Esc> <Cmd>nohlsearch<CR><Esc>
+
+" Escape
+inoremap jk <Esc>
+inoremap <C-c> <Esc>
+
+" Resize window using <shift> arrow keys
+nnoremap <S-Up> <Cmd>resize +2<CR>
+nnoremap <S-Down> <Cmd>resize -2<CR>
+nnoremap <S-Left> <Cmd>vertical resize -2<CR>
+nnoremap <S-Right> <Cmd>vertical resize +2<CR>
+
+" emacs Keybindings（挿入モード + コマンドライン）
+noremap! <C-a> <Home>
+noremap! <C-e> <End>
+noremap! <C-b> <Left>
+noremap! <C-f> <Right>
+noremap! <C-p> <Up>
+noremap! <C-n> <Down>
+noremap! <C-d> <Del>
+noremap! <C-h> <BS>
