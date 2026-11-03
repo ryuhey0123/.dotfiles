@@ -53,15 +53,15 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 #  H  bold light grey; looks like bright white
 #  x  default foreground or background
 
-# Homebrew completion ---------------------------------------------------------
+# Completion ------------------------------------------------------------------
 
-# fpath+=("$(brew --prefix)/share/zsh/site-functions")
-
+# Homebrew の補完を追加
 if type brew &>/dev/null; then
-  fpath="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  autoload -Uz compinit
-  compinit
+  fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
 fi
+
+autoload -Uz compinit
+compinit
 
 # Tools -------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ TOOLS=(
 
 for tool in "${TOOLS[@]}"; do
   if command -v "$tool" >/dev/null 2>&1; then
-    source "$XDG_CONFIG_HOME/zsh/$tool.sh"
+    source "$DOTFILES/zsh/config/$tool.sh"
   else
     echo "$tool が見つかりませんでした"
   fi

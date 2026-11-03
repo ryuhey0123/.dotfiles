@@ -29,9 +29,6 @@ setopt auto_remove_slash        # 不要な「/」を削除
 
 # Complement ------------------------------------------------------------------
 
-autoload -Uz compinit
-compinit
-
 setopt correct_all              # Spell check
 setopt list_types               # 補完候補一覧でファイルの種別を識別マーク表示
 setopt auto_list                # 補完候補が複数ある時に、一覧表示
@@ -92,8 +89,7 @@ chpwd() {
 # OS type zshrc ---------------------------------------------------------------
 
 case "${OSTYPE}" in
-    darwin*) source $XDG_CONFIG_HOME/zsh/osx.sh ;;
-    # linux-gnu) source $DOTFILES/zsh/zshrc.arch ;;
-    # linux-gnueabihf) source $DOTFILES/zsh/zshrc.raspi ;;
+    darwin*) source $DOTFILES/zsh/macos.sh ;;
+    linux-gnu) source $DOTFILES/zsh/raspi.sh ;;
 esac
 
