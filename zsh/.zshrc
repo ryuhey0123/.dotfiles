@@ -9,9 +9,6 @@
 
 # Environment -----------------------------------------------------------------
 
-export LANG=ja_JP.UTF-8
-
-export EDITOR="nvim"
 export VIM_OSTYPE=$OSTYPE
 
 export DOTFILES=$HOME/.dotfiles
@@ -21,40 +18,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # For GNU
 export LS_COLORS='di=01;36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-# For macOS
-export LSCOLORS=Gxfxcxdxbxegedabagacad
-
-#  No      Type
-#  ---------------------------
-#  1,2     Directory
-#  3,4     Symlink
-#  5,6     Socket
-#  7,8     Pipe
-#  9,10    Executable
-#  11,12   Block
-#  13,14   Character
-#  15,16   Exec. w/ SUID
-#  17,18   Exec. w/ SGID
-#  19,20   Dir, o+w, sticky
-#  21,22   Dir, o+w, unsticky
-#  ----------COLORS-----------
-#  a  black
-#  b  red
-#  c  green
-#  d  brown
-#  e  blue
-#  f  magenta
-#  g  cyan
-#  h  light grey
-#  A  bold black, usually shows up as dark grey
-#  B  bold red
-#  C  bold green
-#  D  bold brown, usually shows up as yellow
-#  E  bold blue
-#  F  bold magenta
-#  G  bold cyan
-#  H  bold light grey; looks like bright white
-#  x  default foreground or background
 
 # Options ---------------------------------------------------------------------
 
@@ -65,9 +28,6 @@ setopt numeric_glob_sort        # リストの数値は数値でソート
 setopt auto_remove_slash        # 不要な「/」を削除
 
 # Complement ------------------------------------------------------------------
-
-autoload -Uz compinit
-compinit
 
 setopt correct_all              # Spell check
 setopt list_types               # 補完候補一覧でファイルの種別を識別マーク表示
@@ -129,8 +89,7 @@ chpwd() {
 # OS type zshrc ---------------------------------------------------------------
 
 case "${OSTYPE}" in
-    darwin*) source $DOTFILES/zsh/osx.sh ;;
-    # linux-gnu) source $DOTFILES/zsh/zshrc.arch ;;
-    # linux-gnueabihf) source $DOTFILES/zsh/zshrc.raspi ;;
+    darwin*) source $DOTFILES/zsh/macos.sh ;;
+    linux-gnu) source $DOTFILES/zsh/raspi.sh ;;
 esac
 
