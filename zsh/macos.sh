@@ -13,6 +13,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 
+# Homebrew
+fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
+
 # Theme -----------------------------------------------------------------------
 
 autoload -U promptinit; promptinit
@@ -54,11 +57,6 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 #  x  default foreground or background
 
 # Completion ------------------------------------------------------------------
-
-# Homebrew の補完を追加
-if type brew &>/dev/null; then
-  fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
-fi
 
 autoload -Uz compinit
 compinit
