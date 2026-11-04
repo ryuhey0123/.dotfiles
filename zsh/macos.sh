@@ -57,11 +57,6 @@ alias ls="ls -G"
 #  H  bold light grey; looks like bright white
 #  x  default foreground or background
 
-# Completion ------------------------------------------------------------------
-
-autoload -Uz compinit
-compinit
-
 # Tools -------------------------------------------------------------------
 
 # コマンドのシンタックスハイライトを追加

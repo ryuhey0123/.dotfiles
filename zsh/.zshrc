@@ -14,6 +14,13 @@ export VIM_OSTYPE=$OSTYPE
 export DOTFILES=$HOME/.dotfiles
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# OS type zshrc ---------------------------------------------------------------
+
+case "${OSTYPE}" in
+    darwin*) source $DOTFILES/zsh/macos.sh ;;
+    linux-gnu) source $DOTFILES/zsh/raspi.sh ;;
+esac
+
 # Options ---------------------------------------------------------------------
 
 setopt no_beep                  # beep を無効にする
@@ -23,6 +30,9 @@ setopt numeric_glob_sort        # リストの数値は数値でソート
 setopt auto_remove_slash        # 不要な「/」を削除
 
 # Complement ------------------------------------------------------------------
+
+autoload -Uz compinit
+compinit
 
 setopt correct_all              # Spell check
 setopt list_types               # 補完候補一覧でファイルの種別を識別マーク表示
@@ -79,11 +89,3 @@ chpwd() {
 		ls
 	fi
 }
-
-# OS type zshrc ---------------------------------------------------------------
-
-case "${OSTYPE}" in
-    darwin*) source $DOTFILES/zsh/macos.sh ;;
-    linux-gnu) source $DOTFILES/zsh/raspi.sh ;;
-esac
-

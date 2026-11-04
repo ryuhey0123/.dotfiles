@@ -48,11 +48,6 @@ export LS_COLORS='di=01;36:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg
 #  H  bold light grey; looks like bright white
 #  x  default foreground or background
 
-# Completion ------------------------------------------------------------------
-
-autoload -Uz compinit
-compinit
-
 # Alias -----------------------------------------------------------------------
 
 alias ls="ls --color=auto"
