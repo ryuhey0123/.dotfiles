@@ -1,4 +1,7 @@
-theme = "Raycast Dark"
+#theme = dark:Apple System Colors,light:Apple System Colors Light
+#theme = Apple System Colors
+#theme = iTerm2 Default
+theme = Raycast Dark
 
 background-opacity = 0.95
 background-blur-radius = 40
@@ -15,7 +18,9 @@ adjust-cell-height = 10%
 quick-terminal-position = right
 keybind = "global:option+space=toggle_quick_terminal"
 
+macos-window-buttons = hidden
 macos-titlebar-style = transparent
+macos-titlebar-proxy-icon = hidden
 macos-window-shadow = true
 mouse-hide-while-typing = true
 
