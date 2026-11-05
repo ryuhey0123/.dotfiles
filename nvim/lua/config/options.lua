@@ -17,3 +17,6 @@ vim.diagnostic.config({
 })
 
 vim.g.lazyvim_python_lsp = "ty"
+
+-- LazyVimがデフォルトで追加している「起動画面非表示フラグ（I）」を削除する
+vim.opt.shortmess:remove("I")

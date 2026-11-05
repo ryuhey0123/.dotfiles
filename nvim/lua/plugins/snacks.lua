@@ -20,5 +20,8 @@ return {
     notifier = {
       timeout = 5000,
     },
+    dashboard = {
+      enabled = false,
+    },
   },
 }
