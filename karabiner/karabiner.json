@@ -1,6 +1,25 @@
 {
   "profiles": [
     {
+      "name": "Default profile",
+      "selected": true,
+      "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" },
+      "devices": [
+        {
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": true,
+            "vendor_id": 2007
+          },
+          "ignore": false
+        }
+      ],
+      "simple_modifications": [
+        {
+          "from": { "consumer_key_code": "menu" },
+          "to": [{ "key_code": "f13" }]
+        }
+      ],
       "complex_modifications": {
         "rules": [
           {
@@ -216,20 +235,7 @@
             ]
           }
         ]
-      },
-      "devices": [
-        {
-          "identifiers": {
-            "is_keyboard": true,
-            "is_pointing_device": true,
-            "vendor_id": 2007
-          },
-          "ignore": false
-        }
-      ],
-      "name": "Default profile",
-      "selected": true,
-      "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+      }
     }
   ]
 }
