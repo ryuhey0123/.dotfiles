@@ -3,7 +3,7 @@
 #theme = iTerm2 Default
 theme = Raycast Dark
 
-background-opacity = 0.90
+background-opacity = 0.85
 background-blur-radius = 40
 
 font-family = ""
