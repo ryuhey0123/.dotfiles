@@ -37,6 +37,7 @@ return {
       custom_highlights = function(colors)
         return {
           Comment = { fg = colors.overlay0 },
+          NeoTreeMessage = { fg = colors.overlay0 },
         }
       end,
     },
